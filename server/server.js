@@ -15,18 +15,20 @@ const path = require('path');
 const Aggregator = require('./services/aggregator');
 const ManualDataService = require('./services/manual-data-service');
 const YouTubeService = require('./services/youtube-service');
+const LinkedInService = require('./services/linkedin-service');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 
 // Initialize services
 const aggregator = new Aggregator();
 const manualData = new ManualDataService();
 const youtube = new YouTubeService();
+const linkedin = new LinkedInService();
 
 // ============================================
 // Analytics API Routes
@@ -385,6 +387,179 @@ app.post('/api/auth/youtube/callback', async (req, res) => {
 });
 
 // ============================================
+// LinkedIn Data Routes
+// ============================================
+
+/**
+ * POST /api/linkedin/import
+ * Import LinkedIn CSV data (auto-detects type)
+ * Body: { csvContent, fileName? }
+ */
+app.post('/api/linkedin/import', (req, res) => {
+  try {
+    const { csvContent, fileName } = req.body;
+    if (!csvContent) {
+      return res.status(400).json({ error: 'csvContent is required' });
+    }
+    const result = linkedin.importCSV(csvContent, fileName);
+    res.json(result);
+  } catch (error) {
+    console.error('Error importing LinkedIn CSV:', error);
+    res.status(500).json({ error: 'Failed to import LinkedIn CSV', details: error.message });
+  }
+});
+
+/**
+ * POST /api/linkedin/import/batch
+ * Import multiple LinkedIn CSV files at once
+ * Body: { files: [{ csvContent, fileName }, ...] }
+ */
+app.post('/api/linkedin/import/batch', (req, res) => {
+  try {
+    const { files } = req.body;
+    if (!files || !Array.isArray(files)) {
+      return res.status(400).json({ error: 'files array is required' });
+    }
+    const results = files.map(f => linkedin.importCSV(f.csvContent, f.fileName));
+    res.json({ success: true, results });
+  } catch (error) {
+    console.error('Error batch importing LinkedIn CSVs:', error);
+    res.status(500).json({ error: 'Failed to batch import', details: error.message });
+  }
+});
+
+/**
+ * GET /api/linkedin/summary
+ * Get LinkedIn overview summary (followers, engagement, decision-maker %)
+ */
+app.get('/api/linkedin/summary', (req, res) => {
+  try {
+    const summary = linkedin.getSummary();
+    res.json(summary);
+  } catch (error) {
+    console.error('Error fetching LinkedIn summary:', error);
+    res.status(500).json({ error: 'Failed to fetch LinkedIn summary' });
+  }
+});
+
+/**
+ * GET /api/linkedin/demographics
+ * Get follower demographics (all categories or specific)
+ * Query: ?category=seniority|industry|company_size|location|job_function
+ */
+app.get('/api/linkedin/demographics', (req, res) => {
+  try {
+    const data = linkedin.getDemographics(req.query.category || null);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching LinkedIn demographics:', error);
+    res.status(500).json({ error: 'Failed to fetch demographics' });
+  }
+});
+
+/**
+ * GET /api/linkedin/posts
+ * Get all LinkedIn posts with engagement metrics
+ */
+app.get('/api/linkedin/posts', (req, res) => {
+  try {
+    const posts = linkedin.getPosts();
+    res.json(posts);
+  } catch (error) {
+    console.error('Error fetching LinkedIn posts:', error);
+    res.status(500).json({ error: 'Failed to fetch posts' });
+  }
+});
+
+/**
+ * GET /api/linkedin/engagement
+ * Get daily engagement trends
+ * Query: ?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
+ */
+app.get('/api/linkedin/engagement', (req, res) => {
+  try {
+    const data = linkedin.getDailyEngagement(req.query.startDate, req.query.endDate);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching LinkedIn engagement:', error);
+    res.status(500).json({ error: 'Failed to fetch engagement data' });
+  }
+});
+
+/**
+ * GET /api/linkedin/followers
+ * Get follower growth trends
+ * Query: ?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
+ */
+app.get('/api/linkedin/followers', (req, res) => {
+  try {
+    const data = linkedin.getFollowerGrowth(req.query.startDate, req.query.endDate);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching LinkedIn followers:', error);
+    res.status(500).json({ error: 'Failed to fetch follower data' });
+  }
+});
+
+/**
+ * GET /api/linkedin/visitors
+ * Get page visitor trends
+ * Query: ?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
+ */
+app.get('/api/linkedin/visitors', (req, res) => {
+  try {
+    const data = linkedin.getVisitors(req.query.startDate, req.query.endDate);
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching LinkedIn visitors:', error);
+    res.status(500).json({ error: 'Failed to fetch visitor data' });
+  }
+});
+
+/**
+ * POST /api/linkedin/map-episodes
+ * Auto-map LinkedIn posts to podcast episodes
+ */
+app.post('/api/linkedin/map-episodes', async (req, res) => {
+  try {
+    const episodes = await aggregator.getEpisodes();
+    const mappings = linkedin.mapPostsToEpisodes(episodes);
+    res.json({ success: true, mappings });
+  } catch (error) {
+    console.error('Error mapping episodes:', error);
+    res.status(500).json({ error: 'Failed to map episodes', details: error.message });
+  }
+});
+
+/**
+ * GET /api/linkedin/correlation
+ * Get episode-to-LinkedIn correlation data
+ */
+app.get('/api/linkedin/correlation', (req, res) => {
+  try {
+    const data = linkedin.getEpisodeCorrelation();
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching correlation:', error);
+    res.status(500).json({ error: 'Failed to fetch correlation data' });
+  }
+});
+
+/**
+ * GET /api/linkedin/import-history
+ * Get import history log
+ */
+app.get('/api/linkedin/import-history', (req, res) => {
+  try {
+    const history = linkedin.getImportHistory();
+    res.json(history);
+  } catch (error) {
+    console.error('Error fetching import history:', error);
+    res.status(500).json({ error: 'Failed to fetch import history' });
+  }
+});
+
+// ============================================
 // Static Files & Server Start
 // ============================================
 
@@ -429,6 +604,18 @@ app.listen(PORT, () => {
   console.log('     GET  /api/auth/youtube/status');
   console.log('     GET  /api/auth/youtube/url');
   console.log('     POST /api/auth/youtube/callback');
+  console.log('');
+  console.log('   LinkedIn Data:');
+  console.log('     POST /api/linkedin/import');
+  console.log('     POST /api/linkedin/import/batch');
+  console.log('     GET  /api/linkedin/summary');
+  console.log('     GET  /api/linkedin/demographics');
+  console.log('     GET  /api/linkedin/posts');
+  console.log('     GET  /api/linkedin/engagement');
+  console.log('     GET  /api/linkedin/followers');
+  console.log('     GET  /api/linkedin/visitors');
+  console.log('     POST /api/linkedin/map-episodes');
+  console.log('     GET  /api/linkedin/correlation');
 });
 
 module.exports = app;
