@@ -1,23 +1,25 @@
 /**
  * Cross-Platform Data Aggregator
  * 
- * Normalizes data from Spotify, Apple Podcasts, and YouTube into
- * a unified schema for the dashboard to consume.
+ * Hybrid data architecture:
+ * - YouTube: Real data from YouTube Data API + Analytics API
+ * - Spotify: Manual data entry (SQLite) or mock data fallback
+ * - Apple: Manual data entry (SQLite) or mock data fallback
+ * - Episode catalog: Live RSS feed from Riverside.fm
  */
 
 const path = require('path');
-const SpotifyService = require('./spotify-service');
-const AppleService = require('./apple-service');
 const YouTubeService = require('./youtube-service');
+const ManualDataService = require('./manual-data-service');
 const RSSService = require('./rss-service');
 
 class Aggregator {
   constructor() {
-    this.spotify = new SpotifyService();
-    this.apple = new AppleService();
     this.youtube = new YouTubeService();
+    this.manualData = new ManualDataService();
     this.rss = new RSSService();
     this._episodeCache = null;
+    this._useMock = process.env.USE_MOCK_DATA !== 'false';
   }
 
   /**
@@ -36,28 +38,102 @@ class Aggregator {
   }
 
   /**
+   * Get Spotify episode data (manual entry or mock fallback)
+   */
+  _getSpotifyEpisodes() {
+    // Try manual data first
+    const manualEps = this.manualData.getSpotifyEpisodes();
+    if (manualEps.length > 0) return manualEps;
+
+    // Fall back to mock data if available
+    if (this._useMock) {
+      try {
+        const SpotifyService = require('./spotify-service');
+        const spotify = new SpotifyService();
+        // SpotifyService always uses mock in current implementation
+        const mockData = require(path.join(__dirname, '../mock/spotify-data.json'));
+        return mockData.episodes.map(ep => ({
+          episodeId: ep.episodeId,
+          platform: 'spotify',
+          dataSource: 'mock',
+          metrics: ep.metrics
+        }));
+      } catch (e) {
+        return [];
+      }
+    }
+    return [];
+  }
+
+  /**
+   * Get Apple episode data (manual entry or mock fallback)
+   */
+  _getAppleEpisodes() {
+    // Try manual data first
+    const manualEps = this.manualData.getAppleEpisodes();
+    if (manualEps.length > 0) return manualEps;
+
+    // Fall back to mock data if available
+    if (this._useMock) {
+      try {
+        const mockData = require(path.join(__dirname, '../mock/apple-data.json'));
+        return mockData.episodes.map(ep => ({
+          episodeId: ep.episodeId,
+          platform: 'apple',
+          dataSource: 'mock',
+          metrics: ep.metrics
+        }));
+      } catch (e) {
+        return [];
+      }
+    }
+    return [];
+  }
+
+  /**
    * Get dashboard overview with aggregate KPIs
    */
   async getOverview() {
-    const [spotifyEps, appleEps, youtubeEps] = await Promise.all([
-      this.spotify.getEpisodes(),
-      this.apple.getEpisodes(),
-      this.youtube.getEpisodes()
-    ]);
+    const episodeMetadata = await this._getEpisodeMetadata();
+    const youtubeEps = await this.youtube.getEpisodes(episodeMetadata);
+    const spotifyEps = this._getSpotifyEpisodes();
+    const appleEps = this._getAppleEpisodes();
 
-    const totalStreams = spotifyEps.reduce((sum, ep) => sum + ep.metrics.totalStreams, 0);
-    const totalDownloads = appleEps.reduce((sum, ep) => sum + ep.metrics.totalDownloads, 0);
-    const totalViews = youtubeEps.reduce((sum, ep) => sum + ep.metrics.totalViews, 0);
-    const totalListeners = spotifyEps.reduce((sum, ep) => sum + ep.metrics.totalListeners, 0)
-      + appleEps.reduce((sum, ep) => sum + ep.metrics.uniqueListeners, 0)
-      + youtubeEps.reduce((sum, ep) => sum + ep.metrics.uniqueViewers, 0);
+    const totalStreams = spotifyEps.reduce((sum, ep) => sum + (ep.metrics.totalStreams || 0), 0);
+    const totalDownloads = appleEps.reduce((sum, ep) => sum + (ep.metrics.totalDownloads || 0), 0);
+    const totalViews = youtubeEps.reduce((sum, ep) => sum + (ep.metrics.totalViews || 0), 0);
 
-    const avgCompletionSpotify = spotifyEps.reduce((sum, ep) => sum + ep.metrics.completionRate, 0) / spotifyEps.length;
-    const avgCompletionApple = appleEps.reduce((sum, ep) => sum + ep.metrics.avgConsumption, 0) / appleEps.length;
-    const avgCompletionYouTube = youtubeEps.reduce((sum, ep) => sum + ep.metrics.avgViewDuration, 0) / youtubeEps.length;
-    const avgCompletion = (avgCompletionSpotify + avgCompletionApple + avgCompletionYouTube) / 3;
+    const totalListeners = 
+      spotifyEps.reduce((sum, ep) => sum + (ep.metrics.totalListeners || 0), 0)
+      + appleEps.reduce((sum, ep) => sum + (ep.metrics.uniqueListeners || 0), 0)
+      + youtubeEps.reduce((sum, ep) => sum + (ep.metrics.uniqueViewers || 0), 0);
+
+    // Completion rates (only average platforms that have data)
+    const completionRates = [];
+    if (spotifyEps.length > 0) {
+      const avg = spotifyEps.reduce((s, ep) => s + (ep.metrics.completionRate || 0), 0) / spotifyEps.length;
+      if (avg > 0) completionRates.push(avg);
+    }
+    if (appleEps.length > 0) {
+      const avg = appleEps.reduce((s, ep) => s + (ep.metrics.avgConsumption || 0), 0) / appleEps.length;
+      if (avg > 0) completionRates.push(avg);
+    }
+    if (youtubeEps.length > 0) {
+      const avg = youtubeEps.reduce((s, ep) => s + (ep.metrics.avgViewDuration || 0), 0) / youtubeEps.length;
+      if (avg > 0) completionRates.push(avg);
+    }
+    const avgCompletion = completionRates.length > 0
+      ? completionRates.reduce((a, b) => a + b, 0) / completionRates.length
+      : 0;
 
     const totalReach = totalStreams + totalDownloads + totalViews;
+
+    // Data source indicators
+    const dataSources = {
+      youtube: youtubeEps.length > 0 ? (youtubeEps[0]?.dataSource || 'live') : 'none',
+      spotify: spotifyEps.length > 0 ? (spotifyEps[0]?.dataSource || 'mock') : 'none',
+      apple: appleEps.length > 0 ? (appleEps[0]?.dataSource || 'mock') : 'none'
+    };
 
     return {
       totalReach,
@@ -66,11 +142,21 @@ class Aggregator {
       totalViews,
       totalListeners,
       avgCompletionRate: parseFloat(avgCompletion.toFixed(3)),
-      totalEpisodes: (await this._getEpisodeMetadata()).length,
+      totalEpisodes: episodeMetadata.length,
+      dataSources,
       platformBreakdown: {
-        spotify: { streams: totalStreams, percentage: parseFloat((totalStreams / totalReach * 100).toFixed(1)) },
-        apple: { downloads: totalDownloads, percentage: parseFloat((totalDownloads / totalReach * 100).toFixed(1)) },
-        youtube: { views: totalViews, percentage: parseFloat((totalViews / totalReach * 100).toFixed(1)) }
+        spotify: { 
+          streams: totalStreams, 
+          percentage: totalReach > 0 ? parseFloat((totalStreams / totalReach * 100).toFixed(1)) : 0 
+        },
+        apple: { 
+          downloads: totalDownloads, 
+          percentage: totalReach > 0 ? parseFloat((totalDownloads / totalReach * 100).toFixed(1)) : 0 
+        },
+        youtube: { 
+          views: totalViews, 
+          percentage: totalReach > 0 ? parseFloat((totalViews / totalReach * 100).toFixed(1)) : 0 
+        }
       }
     };
   }
@@ -79,13 +165,11 @@ class Aggregator {
    * Get all episodes with normalized cross-platform metrics
    */
   async getEpisodes(filters = {}) {
-    const [spotifyEps, appleEps, youtubeEps] = await Promise.all([
-      this.spotify.getEpisodes(),
-      this.apple.getEpisodes(),
-      this.youtube.getEpisodes()
-    ]);
-
     const episodeMetadata = await this._getEpisodeMetadata();
+    const youtubeEps = await this.youtube.getEpisodes(episodeMetadata);
+    const spotifyEps = this._getSpotifyEpisodes();
+    const appleEps = this._getAppleEpisodes();
+
     let episodes = episodeMetadata.map(meta => {
       const spotifyEp = spotifyEps.find(e => e.episodeId === meta.id);
       const appleEp = appleEps.find(e => e.episodeId === meta.id);
@@ -118,6 +202,11 @@ class Aggregator {
         tags: meta.tags,
         guest: meta.guest,
         season: meta.season,
+        dataSources: {
+          spotify: spotifyEp?.dataSource || 'none',
+          apple: appleEp?.dataSource || 'none',
+          youtube: youtubeEp?.dataSource || 'none'
+        },
         metrics: {
           totalReach,
           totalListeners,
@@ -145,7 +234,9 @@ class Aggregator {
               watchTimeHours: youtubeEp?.metrics?.watchTimeHours || 0,
               likes: youtubeEp?.metrics?.likes || 0,
               comments: youtubeEp?.metrics?.comments || 0,
-              shares: youtubeEp?.metrics?.shares || 0
+              shares: youtubeEp?.metrics?.shares || 0,
+              videoId: youtubeEp?.videoId || null,
+              thumbnailUrl: youtubeEp?.thumbnailUrl || null
             }
           }
         }
@@ -209,21 +300,24 @@ class Aggregator {
    * Get single episode with full cross-platform detail
    */
   async getEpisodeDetail(episodeId) {
-    const [spotifyEp, appleEp, youtubeEp] = await Promise.all([
-      this.spotify.getEpisode(episodeId),
-      this.apple.getEpisode(episodeId),
-      this.youtube.getEpisode(episodeId)
-    ]);
-
     const episodeMetadata = await this._getEpisodeMetadata();
     const meta = episodeMetadata.find(e => e.id === episodeId);
     if (!meta) return null;
 
+    const youtubeEp = await this.youtube.getEpisode(episodeId);
+    const spotifyData = this.manualData.getEpisodeMetrics(episodeId, 'spotify');
+    const appleData = this.manualData.getEpisodeMetrics(episodeId, 'apple');
+
     return {
       ...meta,
+      dataSources: {
+        youtube: youtubeEp ? 'live' : 'none',
+        spotify: spotifyData.recordedDate ? 'manual' : (this._useMock ? 'mock' : 'none'),
+        apple: appleData.recordedDate ? 'manual' : (this._useMock ? 'mock' : 'none')
+      },
       platforms: {
-        spotify: spotifyEp,
-        apple: appleEp,
+        spotify: spotifyData.recordedDate ? spotifyData : null,
+        apple: appleData.recordedDate ? appleData : null,
         youtube: youtubeEp
       }
     };
@@ -233,11 +327,24 @@ class Aggregator {
    * Get aggregate daily trends across all platforms
    */
   async getTrends(filters = {}) {
-    const [spotifyDaily, appleDaily, youtubeDaily] = await Promise.all([
-      this.spotify.getAggregateDailyStreams(),
-      this.apple.getAggregateDailyDownloads(),
-      this.youtube.getAggregateDailyViews()
-    ]);
+    // YouTube daily views (real or estimated)
+    const youtubeDaily = await this.youtube.getAggregateDailyViews();
+
+    // For Spotify/Apple, use mock daily data if available
+    let spotifyDaily = [];
+    let appleDaily = [];
+    if (this._useMock) {
+      try {
+        const SpotifyService = require('./spotify-service');
+        const AppleService = require('./apple-service');
+        const spotify = new SpotifyService();
+        const apple = new AppleService();
+        spotifyDaily = await spotify.getAggregateDailyStreams();
+        appleDaily = await apple.getAggregateDailyDownloads();
+      } catch (e) {
+        // No mock data available
+      }
+    }
 
     // Merge all dates
     const allDates = new Set();
@@ -337,12 +444,14 @@ class Aggregator {
         publishDate: ep.publishDate,
         reach: yt.views,
         listeners: yt.viewers,
-        completionRate: yt.avgViewDuration
+        completionRate: yt.avgViewDuration,
+        videoId: yt.videoId,
+        thumbnailUrl: yt.thumbnailUrl
       });
     });
 
     // Calculate averages
-    const epCount = episodes.length;
+    const epCount = episodes.length || 1;
     platforms.spotify.avgCompletion = parseFloat(
       (platforms.spotify.episodeData.reduce((s, e) => s + e.completionRate, 0) / epCount).toFixed(3)
     );
@@ -362,11 +471,22 @@ class Aggregator {
   async getInsights() {
     const episodes = await this.getEpisodes({ sortBy: 'totalReach', sortOrder: 'desc' });
 
+    if (episodes.length === 0) {
+      return {
+        summary: { totalEpisodes: 0, avgReach: 0, medianReach: 0 },
+        topPerformers: [],
+        bottomPerformers: [],
+        dayOfWeekAnalysis: {},
+        durationAnalysis: {},
+        tagAnalysis: {},
+        guestVsSolo: { guest: { count: 0, avgReach: 0, avgCompletion: 0 }, solo: { count: 0, avgReach: 0, avgCompletion: 0 } },
+        durationVsEngagement: [],
+        growthTrend: []
+      };
+    }
+
     // Episode rankings
-    const ranked = episodes.map((ep, idx) => ({
-      ...ep,
-      rank: idx + 1
-    }));
+    const ranked = episodes.map((ep, idx) => ({ ...ep, rank: idx + 1 }));
 
     // Average reach
     const avgReach = episodes.reduce((s, e) => s + e.metrics.totalReach, 0) / episodes.length;
