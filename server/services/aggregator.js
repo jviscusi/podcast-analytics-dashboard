@@ -9,13 +9,30 @@ const path = require('path');
 const SpotifyService = require('./spotify-service');
 const AppleService = require('./apple-service');
 const YouTubeService = require('./youtube-service');
+const RSSService = require('./rss-service');
 
 class Aggregator {
   constructor() {
     this.spotify = new SpotifyService();
     this.apple = new AppleService();
     this.youtube = new YouTubeService();
-    this.episodeMetadata = require(path.join(__dirname, '../mock/episodes.json'));
+    this.rss = new RSSService();
+    this._episodeCache = null;
+  }
+
+  /**
+   * Get episode metadata from RSS feed (with fallback to static file)
+   */
+  async _getEpisodeMetadata() {
+    if (this._episodeCache) return this._episodeCache;
+    try {
+      const rssData = await this.rss.getEpisodes();
+      this._episodeCache = rssData.episodes;
+      return this._episodeCache;
+    } catch (error) {
+      console.warn('RSS feed unavailable, falling back to static episodes.json');
+      return require(path.join(__dirname, '../mock/episodes.json'));
+    }
   }
 
   /**
@@ -49,7 +66,7 @@ class Aggregator {
       totalViews,
       totalListeners,
       avgCompletionRate: parseFloat(avgCompletion.toFixed(3)),
-      totalEpisodes: this.episodeMetadata.length,
+      totalEpisodes: (await this._getEpisodeMetadata()).length,
       platformBreakdown: {
         spotify: { streams: totalStreams, percentage: parseFloat((totalStreams / totalReach * 100).toFixed(1)) },
         apple: { downloads: totalDownloads, percentage: parseFloat((totalDownloads / totalReach * 100).toFixed(1)) },
@@ -68,7 +85,8 @@ class Aggregator {
       this.youtube.getEpisodes()
     ]);
 
-    let episodes = this.episodeMetadata.map(meta => {
+    const episodeMetadata = await this._getEpisodeMetadata();
+    let episodes = episodeMetadata.map(meta => {
       const spotifyEp = spotifyEps.find(e => e.episodeId === meta.id);
       const appleEp = appleEps.find(e => e.episodeId === meta.id);
       const youtubeEp = youtubeEps.find(e => e.episodeId === meta.id);
@@ -197,7 +215,8 @@ class Aggregator {
       this.youtube.getEpisode(episodeId)
     ]);
 
-    const meta = this.episodeMetadata.find(e => e.id === episodeId);
+    const episodeMetadata = await this._getEpisodeMetadata();
+    const meta = episodeMetadata.find(e => e.id === episodeId);
     if (!meta) return null;
 
     return {

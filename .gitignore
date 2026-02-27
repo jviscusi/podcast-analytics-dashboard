@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .env
+server/mock/rss-cache.json
 *.db
 *.sqlite
 .DS_Store

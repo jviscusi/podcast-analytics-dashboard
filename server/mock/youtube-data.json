@@ -1,377 +1,48 @@
 {
-  "platform": "youtube",
-  "channelId": "mock-youtube-channel-id",
-  "podcastName": "The Insight Hour",
-  "lastUpdated": "2026-02-27T02:23:33.753Z",
-  "totalSubscribers": 1563,
   "episodes": [
     {
       "episodeId": "ep-001",
-      "youtubeVideoId": "yt-001mock",
-      "title": "Welcome to the Show - What to Expect",
-      "publishDate": "2025-09-03",
       "metrics": {
-        "totalViews": 323,
-        "uniqueViewers": 252,
-        "avgViewDuration": 0.47,
-        "avgViewDurationMinutes": 9,
-        "watchTimeHours": 50.6,
-        "likes": 25,
-        "comments": 5,
-        "shares": 2,
-        "subscribersGained": 10,
-        "subscribersLost": 1,
-        "impressions": 1796,
-        "clickThroughRate": 0.08
+        "totalViews": 40,
+        "uniqueViewers": 33,
+        "avgViewDuration": 0.39,
+        "watchTimeHours": 6.2,
+        "likes": 2,
+        "comments": 0,
+        "shares": 0,
+        "subscribersGained": 1,
+        "subscribersLost": 0,
+        "impressions": 156,
+        "impressionsCTR": 0.047
       },
       "dailyViews": [
         {
-          "date": "2025-09-03",
-          "count": 61
-        },
-        {
-          "date": "2025-09-04",
-          "count": 43
-        },
-        {
-          "date": "2025-09-05",
-          "count": 23
-        },
-        {
-          "date": "2025-09-06",
-          "count": 5
-        },
-        {
-          "date": "2025-09-07",
-          "count": 3
-        },
-        {
-          "date": "2025-09-08",
-          "count": 2
-        },
-        {
-          "date": "2025-09-09",
-          "count": 4
-        },
-        {
-          "date": "2025-09-10",
-          "count": 3
-        },
-        {
-          "date": "2025-09-11",
-          "count": 2
-        },
-        {
-          "date": "2025-09-12",
-          "count": 2
-        },
-        {
-          "date": "2025-09-13",
-          "count": 2
-        },
-        {
-          "date": "2025-09-14",
-          "count": 1
-        },
-        {
-          "date": "2025-09-15",
-          "count": 1
-        },
-        {
-          "date": "2025-09-16",
-          "count": 2
-        },
-        {
-          "date": "2025-09-17",
-          "count": 3
-        },
-        {
-          "date": "2025-09-18",
-          "count": 5
-        },
-        {
-          "date": "2025-09-19",
-          "count": 5
-        },
-        {
-          "date": "2025-09-20",
-          "count": 7
-        },
-        {
-          "date": "2025-09-21",
-          "count": 1
-        },
-        {
-          "date": "2025-09-22",
-          "count": 2
-        },
-        {
-          "date": "2025-09-23",
-          "count": 3
-        },
-        {
-          "date": "2025-09-24",
-          "count": 3
-        },
-        {
-          "date": "2025-09-25",
-          "count": 5
-        },
-        {
-          "date": "2025-09-26",
-          "count": 4
-        },
-        {
-          "date": "2025-09-27",
-          "count": 3
-        },
-        {
-          "date": "2025-09-28",
-          "count": 4
-        },
-        {
-          "date": "2025-09-29",
-          "count": 1
-        },
-        {
-          "date": "2025-09-30",
-          "count": 3
-        },
-        {
-          "date": "2025-10-01",
-          "count": 2
-        },
-        {
-          "date": "2025-10-02",
-          "count": 2
-        },
-        {
-          "date": "2025-10-03",
-          "count": 3
-        },
-        {
-          "date": "2025-10-04",
-          "count": 2
-        },
-        {
-          "date": "2025-10-05",
-          "count": 2
-        },
-        {
-          "date": "2025-10-06",
-          "count": 1
-        },
-        {
-          "date": "2025-10-07",
-          "count": 1
-        },
-        {
-          "date": "2025-10-08",
-          "count": 1
-        },
-        {
-          "date": "2025-10-09",
-          "count": 3
-        },
-        {
-          "date": "2025-10-10",
-          "count": 4
-        },
-        {
-          "date": "2025-10-11",
-          "count": 1
-        },
-        {
-          "date": "2025-10-12",
-          "count": 1
-        },
-        {
-          "date": "2025-10-13",
-          "count": 3
-        },
-        {
-          "date": "2025-10-14",
-          "count": 1
-        },
-        {
-          "date": "2025-10-15",
-          "count": 1
-        },
-        {
-          "date": "2025-10-16",
-          "count": 3
-        },
-        {
-          "date": "2025-10-17",
-          "count": 2
-        },
-        {
-          "date": "2025-10-18",
-          "count": 1
-        },
-        {
-          "date": "2025-10-19",
-          "count": 1
-        },
-        {
-          "date": "2025-10-20",
-          "count": 1
-        },
-        {
-          "date": "2025-10-21",
-          "count": 2
-        },
-        {
-          "date": "2025-10-22",
-          "count": 3
-        },
-        {
-          "date": "2025-10-23",
-          "count": 4
-        },
-        {
-          "date": "2025-10-24",
-          "count": 3
-        },
-        {
-          "date": "2025-10-25",
-          "count": 2
-        },
-        {
-          "date": "2025-10-26",
-          "count": 1
-        },
-        {
-          "date": "2025-10-27",
-          "count": 1
-        },
-        {
-          "date": "2025-10-28",
-          "count": 2
-        },
-        {
-          "date": "2025-10-29",
-          "count": 1
-        },
-        {
-          "date": "2025-10-30",
-          "count": 1
-        },
-        {
-          "date": "2025-10-31",
-          "count": 3
-        },
-        {
-          "date": "2025-11-01",
-          "count": 3
-        },
-        {
-          "date": "2025-11-02",
-          "count": 1
-        },
-        {
-          "date": "2025-11-03",
-          "count": 1
-        },
-        {
-          "date": "2025-11-04",
-          "count": 2
-        },
-        {
-          "date": "2025-11-05",
-          "count": 2
-        },
-        {
-          "date": "2025-11-06",
-          "count": 3
-        },
-        {
-          "date": "2025-11-07",
-          "count": 2
-        },
-        {
-          "date": "2025-11-08",
-          "count": 3
-        },
-        {
-          "date": "2025-11-09",
-          "count": 1
-        },
-        {
-          "date": "2025-11-10",
-          "count": 1
-        },
-        {
-          "date": "2025-11-11",
-          "count": 2
-        },
-        {
-          "date": "2025-11-12",
-          "count": 2
-        },
-        {
-          "date": "2025-11-13",
-          "count": 3
-        },
-        {
-          "date": "2025-11-14",
-          "count": 4
-        },
-        {
-          "date": "2025-11-15",
-          "count": 2
-        },
-        {
-          "date": "2025-11-16",
-          "count": 2
-        },
-        {
-          "date": "2025-11-17",
-          "count": 2
-        },
-        {
-          "date": "2025-11-18",
-          "count": 2
-        },
-        {
-          "date": "2025-11-19",
-          "count": 1
-        },
-        {
-          "date": "2025-11-20",
-          "count": 3
-        },
-        {
-          "date": "2025-11-21",
-          "count": 1
-        },
-        {
           "date": "2025-11-22",
-          "count": 2
+          "count": 6
         },
         {
           "date": "2025-11-23",
-          "count": 2
+          "count": 10
         },
         {
           "date": "2025-11-24",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2025-11-25",
-          "count": 2
+          "count": 4
         },
         {
           "date": "2025-11-26",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2025-11-27",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2025-11-28",
-          "count": 2
+          "count": 4
         },
         {
           "date": "2025-11-29",
@@ -379,394 +50,171 @@
         },
         {
           "date": "2025-11-30",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2025-12-01",
+          "count": 3
+        },
+        {
+          "date": "2025-12-02",
           "count": 2
+        },
+        {
+          "date": "2025-12-03",
+          "count": 2
+        },
+        {
+          "date": "2025-12-04",
+          "count": 1
+        },
+        {
+          "date": "2025-12-05",
+          "count": 1
+        },
+        {
+          "date": "2025-12-06",
+          "count": 1
+        },
+        {
+          "date": "2025-12-07",
+          "count": 1
+        },
+        {
+          "date": "2025-12-08",
+          "count": 1
+        },
+        {
+          "date": "2025-12-09",
+          "count": 1
+        },
+        {
+          "date": "2025-12-10",
+          "count": 1
+        },
+        {
+          "date": "2025-12-11",
+          "count": 1
+        },
+        {
+          "date": "2025-12-12",
+          "count": 1
+        },
+        {
+          "date": "2025-12-13",
+          "count": 1
+        },
+        {
+          "date": "2025-12-14",
+          "count": 1
+        },
+        {
+          "date": "2025-12-15",
+          "count": 1
+        },
+        {
+          "date": "2025-12-16",
+          "count": 1
+        },
+        {
+          "date": "2025-12-17",
+          "count": 1
+        },
+        {
+          "date": "2025-12-18",
+          "count": 1
+        },
+        {
+          "date": "2025-12-19",
+          "count": 1
+        },
+        {
+          "date": "2025-12-20",
+          "count": 1
+        },
+        {
+          "date": "2025-12-21",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.2,
-        "suggested": 0.3,
-        "browse": 0.15,
-        "external": 0.12,
-        "direct": 0.05,
-        "notifications": 0.08,
-        "other": 0.08
+        "search": 29,
+        "suggested": 23,
+        "browse": 27,
+        "external": 20,
+        "other": 5
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.17,
-          "25-34": 0.3,
-          "35-44": 0.26,
-          "45-54": 0.16,
-          "55-64": 0.06,
-          "65+": 0.04
+        "age": {
+          "18-24": 16,
+          "25-34": 29,
+          "35-44": 23,
+          "45-54": 12,
+          "55+": 5
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.55
-          },
-          {
-            "country": "IN",
-            "percentage": 0.12
-          },
-          {
-            "country": "UK",
-            "percentage": 0.11
+            "percentage": 64
           },
           {
             "country": "CA",
-            "percentage": 0.07
+            "percentage": 8
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 3
+          },
+          {
+            "country": "GB",
+            "percentage": 2
           }
         ]
       }
     },
     {
       "episodeId": "ep-002",
-      "youtubeVideoId": "yt-002mock",
-      "title": "The State of the Industry in 2025",
-      "publishDate": "2025-09-10",
       "metrics": {
-        "totalViews": 361,
-        "uniqueViewers": 296,
-        "avgViewDuration": 0.49,
-        "avgViewDurationMinutes": 18,
-        "watchTimeHours": 109.1,
-        "likes": 28,
-        "comments": 3,
-        "shares": 5,
-        "subscribersGained": 12,
+        "totalViews": 42,
+        "uniqueViewers": 30,
+        "avgViewDuration": 0.447,
+        "watchTimeHours": 7.2,
+        "likes": 13,
+        "comments": 6,
+        "shares": 1,
+        "subscribersGained": 1,
         "subscribersLost": 0,
-        "impressions": 1606,
-        "clickThroughRate": 0.11
+        "impressions": 145,
+        "impressionsCTR": 0.082
       },
       "dailyViews": [
         {
-          "date": "2025-09-10",
-          "count": 64
-        },
-        {
-          "date": "2025-09-11",
-          "count": 39
-        },
-        {
-          "date": "2025-09-12",
-          "count": 24
-        },
-        {
-          "date": "2025-09-13",
-          "count": 8
-        },
-        {
-          "date": "2025-09-14",
-          "count": 4
-        },
-        {
-          "date": "2025-09-15",
-          "count": 3
-        },
-        {
-          "date": "2025-09-16",
-          "count": 3
-        },
-        {
-          "date": "2025-09-17",
-          "count": 3
-        },
-        {
-          "date": "2025-09-18",
-          "count": 2
-        },
-        {
-          "date": "2025-09-19",
-          "count": 2
-        },
-        {
-          "date": "2025-09-20",
-          "count": 2
-        },
-        {
-          "date": "2025-09-21",
-          "count": 1
-        },
-        {
-          "date": "2025-09-22",
-          "count": 1
-        },
-        {
-          "date": "2025-09-23",
-          "count": 1
-        },
-        {
-          "date": "2025-09-24",
-          "count": 8
-        },
-        {
-          "date": "2025-09-25",
-          "count": 5
-        },
-        {
-          "date": "2025-09-26",
-          "count": 3
-        },
-        {
-          "date": "2025-09-27",
-          "count": 7
-        },
-        {
-          "date": "2025-09-28",
-          "count": 3
-        },
-        {
-          "date": "2025-09-29",
-          "count": 4
-        },
-        {
-          "date": "2025-09-30",
-          "count": 1
-        },
-        {
-          "date": "2025-10-01",
-          "count": 7
-        },
-        {
-          "date": "2025-10-02",
-          "count": 5
-        },
-        {
-          "date": "2025-10-03",
+          "date": "2025-11-22",
           "count": 6
         },
         {
-          "date": "2025-10-04",
-          "count": 5
-        },
-        {
-          "date": "2025-10-05",
-          "count": 4
-        },
-        {
-          "date": "2025-10-06",
-          "count": 1
-        },
-        {
-          "date": "2025-10-07",
-          "count": 3
-        },
-        {
-          "date": "2025-10-08",
-          "count": 8
-        },
-        {
-          "date": "2025-10-09",
+          "date": "2025-11-23",
           "count": 7
         },
         {
-          "date": "2025-10-10",
-          "count": 3
-        },
-        {
-          "date": "2025-10-11",
-          "count": 1
-        },
-        {
-          "date": "2025-10-12",
-          "count": 1
-        },
-        {
-          "date": "2025-10-13",
-          "count": 1
-        },
-        {
-          "date": "2025-10-14",
-          "count": 1
-        },
-        {
-          "date": "2025-10-15",
-          "count": 1
-        },
-        {
-          "date": "2025-10-16",
-          "count": 3
-        },
-        {
-          "date": "2025-10-17",
-          "count": 3
-        },
-        {
-          "date": "2025-10-18",
-          "count": 3
-        },
-        {
-          "date": "2025-10-19",
-          "count": 1
-        },
-        {
-          "date": "2025-10-20",
-          "count": 1
-        },
-        {
-          "date": "2025-10-21",
-          "count": 1
-        },
-        {
-          "date": "2025-10-22",
-          "count": 1
-        },
-        {
-          "date": "2025-10-23",
-          "count": 4
-        },
-        {
-          "date": "2025-10-24",
-          "count": 3
-        },
-        {
-          "date": "2025-10-25",
-          "count": 1
-        },
-        {
-          "date": "2025-10-26",
-          "count": 1
-        },
-        {
-          "date": "2025-10-27",
-          "count": 2
-        },
-        {
-          "date": "2025-10-28",
-          "count": 1
-        },
-        {
-          "date": "2025-10-29",
-          "count": 4
-        },
-        {
-          "date": "2025-10-30",
-          "count": 1
-        },
-        {
-          "date": "2025-10-31",
-          "count": 3
-        },
-        {
-          "date": "2025-11-01",
-          "count": 1
-        },
-        {
-          "date": "2025-11-02",
-          "count": 1
-        },
-        {
-          "date": "2025-11-03",
-          "count": 3
-        },
-        {
-          "date": "2025-11-04",
-          "count": 4
-        },
-        {
-          "date": "2025-11-05",
-          "count": 2
-        },
-        {
-          "date": "2025-11-06",
-          "count": 2
-        },
-        {
-          "date": "2025-11-07",
-          "count": 3
-        },
-        {
-          "date": "2025-11-08",
-          "count": 2
-        },
-        {
-          "date": "2025-11-09",
-          "count": 2
-        },
-        {
-          "date": "2025-11-10",
-          "count": 1
-        },
-        {
-          "date": "2025-11-11",
-          "count": 1
-        },
-        {
-          "date": "2025-11-12",
-          "count": 2
-        },
-        {
-          "date": "2025-11-13",
-          "count": 3
-        },
-        {
-          "date": "2025-11-14",
-          "count": 4
-        },
-        {
-          "date": "2025-11-15",
-          "count": 4
-        },
-        {
-          "date": "2025-11-16",
-          "count": 2
-        },
-        {
-          "date": "2025-11-17",
-          "count": 2
-        },
-        {
-          "date": "2025-11-18",
-          "count": 2
-        },
-        {
-          "date": "2025-11-19",
-          "count": 3
-        },
-        {
-          "date": "2025-11-20",
-          "count": 3
-        },
-        {
-          "date": "2025-11-21",
-          "count": 4
-        },
-        {
-          "date": "2025-11-22",
-          "count": 1
-        },
-        {
-          "date": "2025-11-23",
-          "count": 1
-        },
-        {
           "date": "2025-11-24",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2025-11-25",
-          "count": 3
+          "count": 5
         },
         {
           "date": "2025-11-26",
-          "count": 2
+          "count": 5
         },
         {
           "date": "2025-11-27",
-          "count": 4
+          "count": 5
         },
         {
           "date": "2025-11-28",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2025-11-29",
@@ -774,23 +222,23 @@
         },
         {
           "date": "2025-11-30",
-          "count": 2
-        },
-        {
-          "date": "2025-12-01",
-          "count": 1
-        },
-        {
-          "date": "2025-12-02",
-          "count": 4
-        },
-        {
-          "date": "2025-12-03",
           "count": 3
         },
         {
+          "date": "2025-12-01",
+          "count": 2
+        },
+        {
+          "date": "2025-12-02",
+          "count": 2
+        },
+        {
+          "date": "2025-12-03",
+          "count": 2
+        },
+        {
           "date": "2025-12-04",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2025-12-05",
@@ -807,377 +255,154 @@
         {
           "date": "2025-12-08",
           "count": 1
+        },
+        {
+          "date": "2025-12-09",
+          "count": 1
+        },
+        {
+          "date": "2025-12-10",
+          "count": 1
+        },
+        {
+          "date": "2025-12-11",
+          "count": 1
+        },
+        {
+          "date": "2025-12-12",
+          "count": 1
+        },
+        {
+          "date": "2025-12-13",
+          "count": 1
+        },
+        {
+          "date": "2025-12-14",
+          "count": 1
+        },
+        {
+          "date": "2025-12-15",
+          "count": 1
+        },
+        {
+          "date": "2025-12-16",
+          "count": 1
+        },
+        {
+          "date": "2025-12-17",
+          "count": 1
+        },
+        {
+          "date": "2025-12-18",
+          "count": 1
+        },
+        {
+          "date": "2025-12-19",
+          "count": 1
+        },
+        {
+          "date": "2025-12-20",
+          "count": 1
+        },
+        {
+          "date": "2025-12-21",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.24,
-        "suggested": 0.27,
-        "browse": 0.1,
-        "external": 0.09,
-        "direct": 0.06,
-        "notifications": 0.09,
-        "other": 0.07
+        "search": 15,
+        "suggested": 21,
+        "browse": 32,
+        "external": 18,
+        "other": 10
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.12,
-          "25-34": 0.3,
-          "35-44": 0.2,
-          "45-54": 0.1,
-          "55-64": 0.09,
-          "65+": 0.04
+        "age": {
+          "18-24": 8,
+          "25-34": 40,
+          "35-44": 22,
+          "45-54": 18,
+          "55+": 7
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.54
-          },
-          {
-            "country": "IN",
-            "percentage": 0.11
-          },
-          {
-            "country": "UK",
-            "percentage": 0.1
+            "percentage": 72
           },
           {
             "country": "CA",
-            "percentage": 0.04
+            "percentage": 8
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 8
+          },
+          {
+            "country": "GB",
+            "percentage": 5
           }
         ]
       }
     },
     {
       "episodeId": "ep-003",
-      "youtubeVideoId": "yt-003mock",
-      "title": "Interview with Sarah Chen - Building Startups",
-      "publishDate": "2025-09-17",
       "metrics": {
-        "totalViews": 338,
-        "uniqueViewers": 284,
-        "avgViewDuration": 0.49,
-        "avgViewDurationMinutes": 25,
-        "watchTimeHours": 143.5,
-        "likes": 25,
-        "comments": 7,
-        "shares": 1,
-        "subscribersGained": 28,
-        "subscribersLost": 3,
-        "impressions": 1460,
-        "clickThroughRate": 0.08
+        "totalViews": 88,
+        "uniqueViewers": 76,
+        "avgViewDuration": 0.401,
+        "watchTimeHours": 11.8,
+        "likes": 3,
+        "comments": 3,
+        "shares": 4,
+        "subscribersGained": 2,
+        "subscribersLost": 0,
+        "impressions": 263,
+        "impressionsCTR": 0.035
       },
       "dailyViews": [
         {
-          "date": "2025-09-17",
-          "count": 54
-        },
-        {
-          "date": "2025-09-18",
-          "count": 33
-        },
-        {
-          "date": "2025-09-19",
-          "count": 28
-        },
-        {
-          "date": "2025-09-20",
-          "count": 7
-        },
-        {
-          "date": "2025-09-21",
-          "count": 3
-        },
-        {
-          "date": "2025-09-22",
-          "count": 3
-        },
-        {
-          "date": "2025-09-23",
-          "count": 4
-        },
-        {
-          "date": "2025-09-24",
-          "count": 2
-        },
-        {
-          "date": "2025-09-25",
-          "count": 2
-        },
-        {
-          "date": "2025-09-26",
-          "count": 2
-        },
-        {
-          "date": "2025-09-27",
-          "count": 2
-        },
-        {
-          "date": "2025-09-28",
-          "count": 1
-        },
-        {
-          "date": "2025-09-29",
-          "count": 1
-        },
-        {
-          "date": "2025-09-30",
-          "count": 1
-        },
-        {
-          "date": "2025-10-01",
-          "count": 1
-        },
-        {
-          "date": "2025-10-02",
-          "count": 6
-        },
-        {
-          "date": "2025-10-03",
-          "count": 3
-        },
-        {
-          "date": "2025-10-04",
-          "count": 5
-        },
-        {
-          "date": "2025-10-05",
-          "count": 2
-        },
-        {
-          "date": "2025-10-06",
-          "count": 3
-        },
-        {
-          "date": "2025-10-07",
-          "count": 6
-        },
-        {
-          "date": "2025-10-08",
-          "count": 2
-        },
-        {
-          "date": "2025-10-09",
-          "count": 4
-        },
-        {
-          "date": "2025-10-10",
-          "count": 7
-        },
-        {
-          "date": "2025-10-11",
-          "count": 5
-        },
-        {
-          "date": "2025-10-12",
-          "count": 5
-        },
-        {
-          "date": "2025-10-13",
-          "count": 3
-        },
-        {
-          "date": "2025-10-14",
-          "count": 2
-        },
-        {
-          "date": "2025-10-15",
-          "count": 4
-        },
-        {
-          "date": "2025-10-16",
-          "count": 2
-        },
-        {
-          "date": "2025-10-17",
-          "count": 3
-        },
-        {
-          "date": "2025-10-18",
-          "count": 1
-        },
-        {
-          "date": "2025-10-19",
-          "count": 1
-        },
-        {
-          "date": "2025-10-20",
-          "count": 1
-        },
-        {
-          "date": "2025-10-21",
-          "count": 3
-        },
-        {
-          "date": "2025-10-22",
-          "count": 3
-        },
-        {
-          "date": "2025-10-23",
-          "count": 3
-        },
-        {
-          "date": "2025-10-24",
-          "count": 2
-        },
-        {
-          "date": "2025-10-25",
-          "count": 2
-        },
-        {
-          "date": "2025-10-26",
-          "count": 3
-        },
-        {
-          "date": "2025-10-27",
-          "count": 1
-        },
-        {
-          "date": "2025-10-28",
-          "count": 4
-        },
-        {
-          "date": "2025-10-29",
-          "count": 2
-        },
-        {
-          "date": "2025-10-30",
-          "count": 2
-        },
-        {
-          "date": "2025-10-31",
-          "count": 1
-        },
-        {
-          "date": "2025-11-01",
-          "count": 3
-        },
-        {
-          "date": "2025-11-02",
-          "count": 3
-        },
-        {
-          "date": "2025-11-03",
-          "count": 2
-        },
-        {
-          "date": "2025-11-04",
-          "count": 3
-        },
-        {
-          "date": "2025-11-05",
-          "count": 1
-        },
-        {
-          "date": "2025-11-06",
-          "count": 3
-        },
-        {
-          "date": "2025-11-07",
-          "count": 4
-        },
-        {
-          "date": "2025-11-08",
-          "count": 3
-        },
-        {
-          "date": "2025-11-09",
-          "count": 2
-        },
-        {
-          "date": "2025-11-10",
-          "count": 1
-        },
-        {
-          "date": "2025-11-11",
-          "count": 2
-        },
-        {
-          "date": "2025-11-12",
-          "count": 1
-        },
-        {
-          "date": "2025-11-13",
-          "count": 1
-        },
-        {
-          "date": "2025-11-14",
-          "count": 1
-        },
-        {
-          "date": "2025-11-15",
-          "count": 2
-        },
-        {
-          "date": "2025-11-16",
-          "count": 1
-        },
-        {
-          "date": "2025-11-17",
-          "count": 2
-        },
-        {
-          "date": "2025-11-18",
-          "count": 2
-        },
-        {
-          "date": "2025-11-19",
-          "count": 3
-        },
-        {
-          "date": "2025-11-20",
-          "count": 3
-        },
-        {
-          "date": "2025-11-21",
-          "count": 1
-        },
-        {
           "date": "2025-11-22",
-          "count": 3
+          "count": 16
         },
         {
           "date": "2025-11-23",
-          "count": 1
+          "count": 20
         },
         {
           "date": "2025-11-24",
-          "count": 2
+          "count": 19
         },
         {
           "date": "2025-11-25",
-          "count": 4
+          "count": 12
         },
         {
           "date": "2025-11-26",
-          "count": 1
+          "count": 11
         },
         {
           "date": "2025-11-27",
-          "count": 4
+          "count": 6
         },
         {
           "date": "2025-11-28",
-          "count": 2
+          "count": 6
         },
         {
           "date": "2025-11-29",
-          "count": 3
+          "count": 7
         },
         {
           "date": "2025-11-30",
-          "count": 1
+          "count": 5
         },
         {
           "date": "2025-12-01",
-          "count": 3
+          "count": 7
         },
         {
           "date": "2025-12-02",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2025-12-03",
@@ -1189,11 +414,11 @@
         },
         {
           "date": "2025-12-05",
-          "count": 4
+          "count": 2
         },
         {
           "date": "2025-12-06",
-          "count": 4
+          "count": 2
         },
         {
           "date": "2025-12-07",
@@ -1209,19 +434,19 @@
         },
         {
           "date": "2025-12-10",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2025-12-11",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2025-12-12",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-13",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-14",
@@ -1229,350 +454,115 @@
         },
         {
           "date": "2025-12-15",
-          "count": 2
+          "count": 1
+        },
+        {
+          "date": "2025-12-16",
+          "count": 1
+        },
+        {
+          "date": "2025-12-17",
+          "count": 1
+        },
+        {
+          "date": "2025-12-18",
+          "count": 1
+        },
+        {
+          "date": "2025-12-19",
+          "count": 1
+        },
+        {
+          "date": "2025-12-20",
+          "count": 1
+        },
+        {
+          "date": "2025-12-21",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.26,
-        "suggested": 0.29,
-        "browse": 0.18,
-        "external": 0.11,
-        "direct": 0.1,
-        "notifications": 0.06,
-        "other": 0.06
+        "search": 21,
+        "suggested": 22,
+        "browse": 25,
+        "external": 12,
+        "other": 4
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.17,
-          "25-34": 0.36,
-          "35-44": 0.22,
-          "45-54": 0.1,
-          "55-64": 0.08,
-          "65+": 0.05
+        "age": {
+          "18-24": 18,
+          "25-34": 32,
+          "35-44": 27,
+          "45-54": 17,
+          "55+": 11
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.51
-          },
-          {
-            "country": "IN",
-            "percentage": 0.14
-          },
-          {
-            "country": "UK",
-            "percentage": 0.11
+            "percentage": 66
           },
           {
             "country": "CA",
-            "percentage": 0.07
+            "percentage": 7
           },
           {
-            "country": "BR",
-            "percentage": 0.06
+            "country": "IN",
+            "percentage": 3
+          },
+          {
+            "country": "GB",
+            "percentage": 5
           }
         ]
       }
     },
     {
       "episodeId": "ep-004",
-      "youtubeVideoId": "yt-004mock",
-      "title": "5 Lessons from Our First Month",
-      "publishDate": "2025-09-24",
       "metrics": {
-        "totalViews": 243,
-        "uniqueViewers": 177,
-        "avgViewDuration": 0.45,
-        "avgViewDurationMinutes": 11,
-        "watchTimeHours": 43.7,
-        "likes": 18,
-        "comments": 1,
-        "shares": 2,
-        "subscribersGained": 22,
-        "subscribersLost": 3,
-        "impressions": 889,
-        "clickThroughRate": 0.08
+        "totalViews": 54,
+        "uniqueViewers": 45,
+        "avgViewDuration": 0.645,
+        "watchTimeHours": 14.5,
+        "likes": 13,
+        "comments": 6,
+        "shares": 0,
+        "subscribersGained": 1,
+        "subscribersLost": 0,
+        "impressions": 193,
+        "impressionsCTR": 0.038
       },
       "dailyViews": [
         {
-          "date": "2025-09-24",
-          "count": 45
-        },
-        {
-          "date": "2025-09-25",
-          "count": 31
-        },
-        {
-          "date": "2025-09-26",
-          "count": 20
-        },
-        {
-          "date": "2025-09-27",
-          "count": 4
-        },
-        {
-          "date": "2025-09-28",
-          "count": 2
-        },
-        {
-          "date": "2025-09-29",
-          "count": 2
-        },
-        {
-          "date": "2025-09-30",
-          "count": 3
-        },
-        {
-          "date": "2025-10-01",
-          "count": 2
-        },
-        {
-          "date": "2025-10-02",
-          "count": 2
-        },
-        {
-          "date": "2025-10-03",
-          "count": 2
-        },
-        {
-          "date": "2025-10-04",
-          "count": 1
-        },
-        {
-          "date": "2025-10-05",
-          "count": 1
-        },
-        {
-          "date": "2025-10-06",
-          "count": 1
-        },
-        {
-          "date": "2025-10-07",
-          "count": 1
-        },
-        {
-          "date": "2025-10-08",
-          "count": 1
-        },
-        {
-          "date": "2025-10-09",
-          "count": 3
-        },
-        {
-          "date": "2025-10-10",
-          "count": 3
-        },
-        {
-          "date": "2025-10-11",
-          "count": 4
-        },
-        {
-          "date": "2025-10-12",
-          "count": 1
-        },
-        {
-          "date": "2025-10-13",
-          "count": 2
-        },
-        {
-          "date": "2025-10-14",
-          "count": 1
-        },
-        {
-          "date": "2025-10-15",
-          "count": 4
-        },
-        {
-          "date": "2025-10-16",
-          "count": 5
-        },
-        {
-          "date": "2025-10-17",
-          "count": 1
-        },
-        {
-          "date": "2025-10-18",
-          "count": 1
-        },
-        {
-          "date": "2025-10-19",
-          "count": 2
-        },
-        {
-          "date": "2025-10-20",
-          "count": 3
-        },
-        {
-          "date": "2025-10-21",
-          "count": 1
-        },
-        {
-          "date": "2025-10-22",
-          "count": 4
-        },
-        {
-          "date": "2025-10-23",
-          "count": 4
-        },
-        {
-          "date": "2025-10-24",
-          "count": 2
-        },
-        {
-          "date": "2025-10-25",
-          "count": 1
-        },
-        {
-          "date": "2025-10-26",
-          "count": 1
-        },
-        {
-          "date": "2025-10-27",
-          "count": 1
-        },
-        {
-          "date": "2025-10-28",
-          "count": 1
-        },
-        {
-          "date": "2025-10-29",
-          "count": 2
-        },
-        {
-          "date": "2025-10-30",
-          "count": 1
-        },
-        {
-          "date": "2025-10-31",
-          "count": 1
-        },
-        {
-          "date": "2025-11-01",
-          "count": 1
-        },
-        {
-          "date": "2025-11-02",
-          "count": 1
-        },
-        {
-          "date": "2025-11-03",
-          "count": 1
-        },
-        {
-          "date": "2025-11-04",
-          "count": 1
-        },
-        {
-          "date": "2025-11-05",
-          "count": 1
-        },
-        {
-          "date": "2025-11-06",
-          "count": 2
-        },
-        {
-          "date": "2025-11-07",
-          "count": 2
-        },
-        {
-          "date": "2025-11-08",
-          "count": 2
-        },
-        {
-          "date": "2025-11-09",
-          "count": 2
-        },
-        {
-          "date": "2025-11-10",
-          "count": 1
-        },
-        {
-          "date": "2025-11-11",
-          "count": 2
-        },
-        {
-          "date": "2025-11-12",
-          "count": 1
-        },
-        {
-          "date": "2025-11-13",
-          "count": 2
-        },
-        {
-          "date": "2025-11-14",
-          "count": 1
-        },
-        {
-          "date": "2025-11-15",
-          "count": 2
-        },
-        {
-          "date": "2025-11-16",
-          "count": 1
-        },
-        {
-          "date": "2025-11-17",
-          "count": 1
-        },
-        {
-          "date": "2025-11-18",
-          "count": 2
-        },
-        {
-          "date": "2025-11-19",
-          "count": 1
-        },
-        {
-          "date": "2025-11-20",
-          "count": 2
-        },
-        {
-          "date": "2025-11-21",
-          "count": 1
-        },
-        {
-          "date": "2025-11-22",
-          "count": 1
-        },
-        {
-          "date": "2025-11-23",
-          "count": 1
-        },
-        {
-          "date": "2025-11-24",
-          "count": 1
-        },
-        {
           "date": "2025-11-25",
-          "count": 2
+          "count": 12
         },
         {
           "date": "2025-11-26",
-          "count": 3
+          "count": 9
         },
         {
           "date": "2025-11-27",
-          "count": 1
+          "count": 9
         },
         {
           "date": "2025-11-28",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2025-11-29",
-          "count": 2
+          "count": 4
         },
         {
           "date": "2025-11-30",
-          "count": 1
+          "count": 8
         },
         {
           "date": "2025-12-01",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2025-12-02",
-          "count": 2
+          "count": 4
         },
         {
           "date": "2025-12-03",
@@ -1580,7 +570,7 @@
         },
         {
           "date": "2025-12-04",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2025-12-05",
@@ -1588,15 +578,15 @@
         },
         {
           "date": "2025-12-06",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-07",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-08",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-09",
@@ -1608,7 +598,7 @@
         },
         {
           "date": "2025-12-11",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-12",
@@ -1628,15 +618,15 @@
         },
         {
           "date": "2025-12-16",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-17",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-18",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-19",
@@ -1644,7 +634,7 @@
         },
         {
           "date": "2025-12-20",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-21",
@@ -1652,382 +642,131 @@
         },
         {
           "date": "2025-12-22",
-          "count": 2
+          "count": 1
+        },
+        {
+          "date": "2025-12-23",
+          "count": 1
+        },
+        {
+          "date": "2025-12-24",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.24,
-        "suggested": 0.26,
-        "browse": 0.2,
-        "external": 0.16,
-        "direct": 0.11,
-        "notifications": 0.07,
-        "other": 0.07
+        "search": 20,
+        "suggested": 25,
+        "browse": 20,
+        "external": 13,
+        "other": 4
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.13,
-          "25-34": 0.32,
-          "35-44": 0.24,
-          "45-54": 0.16,
-          "55-64": 0.1,
-          "65+": 0.04
+        "age": {
+          "18-24": 13,
+          "25-34": 26,
+          "35-44": 23,
+          "45-54": 10,
+          "55+": 5
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.57
-          },
-          {
-            "country": "IN",
-            "percentage": 0.11
-          },
-          {
-            "country": "UK",
-            "percentage": 0.1
+            "percentage": 72
           },
           {
             "country": "CA",
-            "percentage": 0.05
+            "percentage": 7
           },
           {
-            "country": "BR",
-            "percentage": 0.02
+            "country": "IN",
+            "percentage": 8
+          },
+          {
+            "country": "GB",
+            "percentage": 5
           }
         ]
       }
     },
     {
       "episodeId": "ep-005",
-      "youtubeVideoId": "yt-005mock",
-      "title": "Deep Dive: Market Trends That Matter",
-      "publishDate": "2025-10-01",
       "metrics": {
-        "totalViews": 384,
-        "uniqueViewers": 307,
-        "avgViewDuration": 0.31,
-        "avgViewDurationMinutes": 11,
-        "watchTimeHours": 67.5,
-        "likes": 16,
+        "totalViews": 49,
+        "uniqueViewers": 42,
+        "avgViewDuration": 0.323,
+        "watchTimeHours": 7.6,
+        "likes": 6,
         "comments": 7,
-        "shares": 5,
-        "subscribersGained": 19,
-        "subscribersLost": 1,
-        "impressions": 1770,
-        "clickThroughRate": 0.06
+        "shares": 2,
+        "subscribersGained": 4,
+        "subscribersLost": 0,
+        "impressions": 237,
+        "impressionsCTR": 0.089
       },
       "dailyViews": [
         {
-          "date": "2025-10-01",
-          "count": 62
-        },
-        {
-          "date": "2025-10-02",
-          "count": 57
-        },
-        {
-          "date": "2025-10-03",
-          "count": 27
-        },
-        {
-          "date": "2025-10-04",
-          "count": 9
-        },
-        {
-          "date": "2025-10-05",
-          "count": 5
-        },
-        {
-          "date": "2025-10-06",
-          "count": 3
-        },
-        {
-          "date": "2025-10-07",
-          "count": 4
-        },
-        {
-          "date": "2025-10-08",
-          "count": 3
-        },
-        {
-          "date": "2025-10-09",
-          "count": 3
-        },
-        {
-          "date": "2025-10-10",
-          "count": 3
-        },
-        {
-          "date": "2025-10-11",
-          "count": 2
-        },
-        {
-          "date": "2025-10-12",
-          "count": 1
-        },
-        {
-          "date": "2025-10-13",
-          "count": 1
-        },
-        {
-          "date": "2025-10-14",
-          "count": 2
-        },
-        {
-          "date": "2025-10-15",
-          "count": 5
-        },
-        {
-          "date": "2025-10-16",
-          "count": 3
-        },
-        {
-          "date": "2025-10-17",
-          "count": 3
-        },
-        {
-          "date": "2025-10-18",
-          "count": 3
-        },
-        {
-          "date": "2025-10-19",
-          "count": 5
-        },
-        {
-          "date": "2025-10-20",
-          "count": 2
-        },
-        {
-          "date": "2025-10-21",
-          "count": 2
-        },
-        {
-          "date": "2025-10-22",
-          "count": 6
-        },
-        {
-          "date": "2025-10-23",
-          "count": 6
-        },
-        {
-          "date": "2025-10-24",
-          "count": 5
-        },
-        {
-          "date": "2025-10-25",
-          "count": 9
-        },
-        {
-          "date": "2025-10-26",
-          "count": 3
-        },
-        {
-          "date": "2025-10-27",
-          "count": 5
-        },
-        {
-          "date": "2025-10-28",
-          "count": 9
-        },
-        {
-          "date": "2025-10-29",
-          "count": 5
-        },
-        {
-          "date": "2025-10-30",
-          "count": 3
-        },
-        {
-          "date": "2025-10-31",
-          "count": 3
-        },
-        {
-          "date": "2025-11-01",
-          "count": 1
-        },
-        {
-          "date": "2025-11-02",
-          "count": 2
-        },
-        {
-          "date": "2025-11-03",
-          "count": 2
-        },
-        {
-          "date": "2025-11-04",
-          "count": 2
-        },
-        {
-          "date": "2025-11-05",
-          "count": 4
-        },
-        {
-          "date": "2025-11-06",
-          "count": 1
-        },
-        {
-          "date": "2025-11-07",
-          "count": 4
-        },
-        {
-          "date": "2025-11-08",
-          "count": 2
-        },
-        {
-          "date": "2025-11-09",
-          "count": 2
-        },
-        {
-          "date": "2025-11-10",
-          "count": 2
-        },
-        {
-          "date": "2025-11-11",
-          "count": 1
-        },
-        {
-          "date": "2025-11-12",
-          "count": 4
-        },
-        {
-          "date": "2025-11-13",
-          "count": 2
-        },
-        {
-          "date": "2025-11-14",
-          "count": 2
-        },
-        {
-          "date": "2025-11-15",
-          "count": 2
-        },
-        {
-          "date": "2025-11-16",
-          "count": 2
-        },
-        {
-          "date": "2025-11-17",
-          "count": 1
-        },
-        {
-          "date": "2025-11-18",
-          "count": 3
-        },
-        {
-          "date": "2025-11-19",
-          "count": 3
-        },
-        {
-          "date": "2025-11-20",
-          "count": 4
-        },
-        {
-          "date": "2025-11-21",
-          "count": 1
-        },
-        {
-          "date": "2025-11-22",
-          "count": 5
-        },
-        {
-          "date": "2025-11-23",
-          "count": 2
-        },
-        {
-          "date": "2025-11-24",
-          "count": 1
-        },
-        {
-          "date": "2025-11-25",
-          "count": 2
-        },
-        {
-          "date": "2025-11-26",
-          "count": 1
-        },
-        {
-          "date": "2025-11-27",
-          "count": 2
-        },
-        {
-          "date": "2025-11-28",
-          "count": 1
-        },
-        {
-          "date": "2025-11-29",
-          "count": 2
-        },
-        {
-          "date": "2025-11-30",
-          "count": 1
-        },
-        {
-          "date": "2025-12-01",
-          "count": 1
-        },
-        {
           "date": "2025-12-02",
-          "count": 2
+          "count": 12
         },
         {
           "date": "2025-12-03",
-          "count": 4
+          "count": 10
         },
         {
           "date": "2025-12-04",
-          "count": 4
+          "count": 9
         },
         {
           "date": "2025-12-05",
-          "count": 2
+          "count": 8
         },
         {
           "date": "2025-12-06",
-          "count": 1
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1
-        },
-        {
-          "date": "2025-12-08",
-          "count": 2
-        },
-        {
-          "date": "2025-12-09",
-          "count": 4
-        },
-        {
-          "date": "2025-12-10",
-          "count": 2
-        },
-        {
-          "date": "2025-12-11",
-          "count": 4
-        },
-        {
-          "date": "2025-12-12",
           "count": 5
         },
         {
+          "date": "2025-12-07",
+          "count": 4
+        },
+        {
+          "date": "2025-12-08",
+          "count": 5
+        },
+        {
+          "date": "2025-12-09",
+          "count": 3
+        },
+        {
+          "date": "2025-12-10",
+          "count": 3
+        },
+        {
+          "date": "2025-12-11",
+          "count": 2
+        },
+        {
+          "date": "2025-12-12",
+          "count": 3
+        },
+        {
           "date": "2025-12-13",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-14",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-15",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-16",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-17",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-18",
@@ -2035,7 +774,7 @@
         },
         {
           "date": "2025-12-19",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-20",
@@ -2043,7 +782,7 @@
         },
         {
           "date": "2025-12-21",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-22",
@@ -2055,11 +794,11 @@
         },
         {
           "date": "2025-12-24",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-25",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-26",
@@ -2075,346 +814,95 @@
         },
         {
           "date": "2025-12-29",
-          "count": 2
+          "count": 1
+        },
+        {
+          "date": "2025-12-30",
+          "count": 1
+        },
+        {
+          "date": "2025-12-31",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.26,
-        "suggested": 0.34,
-        "browse": 0.13,
-        "external": 0.17,
-        "direct": 0.05,
-        "notifications": 0.06,
-        "other": 0.04
+        "search": 18,
+        "suggested": 23,
+        "browse": 26,
+        "external": 13,
+        "other": 5
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.12,
-          "25-34": 0.31,
-          "35-44": 0.27,
-          "45-54": 0.11,
-          "55-64": 0.08,
-          "65+": 0.03
+        "age": {
+          "18-24": 10,
+          "25-34": 34,
+          "35-44": 22,
+          "45-54": 18,
+          "55+": 7
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.6
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.06
+            "percentage": 62
           },
           {
             "country": "CA",
-            "percentage": 0.04
+            "percentage": 5
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 3
+          },
+          {
+            "country": "GB",
+            "percentage": 4
           }
         ]
       }
     },
     {
       "episodeId": "ep-006",
-      "youtubeVideoId": "yt-006mock",
-      "title": "Interview with Marcus Johnson - Scaling Teams",
-      "publishDate": "2025-10-08",
       "metrics": {
-        "totalViews": 416,
-        "uniqueViewers": 312,
-        "avgViewDuration": 0.42,
-        "avgViewDurationMinutes": 16,
-        "watchTimeHours": 113.6,
-        "likes": 24,
-        "comments": 7,
+        "totalViews": 33,
+        "uniqueViewers": 24,
+        "avgViewDuration": 0.311,
+        "watchTimeHours": 3.1,
+        "likes": 4,
+        "comments": 3,
         "shares": 2,
-        "subscribersGained": 6,
-        "subscribersLost": 2,
-        "impressions": 1868,
-        "clickThroughRate": 0.08
+        "subscribersGained": 4,
+        "subscribersLost": 1,
+        "impressions": 229,
+        "impressionsCTR": 0.094
       },
       "dailyViews": [
         {
-          "date": "2025-10-08",
-          "count": 84
-        },
-        {
-          "date": "2025-10-09",
-          "count": 42
-        },
-        {
-          "date": "2025-10-10",
-          "count": 38
-        },
-        {
-          "date": "2025-10-11",
-          "count": 9
-        },
-        {
-          "date": "2025-10-12",
-          "count": 5
-        },
-        {
-          "date": "2025-10-13",
-          "count": 4
-        },
-        {
-          "date": "2025-10-14",
-          "count": 5
-        },
-        {
-          "date": "2025-10-15",
-          "count": 4
-        },
-        {
-          "date": "2025-10-16",
-          "count": 3
-        },
-        {
-          "date": "2025-10-17",
-          "count": 3
-        },
-        {
-          "date": "2025-10-18",
-          "count": 2
-        },
-        {
-          "date": "2025-10-19",
-          "count": 2
-        },
-        {
-          "date": "2025-10-20",
-          "count": 1
-        },
-        {
-          "date": "2025-10-21",
-          "count": 2
-        },
-        {
-          "date": "2025-10-22",
-          "count": 4
-        },
-        {
-          "date": "2025-10-23",
-          "count": 2
-        },
-        {
-          "date": "2025-10-24",
-          "count": 8
-        },
-        {
-          "date": "2025-10-25",
-          "count": 7
-        },
-        {
-          "date": "2025-10-26",
-          "count": 4
-        },
-        {
-          "date": "2025-10-27",
-          "count": 5
-        },
-        {
-          "date": "2025-10-28",
-          "count": 4
-        },
-        {
-          "date": "2025-10-29",
-          "count": 5
-        },
-        {
-          "date": "2025-10-30",
-          "count": 7
-        },
-        {
-          "date": "2025-10-31",
-          "count": 6
-        },
-        {
-          "date": "2025-11-01",
-          "count": 5
-        },
-        {
-          "date": "2025-11-02",
-          "count": 2
-        },
-        {
-          "date": "2025-11-03",
-          "count": 3
-        },
-        {
-          "date": "2025-11-04",
-          "count": 4
-        },
-        {
-          "date": "2025-11-05",
-          "count": 6
-        },
-        {
-          "date": "2025-11-06",
-          "count": 4
-        },
-        {
-          "date": "2025-11-07",
-          "count": 3
-        },
-        {
-          "date": "2025-11-08",
-          "count": 3
-        },
-        {
-          "date": "2025-11-09",
-          "count": 3
-        },
-        {
-          "date": "2025-11-10",
-          "count": 1
-        },
-        {
-          "date": "2025-11-11",
-          "count": 5
-        },
-        {
-          "date": "2025-11-12",
-          "count": 4
-        },
-        {
-          "date": "2025-11-13",
-          "count": 3
-        },
-        {
-          "date": "2025-11-14",
-          "count": 4
-        },
-        {
-          "date": "2025-11-15",
-          "count": 4
-        },
-        {
-          "date": "2025-11-16",
-          "count": 2
-        },
-        {
-          "date": "2025-11-17",
-          "count": 2
-        },
-        {
-          "date": "2025-11-18",
-          "count": 1
-        },
-        {
-          "date": "2025-11-19",
-          "count": 1
-        },
-        {
-          "date": "2025-11-20",
-          "count": 1
-        },
-        {
-          "date": "2025-11-21",
-          "count": 2
-        },
-        {
-          "date": "2025-11-22",
-          "count": 2
-        },
-        {
-          "date": "2025-11-23",
-          "count": 1
-        },
-        {
-          "date": "2025-11-24",
-          "count": 2
-        },
-        {
-          "date": "2025-11-25",
-          "count": 1
-        },
-        {
-          "date": "2025-11-26",
-          "count": 1
-        },
-        {
-          "date": "2025-11-27",
-          "count": 3
-        },
-        {
-          "date": "2025-11-28",
-          "count": 5
-        },
-        {
-          "date": "2025-11-29",
-          "count": 2
-        },
-        {
-          "date": "2025-11-30",
-          "count": 1
-        },
-        {
-          "date": "2025-12-01",
-          "count": 1
-        },
-        {
-          "date": "2025-12-02",
-          "count": 5
-        },
-        {
-          "date": "2025-12-03",
-          "count": 5
-        },
-        {
-          "date": "2025-12-04",
-          "count": 3
-        },
-        {
-          "date": "2025-12-05",
-          "count": 2
-        },
-        {
-          "date": "2025-12-06",
-          "count": 3
-        },
-        {
-          "date": "2025-12-07",
-          "count": 2
-        },
-        {
-          "date": "2025-12-08",
-          "count": 2
-        },
-        {
           "date": "2025-12-09",
-          "count": 2
+          "count": 6
         },
         {
           "date": "2025-12-10",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2025-12-11",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2025-12-12",
-          "count": 5
+          "count": 3
         },
         {
           "date": "2025-12-13",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2025-12-14",
-          "count": 2
+          "count": 4
         },
         {
           "date": "2025-12-15",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2025-12-16",
@@ -2434,11 +922,11 @@
         },
         {
           "date": "2025-12-20",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-21",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2025-12-22",
@@ -2450,7 +938,7 @@
         },
         {
           "date": "2025-12-24",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-25",
@@ -2470,7 +958,7 @@
         },
         {
           "date": "2025-12-29",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-30",
@@ -2478,7 +966,7 @@
         },
         {
           "date": "2025-12-31",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-01",
@@ -2486,382 +974,131 @@
         },
         {
           "date": "2026-01-02",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-03",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-04",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-05",
-          "count": 2
+          "count": 1
+        },
+        {
+          "date": "2026-01-06",
+          "count": 1
+        },
+        {
+          "date": "2026-01-07",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.26,
-        "suggested": 0.26,
-        "browse": 0.19,
-        "external": 0.09,
-        "direct": 0.06,
-        "notifications": 0.06,
-        "other": 0.04
+        "search": 28,
+        "suggested": 17,
+        "browse": 20,
+        "external": 24,
+        "other": 10
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.12,
-          "25-34": 0.34,
-          "35-44": 0.24,
-          "45-54": 0.11,
-          "55-64": 0.05,
-          "65+": 0.02
+        "age": {
+          "18-24": 9,
+          "25-34": 26,
+          "35-44": 25,
+          "45-54": 17,
+          "55+": 7
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.56
-          },
-          {
-            "country": "IN",
-            "percentage": 0.11
-          },
-          {
-            "country": "UK",
-            "percentage": 0.11
+            "percentage": 74
           },
           {
             "country": "CA",
-            "percentage": 0.07
+            "percentage": 9
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 5
+          },
+          {
+            "country": "GB",
+            "percentage": 3
           }
         ]
       }
     },
     {
       "episodeId": "ep-007",
-      "youtubeVideoId": "yt-007mock",
-      "title": "Listener Q&A - Your Questions Answered",
-      "publishDate": "2025-10-15",
       "metrics": {
-        "totalViews": 440,
-        "uniqueViewers": 321,
-        "avgViewDuration": 0.53,
-        "avgViewDurationMinutes": 34,
-        "watchTimeHours": 252.6,
-        "likes": 35,
-        "comments": 4,
-        "shares": 1,
-        "subscribersGained": 5,
-        "subscribersLost": 5,
-        "impressions": 2178,
-        "clickThroughRate": 0.12
+        "totalViews": 54,
+        "uniqueViewers": 40,
+        "avgViewDuration": 0.541,
+        "watchTimeHours": 10.7,
+        "likes": 4,
+        "comments": 1,
+        "shares": 3,
+        "subscribersGained": 4,
+        "subscribersLost": 1,
+        "impressions": 249,
+        "impressionsCTR": 0.093
       },
       "dailyViews": [
         {
-          "date": "2025-10-15",
-          "count": 82
-        },
-        {
-          "date": "2025-10-16",
-          "count": 54
-        },
-        {
-          "date": "2025-10-17",
-          "count": 35
-        },
-        {
-          "date": "2025-10-18",
-          "count": 9
-        },
-        {
-          "date": "2025-10-19",
-          "count": 5
-        },
-        {
-          "date": "2025-10-20",
-          "count": 4
-        },
-        {
-          "date": "2025-10-21",
-          "count": 5
-        },
-        {
-          "date": "2025-10-22",
-          "count": 3
-        },
-        {
-          "date": "2025-10-23",
-          "count": 3
-        },
-        {
-          "date": "2025-10-24",
-          "count": 3
-        },
-        {
-          "date": "2025-10-25",
-          "count": 2
-        },
-        {
-          "date": "2025-10-26",
-          "count": 2
-        },
-        {
-          "date": "2025-10-27",
-          "count": 1
-        },
-        {
-          "date": "2025-10-28",
-          "count": 2
-        },
-        {
-          "date": "2025-10-29",
-          "count": 5
-        },
-        {
-          "date": "2025-10-30",
-          "count": 8
-        },
-        {
-          "date": "2025-10-31",
-          "count": 9
-        },
-        {
-          "date": "2025-11-01",
-          "count": 2
-        },
-        {
-          "date": "2025-11-02",
-          "count": 5
-        },
-        {
-          "date": "2025-11-03",
-          "count": 4
-        },
-        {
-          "date": "2025-11-04",
-          "count": 6
-        },
-        {
-          "date": "2025-11-05",
-          "count": 8
-        },
-        {
-          "date": "2025-11-06",
-          "count": 3
-        },
-        {
-          "date": "2025-11-07",
-          "count": 3
-        },
-        {
-          "date": "2025-11-08",
-          "count": 4
-        },
-        {
-          "date": "2025-11-09",
-          "count": 2
-        },
-        {
-          "date": "2025-11-10",
-          "count": 4
-        },
-        {
-          "date": "2025-11-11",
-          "count": 6
-        },
-        {
-          "date": "2025-11-12",
-          "count": 3
-        },
-        {
-          "date": "2025-11-13",
-          "count": 8
-        },
-        {
-          "date": "2025-11-14",
-          "count": 1
-        },
-        {
-          "date": "2025-11-15",
-          "count": 3
-        },
-        {
-          "date": "2025-11-16",
-          "count": 2
-        },
-        {
-          "date": "2025-11-17",
-          "count": 2
-        },
-        {
-          "date": "2025-11-18",
-          "count": 2
-        },
-        {
-          "date": "2025-11-19",
-          "count": 1
-        },
-        {
-          "date": "2025-11-20",
-          "count": 2
-        },
-        {
-          "date": "2025-11-21",
-          "count": 1
-        },
-        {
-          "date": "2025-11-22",
-          "count": 5
-        },
-        {
-          "date": "2025-11-23",
-          "count": 2
-        },
-        {
-          "date": "2025-11-24",
-          "count": 3
-        },
-        {
-          "date": "2025-11-25",
-          "count": 1
-        },
-        {
-          "date": "2025-11-26",
-          "count": 1
-        },
-        {
-          "date": "2025-11-27",
-          "count": 1
-        },
-        {
-          "date": "2025-11-28",
-          "count": 3
-        },
-        {
-          "date": "2025-11-29",
-          "count": 5
-        },
-        {
-          "date": "2025-11-30",
-          "count": 1
-        },
-        {
-          "date": "2025-12-01",
-          "count": 2
-        },
-        {
-          "date": "2025-12-02",
-          "count": 5
-        },
-        {
-          "date": "2025-12-03",
-          "count": 5
-        },
-        {
-          "date": "2025-12-04",
-          "count": 3
-        },
-        {
-          "date": "2025-12-05",
-          "count": 5
-        },
-        {
-          "date": "2025-12-06",
-          "count": 1
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1
-        },
-        {
-          "date": "2025-12-08",
-          "count": 3
-        },
-        {
-          "date": "2025-12-09",
-          "count": 5
-        },
-        {
-          "date": "2025-12-10",
-          "count": 4
-        },
-        {
-          "date": "2025-12-11",
-          "count": 1
-        },
-        {
-          "date": "2025-12-12",
-          "count": 1
-        },
-        {
-          "date": "2025-12-13",
-          "count": 4
-        },
-        {
-          "date": "2025-12-14",
-          "count": 1
-        },
-        {
-          "date": "2025-12-15",
-          "count": 2
-        },
-        {
           "date": "2025-12-16",
-          "count": 1
+          "count": 11
         },
         {
           "date": "2025-12-17",
-          "count": 3
+          "count": 11
         },
         {
           "date": "2025-12-18",
-          "count": 4
+          "count": 10
         },
         {
           "date": "2025-12-19",
-          "count": 3
+          "count": 8
         },
         {
           "date": "2025-12-20",
-          "count": 4
+          "count": 7
         },
         {
           "date": "2025-12-21",
-          "count": 3
-        },
-        {
-          "date": "2025-12-22",
-          "count": 2
-        },
-        {
-          "date": "2025-12-23",
-          "count": 4
-        },
-        {
-          "date": "2025-12-24",
-          "count": 1
-        },
-        {
-          "date": "2025-12-25",
-          "count": 1
-        },
-        {
-          "date": "2025-12-26",
           "count": 5
         },
         {
+          "date": "2025-12-22",
+          "count": 4
+        },
+        {
+          "date": "2025-12-23",
+          "count": 5
+        },
+        {
+          "date": "2025-12-24",
+          "count": 4
+        },
+        {
+          "date": "2025-12-25",
+          "count": 3
+        },
+        {
+          "date": "2025-12-26",
+          "count": 2
+        },
+        {
           "date": "2025-12-27",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2025-12-28",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2025-12-29",
@@ -2873,19 +1110,19 @@
         },
         {
           "date": "2025-12-31",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-01",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-02",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-03",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-01-04",
@@ -2897,19 +1134,19 @@
         },
         {
           "date": "2026-01-06",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-07",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-08",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-09",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-10",
@@ -2917,346 +1154,95 @@
         },
         {
           "date": "2026-01-11",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-12",
-          "count": 3
+          "count": 1
+        },
+        {
+          "date": "2026-01-13",
+          "count": 1
+        },
+        {
+          "date": "2026-01-14",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.16,
-        "suggested": 0.32,
-        "browse": 0.17,
-        "external": 0.15,
-        "direct": 0.1,
-        "notifications": 0.05,
-        "other": 0.05
+        "search": 25,
+        "suggested": 24,
+        "browse": 35,
+        "external": 12,
+        "other": 9
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.1,
-          "25-34": 0.35,
-          "35-44": 0.25,
-          "45-54": 0.12,
-          "55-64": 0.08,
-          "65+": 0.04
+        "age": {
+          "18-24": 10,
+          "25-34": 28,
+          "35-44": 26,
+          "45-54": 12,
+          "55+": 10
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.6
-          },
-          {
-            "country": "IN",
-            "percentage": 0.09
-          },
-          {
-            "country": "UK",
-            "percentage": 0.08
+            "percentage": 67
           },
           {
             "country": "CA",
-            "percentage": 0.04
+            "percentage": 5
           },
           {
-            "country": "BR",
-            "percentage": 0.04
+            "country": "IN",
+            "percentage": 6
+          },
+          {
+            "country": "GB",
+            "percentage": 3
           }
         ]
       }
     },
     {
       "episodeId": "ep-008",
-      "youtubeVideoId": "yt-008mock",
-      "title": "The Future of Remote Work",
-      "publishDate": "2025-10-22",
       "metrics": {
-        "totalViews": 441,
-        "uniqueViewers": 357,
-        "avgViewDuration": 0.51,
-        "avgViewDurationMinutes": 19,
-        "watchTimeHours": 138.7,
-        "likes": 33,
-        "comments": 6,
-        "shares": 4,
-        "subscribersGained": 13,
-        "subscribersLost": 3,
-        "impressions": 1508,
-        "clickThroughRate": 0.06
+        "totalViews": 26,
+        "uniqueViewers": 20,
+        "avgViewDuration": 0.337,
+        "watchTimeHours": 3.2,
+        "likes": 12,
+        "comments": 4,
+        "shares": 3,
+        "subscribersGained": 1,
+        "subscribersLost": 1,
+        "impressions": 80,
+        "impressionsCTR": 0.105
       },
       "dailyViews": [
         {
-          "date": "2025-10-22",
-          "count": 75
-        },
-        {
-          "date": "2025-10-23",
-          "count": 53
-        },
-        {
-          "date": "2025-10-24",
-          "count": 27
-        },
-        {
-          "date": "2025-10-25",
-          "count": 11
-        },
-        {
-          "date": "2025-10-26",
-          "count": 5
-        },
-        {
-          "date": "2025-10-27",
-          "count": 3
-        },
-        {
-          "date": "2025-10-28",
-          "count": 5
-        },
-        {
-          "date": "2025-10-29",
-          "count": 4
-        },
-        {
-          "date": "2025-10-30",
-          "count": 3
-        },
-        {
-          "date": "2025-10-31",
-          "count": 3
-        },
-        {
-          "date": "2025-11-01",
-          "count": 3
-        },
-        {
-          "date": "2025-11-02",
-          "count": 1
-        },
-        {
-          "date": "2025-11-03",
-          "count": 1
-        },
-        {
-          "date": "2025-11-04",
-          "count": 2
-        },
-        {
-          "date": "2025-11-05",
-          "count": 9
-        },
-        {
-          "date": "2025-11-06",
-          "count": 8
-        },
-        {
-          "date": "2025-11-07",
-          "count": 11
-        },
-        {
-          "date": "2025-11-08",
-          "count": 7
-        },
-        {
-          "date": "2025-11-09",
-          "count": 4
-        },
-        {
-          "date": "2025-11-10",
-          "count": 6
-        },
-        {
-          "date": "2025-11-11",
-          "count": 7
-        },
-        {
-          "date": "2025-11-12",
-          "count": 8
-        },
-        {
-          "date": "2025-11-13",
-          "count": 6
-        },
-        {
-          "date": "2025-11-14",
-          "count": 8
-        },
-        {
-          "date": "2025-11-15",
-          "count": 4
-        },
-        {
-          "date": "2025-11-16",
-          "count": 5
-        },
-        {
-          "date": "2025-11-17",
-          "count": 2
-        },
-        {
-          "date": "2025-11-18",
-          "count": 7
-        },
-        {
-          "date": "2025-11-19",
-          "count": 8
-        },
-        {
-          "date": "2025-11-20",
-          "count": 2
-        },
-        {
-          "date": "2025-11-21",
-          "count": 1
-        },
-        {
-          "date": "2025-11-22",
-          "count": 2
-        },
-        {
-          "date": "2025-11-23",
-          "count": 2
-        },
-        {
-          "date": "2025-11-24",
-          "count": 2
-        },
-        {
-          "date": "2025-11-25",
-          "count": 2
-        },
-        {
-          "date": "2025-11-26",
-          "count": 4
-        },
-        {
-          "date": "2025-11-27",
-          "count": 3
-        },
-        {
-          "date": "2025-11-28",
-          "count": 1
-        },
-        {
-          "date": "2025-11-29",
-          "count": 3
-        },
-        {
-          "date": "2025-11-30",
-          "count": 1
-        },
-        {
-          "date": "2025-12-01",
-          "count": 1
-        },
-        {
-          "date": "2025-12-02",
-          "count": 1
-        },
-        {
-          "date": "2025-12-03",
-          "count": 1
-        },
-        {
-          "date": "2025-12-04",
-          "count": 1
-        },
-        {
-          "date": "2025-12-05",
-          "count": 1
-        },
-        {
-          "date": "2025-12-06",
-          "count": 5
-        },
-        {
-          "date": "2025-12-07",
-          "count": 3
-        },
-        {
-          "date": "2025-12-08",
-          "count": 1
-        },
-        {
-          "date": "2025-12-09",
-          "count": 4
-        },
-        {
-          "date": "2025-12-10",
-          "count": 5
-        },
-        {
-          "date": "2025-12-11",
-          "count": 2
-        },
-        {
-          "date": "2025-12-12",
-          "count": 3
-        },
-        {
-          "date": "2025-12-13",
-          "count": 1
-        },
-        {
-          "date": "2025-12-14",
-          "count": 3
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 1
-        },
-        {
-          "date": "2025-12-17",
-          "count": 1
-        },
-        {
-          "date": "2025-12-18",
-          "count": 1
-        },
-        {
-          "date": "2025-12-19",
-          "count": 2
-        },
-        {
-          "date": "2025-12-20",
-          "count": 3
-        },
-        {
-          "date": "2025-12-21",
-          "count": 2
-        },
-        {
-          "date": "2025-12-22",
-          "count": 1
-        },
-        {
           "date": "2025-12-23",
-          "count": 5
+          "count": 6
         },
         {
           "date": "2025-12-24",
-          "count": 4
-        },
-        {
-          "date": "2025-12-25",
-          "count": 6
-        },
-        {
-          "date": "2025-12-26",
           "count": 5
         },
         {
-          "date": "2025-12-27",
+          "date": "2025-12-25",
           "count": 4
         },
         {
-          "date": "2025-12-28",
+          "date": "2025-12-26",
+          "count": 3
+        },
+        {
+          "date": "2025-12-27",
           "count": 2
+        },
+        {
+          "date": "2025-12-28",
+          "count": 3
         },
         {
           "date": "2025-12-29",
@@ -3264,15 +1250,15 @@
         },
         {
           "date": "2025-12-30",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2025-12-31",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-01",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-01-02",
@@ -3280,7 +1266,7 @@
         },
         {
           "date": "2026-01-03",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-04",
@@ -3292,23 +1278,23 @@
         },
         {
           "date": "2026-01-06",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-01-07",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-08",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-09",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-10",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-11",
@@ -3316,7 +1302,7 @@
         },
         {
           "date": "2026-01-12",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-13",
@@ -3324,390 +1310,139 @@
         },
         {
           "date": "2026-01-14",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-15",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-16",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-17",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-18",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-19",
           "count": 1
+        },
+        {
+          "date": "2026-01-20",
+          "count": 1
+        },
+        {
+          "date": "2026-01-21",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.23,
-        "suggested": 0.24,
-        "browse": 0.17,
-        "external": 0.08,
-        "direct": 0.06,
-        "notifications": 0.09,
-        "other": 0.07
+        "search": 20,
+        "suggested": 15,
+        "browse": 26,
+        "external": 17,
+        "other": 6
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.14,
-          "25-34": 0.36,
-          "35-44": 0.27,
-          "45-54": 0.13,
-          "55-64": 0.07,
-          "65+": 0.04
+        "age": {
+          "18-24": 10,
+          "25-34": 35,
+          "35-44": 22,
+          "45-54": 10,
+          "55+": 8
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.53
-          },
-          {
-            "country": "IN",
-            "percentage": 0.12
-          },
-          {
-            "country": "UK",
-            "percentage": 0.1
+            "percentage": 64
           },
           {
             "country": "CA",
-            "percentage": 0.06
+            "percentage": 12
           },
           {
-            "country": "BR",
-            "percentage": 0.04
+            "country": "IN",
+            "percentage": 8
+          },
+          {
+            "country": "GB",
+            "percentage": 6
           }
         ]
       }
     },
     {
       "episodeId": "ep-009",
-      "youtubeVideoId": "yt-009mock",
-      "title": "Interview with Dr. Lisa Park - AI and Ethics",
-      "publishDate": "2025-10-29",
       "metrics": {
-        "totalViews": 710,
-        "uniqueViewers": 504,
-        "avgViewDuration": 0.5,
-        "avgViewDurationMinutes": 24,
-        "watchTimeHours": 278.1,
-        "likes": 23,
-        "comments": 11,
-        "shares": 4,
-        "subscribersGained": 15,
-        "subscribersLost": 2,
-        "impressions": 3550,
-        "clickThroughRate": 0.09
+        "totalViews": 135,
+        "uniqueViewers": 99,
+        "avgViewDuration": 0.377,
+        "watchTimeHours": 21.2,
+        "likes": 19,
+        "comments": 1,
+        "shares": 2,
+        "subscribersGained": 1,
+        "subscribersLost": 0,
+        "impressions": 292,
+        "impressionsCTR": 0.057
       },
       "dailyViews": [
         {
-          "date": "2025-10-29",
-          "count": 120
-        },
-        {
-          "date": "2025-10-30",
-          "count": 100
-        },
-        {
-          "date": "2025-10-31",
-          "count": 61
-        },
-        {
-          "date": "2025-11-01",
-          "count": 15
-        },
-        {
-          "date": "2025-11-02",
-          "count": 7
-        },
-        {
-          "date": "2025-11-03",
-          "count": 7
-        },
-        {
-          "date": "2025-11-04",
-          "count": 8
-        },
-        {
-          "date": "2025-11-05",
-          "count": 6
-        },
-        {
-          "date": "2025-11-06",
-          "count": 5
-        },
-        {
-          "date": "2025-11-07",
-          "count": 4
-        },
-        {
-          "date": "2025-11-08",
-          "count": 4
-        },
-        {
-          "date": "2025-11-09",
-          "count": 3
-        },
-        {
-          "date": "2025-11-10",
-          "count": 3
-        },
-        {
-          "date": "2025-11-11",
-          "count": 3
-        },
-        {
-          "date": "2025-11-12",
-          "count": 11
-        },
-        {
-          "date": "2025-11-13",
-          "count": 17
-        },
-        {
-          "date": "2025-11-14",
-          "count": 8
-        },
-        {
-          "date": "2025-11-15",
-          "count": 9
-        },
-        {
-          "date": "2025-11-16",
-          "count": 5
-        },
-        {
-          "date": "2025-11-17",
-          "count": 5
-        },
-        {
-          "date": "2025-11-18",
-          "count": 3
-        },
-        {
-          "date": "2025-11-19",
-          "count": 6
-        },
-        {
-          "date": "2025-11-20",
-          "count": 13
-        },
-        {
-          "date": "2025-11-21",
-          "count": 20
-        },
-        {
-          "date": "2025-11-22",
-          "count": 13
-        },
-        {
-          "date": "2025-11-23",
-          "count": 3
-        },
-        {
-          "date": "2025-11-24",
-          "count": 2
-        },
-        {
-          "date": "2025-11-25",
-          "count": 7
-        },
-        {
-          "date": "2025-11-26",
-          "count": 4
-        },
-        {
-          "date": "2025-11-27",
-          "count": 3
-        },
-        {
-          "date": "2025-11-28",
-          "count": 5
-        },
-        {
-          "date": "2025-11-29",
-          "count": 5
-        },
-        {
-          "date": "2025-11-30",
-          "count": 1
-        },
-        {
-          "date": "2025-12-01",
-          "count": 4
-        },
-        {
-          "date": "2025-12-02",
-          "count": 6
-        },
-        {
-          "date": "2025-12-03",
-          "count": 2
-        },
-        {
-          "date": "2025-12-04",
-          "count": 9
-        },
-        {
-          "date": "2025-12-05",
-          "count": 7
-        },
-        {
-          "date": "2025-12-06",
-          "count": 8
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1
-        },
-        {
-          "date": "2025-12-08",
-          "count": 1
-        },
-        {
-          "date": "2025-12-09",
-          "count": 1
-        },
-        {
-          "date": "2025-12-10",
-          "count": 7
-        },
-        {
-          "date": "2025-12-11",
-          "count": 3
-        },
-        {
-          "date": "2025-12-12",
-          "count": 5
-        },
-        {
-          "date": "2025-12-13",
-          "count": 3
-        },
-        {
-          "date": "2025-12-14",
-          "count": 3
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 10
-        },
-        {
-          "date": "2025-12-17",
-          "count": 1
-        },
-        {
-          "date": "2025-12-18",
-          "count": 1
-        },
-        {
-          "date": "2025-12-19",
-          "count": 4
-        },
-        {
-          "date": "2025-12-20",
-          "count": 4
-        },
-        {
-          "date": "2025-12-21",
-          "count": 1
-        },
-        {
-          "date": "2025-12-22",
-          "count": 2
-        },
-        {
-          "date": "2025-12-23",
-          "count": 5
-        },
-        {
-          "date": "2025-12-24",
-          "count": 3
-        },
-        {
-          "date": "2025-12-25",
-          "count": 1
-        },
-        {
-          "date": "2025-12-26",
-          "count": 6
-        },
-        {
-          "date": "2025-12-27",
-          "count": 1
-        },
-        {
-          "date": "2025-12-28",
-          "count": 1
-        },
-        {
-          "date": "2025-12-29",
-          "count": 1
-        },
-        {
           "date": "2025-12-30",
-          "count": 2
+          "count": 33
         },
         {
           "date": "2025-12-31",
-          "count": 2
+          "count": 23
         },
         {
           "date": "2026-01-01",
-          "count": 6
+          "count": 17
         },
         {
           "date": "2026-01-02",
-          "count": 5
+          "count": 18
         },
         {
           "date": "2026-01-03",
-          "count": 6
+          "count": 16
         },
         {
           "date": "2026-01-04",
-          "count": 4
+          "count": 17
         },
         {
           "date": "2026-01-05",
-          "count": 1
+          "count": 14
         },
         {
           "date": "2026-01-06",
-          "count": 1
+          "count": 10
         },
         {
           "date": "2026-01-07",
-          "count": 5
+          "count": 9
         },
         {
           "date": "2026-01-08",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2026-01-09",
-          "count": 2
+          "count": 6
         },
         {
           "date": "2026-01-10",
-          "count": 6
+          "count": 4
         },
         {
           "date": "2026-01-11",
-          "count": 6
+          "count": 4
         },
         {
           "date": "2026-01-12",
@@ -3715,414 +1450,163 @@
         },
         {
           "date": "2026-01-13",
-          "count": 6
+          "count": 2
         },
         {
           "date": "2026-01-14",
-          "count": 8
+          "count": 2
         },
         {
           "date": "2026-01-15",
-          "count": 4
-        },
-        {
-          "date": "2026-01-16",
-          "count": 9
-        },
-        {
-          "date": "2026-01-17",
-          "count": 7
-        },
-        {
-          "date": "2026-01-18",
-          "count": 4
-        },
-        {
-          "date": "2026-01-19",
           "count": 3
         },
         {
+          "date": "2026-01-16",
+          "count": 3
+        },
+        {
+          "date": "2026-01-17",
+          "count": 2
+        },
+        {
+          "date": "2026-01-18",
+          "count": 2
+        },
+        {
+          "date": "2026-01-19",
+          "count": 1
+        },
+        {
           "date": "2026-01-20",
-          "count": 6
+          "count": 1
         },
         {
           "date": "2026-01-21",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-22",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-23",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-24",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-25",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-26",
-          "count": 5
+          "count": 1
+        },
+        {
+          "date": "2026-01-27",
+          "count": 1
+        },
+        {
+          "date": "2026-01-28",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.26,
-        "suggested": 0.34,
-        "browse": 0.11,
-        "external": 0.17,
-        "direct": 0.08,
-        "notifications": 0.09,
-        "other": 0.06
+        "search": 27,
+        "suggested": 23,
+        "browse": 36,
+        "external": 24,
+        "other": 5
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.12,
-          "25-34": 0.36,
-          "35-44": 0.25,
-          "45-54": 0.11,
-          "55-64": 0.1,
-          "65+": 0.03
+        "age": {
+          "18-24": 11,
+          "25-34": 34,
+          "35-44": 20,
+          "45-54": 11,
+          "55+": 10
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.59
-          },
-          {
-            "country": "IN",
-            "percentage": 0.11
-          },
-          {
-            "country": "UK",
-            "percentage": 0.11
+            "percentage": 71
           },
           {
             "country": "CA",
-            "percentage": 0.07
+            "percentage": 6
           },
           {
-            "country": "BR",
-            "percentage": 0.04
+            "country": "IN",
+            "percentage": 8
+          },
+          {
+            "country": "GB",
+            "percentage": 2
           }
         ]
       }
     },
     {
       "episodeId": "ep-010",
-      "youtubeVideoId": "yt-010mock",
-      "title": "Behind the Scenes - How We Make This Show",
-      "publishDate": "2025-11-05",
       "metrics": {
-        "totalViews": 453,
-        "uniqueViewers": 376,
-        "avgViewDuration": 0.62,
-        "avgViewDurationMinutes": 15,
-        "watchTimeHours": 112.3,
-        "likes": 31,
-        "comments": 4,
-        "shares": 3,
-        "subscribersGained": 11,
-        "subscribersLost": 5,
-        "impressions": 1744,
-        "clickThroughRate": 0.07
+        "totalViews": 40,
+        "uniqueViewers": 33,
+        "avgViewDuration": 0.629,
+        "watchTimeHours": 9.6,
+        "likes": 15,
+        "comments": 8,
+        "shares": 4,
+        "subscribersGained": 4,
+        "subscribersLost": 1,
+        "impressions": 199,
+        "impressionsCTR": 0.071
       },
       "dailyViews": [
         {
-          "date": "2025-11-05",
-          "count": 79
-        },
-        {
-          "date": "2025-11-06",
-          "count": 53
-        },
-        {
-          "date": "2025-11-07",
-          "count": 31
-        },
-        {
-          "date": "2025-11-08",
-          "count": 11
-        },
-        {
-          "date": "2025-11-09",
-          "count": 5
-        },
-        {
-          "date": "2025-11-10",
-          "count": 3
-        },
-        {
-          "date": "2025-11-11",
-          "count": 5
-        },
-        {
-          "date": "2025-11-12",
-          "count": 4
-        },
-        {
-          "date": "2025-11-13",
-          "count": 3
-        },
-        {
-          "date": "2025-11-14",
-          "count": 3
-        },
-        {
-          "date": "2025-11-15",
-          "count": 3
-        },
-        {
-          "date": "2025-11-16",
-          "count": 2
-        },
-        {
-          "date": "2025-11-17",
-          "count": 1
-        },
-        {
-          "date": "2025-11-18",
-          "count": 2
-        },
-        {
-          "date": "2025-11-19",
-          "count": 7
-        },
-        {
-          "date": "2025-11-20",
-          "count": 3
-        },
-        {
-          "date": "2025-11-21",
-          "count": 10
-        },
-        {
-          "date": "2025-11-22",
-          "count": 4
-        },
-        {
-          "date": "2025-11-23",
-          "count": 2
-        },
-        {
-          "date": "2025-11-24",
-          "count": 3
-        },
-        {
-          "date": "2025-11-25",
-          "count": 8
-        },
-        {
-          "date": "2025-11-26",
-          "count": 7
-        },
-        {
-          "date": "2025-11-27",
-          "count": 9
-        },
-        {
-          "date": "2025-11-28",
-          "count": 3
-        },
-        {
-          "date": "2025-11-29",
-          "count": 3
-        },
-        {
-          "date": "2025-11-30",
-          "count": 4
-        },
-        {
-          "date": "2025-12-01",
-          "count": 7
-        },
-        {
-          "date": "2025-12-02",
-          "count": 7
-        },
-        {
-          "date": "2025-12-03",
-          "count": 2
-        },
-        {
-          "date": "2025-12-04",
-          "count": 8
-        },
-        {
-          "date": "2025-12-05",
-          "count": 4
-        },
-        {
-          "date": "2025-12-06",
-          "count": 2
-        },
-        {
-          "date": "2025-12-07",
-          "count": 3
-        },
-        {
-          "date": "2025-12-08",
-          "count": 1
-        },
-        {
-          "date": "2025-12-09",
-          "count": 5
-        },
-        {
-          "date": "2025-12-10",
-          "count": 3
-        },
-        {
-          "date": "2025-12-11",
-          "count": 3
-        },
-        {
-          "date": "2025-12-12",
-          "count": 5
-        },
-        {
-          "date": "2025-12-13",
-          "count": 5
-        },
-        {
-          "date": "2025-12-14",
-          "count": 2
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 5
-        },
-        {
-          "date": "2025-12-17",
-          "count": 2
-        },
-        {
-          "date": "2025-12-18",
-          "count": 4
-        },
-        {
-          "date": "2025-12-19",
-          "count": 3
-        },
-        {
-          "date": "2025-12-20",
-          "count": 1
-        },
-        {
-          "date": "2025-12-21",
-          "count": 2
-        },
-        {
-          "date": "2025-12-22",
-          "count": 1
-        },
-        {
-          "date": "2025-12-23",
-          "count": 1
-        },
-        {
-          "date": "2025-12-24",
-          "count": 4
-        },
-        {
-          "date": "2025-12-25",
-          "count": 2
-        },
-        {
-          "date": "2025-12-26",
-          "count": 1
-        },
-        {
-          "date": "2025-12-27",
-          "count": 5
-        },
-        {
-          "date": "2025-12-28",
-          "count": 3
-        },
-        {
-          "date": "2025-12-29",
-          "count": 1
-        },
-        {
-          "date": "2025-12-30",
-          "count": 4
-        },
-        {
-          "date": "2025-12-31",
-          "count": 3
-        },
-        {
-          "date": "2026-01-01",
-          "count": 4
-        },
-        {
-          "date": "2026-01-02",
-          "count": 5
-        },
-        {
-          "date": "2026-01-03",
-          "count": 2
-        },
-        {
-          "date": "2026-01-04",
-          "count": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 4
-        },
-        {
           "date": "2026-01-06",
-          "count": 4
+          "count": 6
         },
         {
           "date": "2026-01-07",
-          "count": 1
+          "count": 7
         },
         {
           "date": "2026-01-08",
-          "count": 4
+          "count": 5
         },
         {
           "date": "2026-01-09",
-          "count": 1
-        },
-        {
-          "date": "2026-01-10",
-          "count": 3
-        },
-        {
-          "date": "2026-01-11",
-          "count": 2
-        },
-        {
-          "date": "2026-01-12",
-          "count": 1
-        },
-        {
-          "date": "2026-01-13",
-          "count": 1
-        },
-        {
-          "date": "2026-01-14",
           "count": 4
         },
         {
-          "date": "2026-01-15",
+          "date": "2026-01-10",
+          "count": 5
+        },
+        {
+          "date": "2026-01-11",
+          "count": 6
+        },
+        {
+          "date": "2026-01-12",
+          "count": 3
+        },
+        {
+          "date": "2026-01-13",
           "count": 2
         },
         {
+          "date": "2026-01-14",
+          "count": 2
+        },
+        {
+          "date": "2026-01-15",
+          "count": 3
+        },
+        {
           "date": "2026-01-16",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-01-17",
@@ -4130,31 +1614,31 @@
         },
         {
           "date": "2026-01-18",
-          "count": 4
-        },
-        {
-          "date": "2026-01-19",
           "count": 1
         },
         {
+          "date": "2026-01-19",
+          "count": 2
+        },
+        {
           "date": "2026-01-20",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-01-21",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-22",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-01-23",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-24",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-25",
@@ -4162,7 +1646,7 @@
         },
         {
           "date": "2026-01-26",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-27",
@@ -4174,406 +1658,155 @@
         },
         {
           "date": "2026-01-29",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-01-30",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-01-31",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-01",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-02",
           "count": 1
+        },
+        {
+          "date": "2026-02-03",
+          "count": 1
+        },
+        {
+          "date": "2026-02-04",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.21,
-        "suggested": 0.29,
-        "browse": 0.1,
-        "external": 0.15,
-        "direct": 0.06,
-        "notifications": 0.07,
-        "other": 0.06
+        "search": 24,
+        "suggested": 18,
+        "browse": 29,
+        "external": 15,
+        "other": 7
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.13,
-          "25-34": 0.34,
-          "35-44": 0.25,
-          "45-54": 0.12,
-          "55-64": 0.09,
-          "65+": 0.05
+        "age": {
+          "18-24": 16,
+          "25-34": 26,
+          "35-44": 22,
+          "45-54": 16,
+          "55+": 6
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.57
-          },
-          {
-            "country": "IN",
-            "percentage": 0.09
-          },
-          {
-            "country": "UK",
-            "percentage": 0.11
+            "percentage": 61
           },
           {
             "country": "CA",
-            "percentage": 0.07
+            "percentage": 12
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 4
+          },
+          {
+            "country": "GB",
+            "percentage": 4
           }
         ]
       }
     },
     {
       "episodeId": "ep-011",
-      "youtubeVideoId": "yt-011mock",
-      "title": "Top 10 Tools for Productivity",
-      "publishDate": "2025-11-12",
       "metrics": {
-        "totalViews": 475,
-        "uniqueViewers": 356,
-        "avgViewDuration": 0.47,
-        "avgViewDurationMinutes": 10,
-        "watchTimeHours": 78.1,
-        "likes": 30,
+        "totalViews": 53,
+        "uniqueViewers": 47,
+        "avgViewDuration": 0.557,
+        "watchTimeHours": 10.8,
+        "likes": 10,
         "comments": 4,
-        "shares": 1,
-        "subscribersGained": 26,
-        "subscribersLost": 5,
-        "impressions": 2636,
-        "clickThroughRate": 0.1
+        "shares": 5,
+        "subscribersGained": 2,
+        "subscribersLost": 0,
+        "impressions": 218,
+        "impressionsCTR": 0.062
       },
       "dailyViews": [
         {
-          "date": "2025-11-12",
-          "count": 80
-        },
-        {
-          "date": "2025-11-13",
-          "count": 66
-        },
-        {
-          "date": "2025-11-14",
-          "count": 48
-        },
-        {
-          "date": "2025-11-15",
-          "count": 13
-        },
-        {
-          "date": "2025-11-16",
-          "count": 5
-        },
-        {
-          "date": "2025-11-17",
-          "count": 4
-        },
-        {
-          "date": "2025-11-18",
-          "count": 6
-        },
-        {
-          "date": "2025-11-19",
-          "count": 4
-        },
-        {
-          "date": "2025-11-20",
-          "count": 3
-        },
-        {
-          "date": "2025-11-21",
-          "count": 4
-        },
-        {
-          "date": "2025-11-22",
-          "count": 3
-        },
-        {
-          "date": "2025-11-23",
-          "count": 2
-        },
-        {
-          "date": "2025-11-24",
-          "count": 2
-        },
-        {
-          "date": "2025-11-25",
-          "count": 2
-        },
-        {
-          "date": "2025-11-26",
-          "count": 4
-        },
-        {
-          "date": "2025-11-27",
-          "count": 6
-        },
-        {
-          "date": "2025-11-28",
-          "count": 5
-        },
-        {
-          "date": "2025-11-29",
-          "count": 5
-        },
-        {
-          "date": "2025-11-30",
-          "count": 5
-        },
-        {
-          "date": "2025-12-01",
-          "count": 4
-        },
-        {
-          "date": "2025-12-02",
-          "count": 3
-        },
-        {
-          "date": "2025-12-03",
-          "count": 3
-        },
-        {
-          "date": "2025-12-04",
-          "count": 3
-        },
-        {
-          "date": "2025-12-05",
-          "count": 8
-        },
-        {
-          "date": "2025-12-06",
-          "count": 10
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1
-        },
-        {
-          "date": "2025-12-08",
-          "count": 4
-        },
-        {
-          "date": "2025-12-09",
-          "count": 3
-        },
-        {
-          "date": "2025-12-10",
-          "count": 10
-        },
-        {
-          "date": "2025-12-11",
-          "count": 8
-        },
-        {
-          "date": "2025-12-12",
-          "count": 1
-        },
-        {
-          "date": "2025-12-13",
-          "count": 4
-        },
-        {
-          "date": "2025-12-14",
-          "count": 1
-        },
-        {
-          "date": "2025-12-15",
-          "count": 1
-        },
-        {
-          "date": "2025-12-16",
-          "count": 1
-        },
-        {
-          "date": "2025-12-17",
-          "count": 3
-        },
-        {
-          "date": "2025-12-18",
-          "count": 1
-        },
-        {
-          "date": "2025-12-19",
-          "count": 2
-        },
-        {
-          "date": "2025-12-20",
-          "count": 1
-        },
-        {
-          "date": "2025-12-21",
-          "count": 2
-        },
-        {
-          "date": "2025-12-22",
-          "count": 2
-        },
-        {
-          "date": "2025-12-23",
-          "count": 4
-        },
-        {
-          "date": "2025-12-24",
-          "count": 1
-        },
-        {
-          "date": "2025-12-25",
-          "count": 2
-        },
-        {
-          "date": "2025-12-26",
-          "count": 2
-        },
-        {
-          "date": "2025-12-27",
-          "count": 1
-        },
-        {
-          "date": "2025-12-28",
-          "count": 1
-        },
-        {
-          "date": "2025-12-29",
-          "count": 2
-        },
-        {
-          "date": "2025-12-30",
-          "count": 2
-        },
-        {
-          "date": "2025-12-31",
-          "count": 4
-        },
-        {
-          "date": "2026-01-01",
-          "count": 4
-        },
-        {
-          "date": "2026-01-02",
-          "count": 2
-        },
-        {
-          "date": "2026-01-03",
-          "count": 1
-        },
-        {
-          "date": "2026-01-04",
-          "count": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 3
-        },
-        {
-          "date": "2026-01-06",
-          "count": 4
-        },
-        {
-          "date": "2026-01-07",
-          "count": 2
-        },
-        {
-          "date": "2026-01-08",
-          "count": 3
-        },
-        {
-          "date": "2026-01-09",
-          "count": 6
-        },
-        {
-          "date": "2026-01-10",
-          "count": 5
-        },
-        {
-          "date": "2026-01-11",
-          "count": 3
-        },
-        {
-          "date": "2026-01-12",
-          "count": 3
-        },
-        {
           "date": "2026-01-13",
-          "count": 3
+          "count": 14
         },
         {
           "date": "2026-01-14",
-          "count": 5
+          "count": 12
         },
         {
           "date": "2026-01-15",
-          "count": 4
+          "count": 10
         },
         {
           "date": "2026-01-16",
-          "count": 5
+          "count": 8
         },
         {
           "date": "2026-01-17",
-          "count": 3
+          "count": 5
         },
         {
           "date": "2026-01-18",
-          "count": 4
+          "count": 8
         },
         {
           "date": "2026-01-19",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-01-20",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2026-01-21",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2026-01-22",
-          "count": 4
+          "count": 2
         },
         {
           "date": "2026-01-23",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2026-01-24",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-01-25",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2026-01-26",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-01-27",
-          "count": 4
+          "count": 2
         },
         {
           "date": "2026-01-28",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-29",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-30",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-01-31",
@@ -4581,19 +1814,19 @@
         },
         {
           "date": "2026-02-01",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-02-02",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-03",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-02-04",
-          "count": 6
+          "count": 1
         },
         {
           "date": "2026-02-05",
@@ -4601,11 +1834,11 @@
         },
         {
           "date": "2026-02-06",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-02-07",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-02-08",
@@ -4613,370 +1846,119 @@
         },
         {
           "date": "2026-02-09",
-          "count": 3
+          "count": 1
+        },
+        {
+          "date": "2026-02-10",
+          "count": 1
+        },
+        {
+          "date": "2026-02-11",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.16,
-        "suggested": 0.3,
-        "browse": 0.1,
-        "external": 0.13,
-        "direct": 0.07,
-        "notifications": 0.06,
-        "other": 0.06
+        "search": 21,
+        "suggested": 13,
+        "browse": 36,
+        "external": 20,
+        "other": 10
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.11,
-          "25-34": 0.34,
-          "35-44": 0.24,
-          "45-54": 0.15,
-          "55-64": 0.08,
-          "65+": 0.03
+        "age": {
+          "18-24": 11,
+          "25-34": 27,
+          "35-44": 24,
+          "45-54": 16,
+          "55+": 6
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.57
-          },
-          {
-            "country": "IN",
-            "percentage": 0.08
-          },
-          {
-            "country": "UK",
-            "percentage": 0.1
+            "percentage": 66
           },
           {
             "country": "CA",
-            "percentage": 0.04
+            "percentage": 5
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 6
+          },
+          {
+            "country": "GB",
+            "percentage": 2
           }
         ]
       }
     },
     {
       "episodeId": "ep-012",
-      "youtubeVideoId": "yt-012mock",
-      "title": "Interview with James Wright - Venture Capital",
-      "publishDate": "2025-11-19",
       "metrics": {
-        "totalViews": 484,
-        "uniqueViewers": 353,
-        "avgViewDuration": 0.46,
-        "avgViewDurationMinutes": 25,
-        "watchTimeHours": 200.4,
-        "likes": 31,
-        "comments": 2,
-        "shares": 1,
-        "subscribersGained": 16,
-        "subscribersLost": 0,
-        "impressions": 2798,
-        "clickThroughRate": 0.1
+        "totalViews": 77,
+        "uniqueViewers": 62,
+        "avgViewDuration": 0.448,
+        "watchTimeHours": 12.1,
+        "likes": 16,
+        "comments": 1,
+        "shares": 0,
+        "subscribersGained": 4,
+        "subscribersLost": 1,
+        "impressions": 155,
+        "impressionsCTR": 0.041
       },
       "dailyViews": [
         {
-          "date": "2025-11-19",
-          "count": 92
-        },
-        {
-          "date": "2025-11-20",
-          "count": 55
-        },
-        {
-          "date": "2025-11-21",
-          "count": 42
-        },
-        {
-          "date": "2025-11-22",
+          "date": "2026-01-20",
           "count": 11
         },
         {
-          "date": "2025-11-23",
-          "count": 7
-        },
-        {
-          "date": "2025-11-24",
-          "count": 4
-        },
-        {
-          "date": "2025-11-25",
-          "count": 6
-        },
-        {
-          "date": "2025-11-26",
-          "count": 4
-        },
-        {
-          "date": "2025-11-27",
-          "count": 4
-        },
-        {
-          "date": "2025-11-28",
-          "count": 4
-        },
-        {
-          "date": "2025-11-29",
-          "count": 3
-        },
-        {
-          "date": "2025-11-30",
-          "count": 2
-        },
-        {
-          "date": "2025-12-01",
-          "count": 1
-        },
-        {
-          "date": "2025-12-02",
-          "count": 2
-        },
-        {
-          "date": "2025-12-03",
-          "count": 7
-        },
-        {
-          "date": "2025-12-04",
-          "count": 7
-        },
-        {
-          "date": "2025-12-05",
-          "count": 5
-        },
-        {
-          "date": "2025-12-06",
-          "count": 3
-        },
-        {
-          "date": "2025-12-07",
-          "count": 4
-        },
-        {
-          "date": "2025-12-08",
-          "count": 6
-        },
-        {
-          "date": "2025-12-09",
-          "count": 8
-        },
-        {
-          "date": "2025-12-10",
-          "count": 3
-        },
-        {
-          "date": "2025-12-11",
-          "count": 8
-        },
-        {
-          "date": "2025-12-12",
-          "count": 10
-        },
-        {
-          "date": "2025-12-13",
-          "count": 4
-        },
-        {
-          "date": "2025-12-14",
-          "count": 3
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 9
-        },
-        {
-          "date": "2025-12-17",
-          "count": 5
-        },
-        {
-          "date": "2025-12-18",
-          "count": 6
-        },
-        {
-          "date": "2025-12-19",
-          "count": 2
-        },
-        {
-          "date": "2025-12-20",
-          "count": 6
-        },
-        {
-          "date": "2025-12-21",
-          "count": 3
-        },
-        {
-          "date": "2025-12-22",
-          "count": 1
-        },
-        {
-          "date": "2025-12-23",
-          "count": 2
-        },
-        {
-          "date": "2025-12-24",
-          "count": 1
-        },
-        {
-          "date": "2025-12-25",
-          "count": 3
-        },
-        {
-          "date": "2025-12-26",
-          "count": 4
-        },
-        {
-          "date": "2025-12-27",
-          "count": 1
-        },
-        {
-          "date": "2025-12-28",
-          "count": 3
-        },
-        {
-          "date": "2025-12-29",
-          "count": 1
-        },
-        {
-          "date": "2025-12-30",
-          "count": 2
-        },
-        {
-          "date": "2025-12-31",
-          "count": 2
-        },
-        {
-          "date": "2026-01-01",
-          "count": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 3
-        },
-        {
-          "date": "2026-01-03",
-          "count": 4
-        },
-        {
-          "date": "2026-01-04",
-          "count": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 1
-        },
-        {
-          "date": "2026-01-06",
-          "count": 3
-        },
-        {
-          "date": "2026-01-07",
-          "count": 4
-        },
-        {
-          "date": "2026-01-08",
-          "count": 3
-        },
-        {
-          "date": "2026-01-09",
-          "count": 5
-        },
-        {
-          "date": "2026-01-10",
-          "count": 1
-        },
-        {
-          "date": "2026-01-11",
-          "count": 2
-        },
-        {
-          "date": "2026-01-12",
-          "count": 2
-        },
-        {
-          "date": "2026-01-13",
-          "count": 5
-        },
-        {
-          "date": "2026-01-14",
-          "count": 2
-        },
-        {
-          "date": "2026-01-15",
-          "count": 3
-        },
-        {
-          "date": "2026-01-16",
-          "count": 5
-        },
-        {
-          "date": "2026-01-17",
-          "count": 3
-        },
-        {
-          "date": "2026-01-18",
-          "count": 2
-        },
-        {
-          "date": "2026-01-19",
-          "count": 1
-        },
-        {
-          "date": "2026-01-20",
-          "count": 2
-        },
-        {
           "date": "2026-01-21",
-          "count": 5
+          "count": 13
         },
         {
           "date": "2026-01-22",
-          "count": 2
+          "count": 8
         },
         {
           "date": "2026-01-23",
-          "count": 4
+          "count": 9
         },
         {
           "date": "2026-01-24",
-          "count": 2
+          "count": 8
         },
         {
           "date": "2026-01-25",
-          "count": 2
+          "count": 7
         },
         {
           "date": "2026-01-26",
-          "count": 3
+          "count": 7
         },
         {
           "date": "2026-01-27",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2026-01-28",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-01-29",
-          "count": 3
+          "count": 5
         },
         {
           "date": "2026-01-30",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-01-31",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2026-02-01",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-02-02",
@@ -4988,23 +1970,23 @@
         },
         {
           "date": "2026-02-04",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-02-05",
-          "count": 5
+          "count": 2
         },
         {
           "date": "2026-02-06",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-07",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-08",
-          "count": 3
+          "count": 1
         },
         {
           "date": "2026-02-09",
@@ -5012,11 +1994,11 @@
         },
         {
           "date": "2026-02-10",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-02-11",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-02-12",
@@ -5024,370 +2006,119 @@
         },
         {
           "date": "2026-02-13",
-          "count": 6
+          "count": 1
         },
         {
           "date": "2026-02-14",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-02-15",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-16",
-          "count": 3
+          "count": 1
+        },
+        {
+          "date": "2026-02-17",
+          "count": 1
+        },
+        {
+          "date": "2026-02-18",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.27,
-        "suggested": 0.21,
-        "browse": 0.12,
-        "external": 0.09,
-        "direct": 0.06,
-        "notifications": 0.05,
-        "other": 0.05
+        "search": 29,
+        "suggested": 22,
+        "browse": 22,
+        "external": 23,
+        "other": 7
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.15,
-          "25-34": 0.31,
-          "35-44": 0.23,
-          "45-54": 0.17,
-          "55-64": 0.06,
-          "65+": 0.05
+        "age": {
+          "18-24": 10,
+          "25-34": 33,
+          "35-44": 24,
+          "45-54": 20,
+          "55+": 12
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.61
-          },
-          {
-            "country": "IN",
-            "percentage": 0.08
-          },
-          {
-            "country": "UK",
-            "percentage": 0.09
+            "percentage": 65
           },
           {
             "country": "CA",
-            "percentage": 0.06
+            "percentage": 9
           },
           {
-            "country": "BR",
-            "percentage": 0.05
+            "country": "IN",
+            "percentage": 6
+          },
+          {
+            "country": "GB",
+            "percentage": 5
           }
         ]
       }
     },
     {
       "episodeId": "ep-013",
-      "youtubeVideoId": "yt-013mock",
-      "title": "The Psychology of Decision Making",
-      "publishDate": "2025-11-26",
       "metrics": {
-        "totalViews": 435,
-        "uniqueViewers": 331,
-        "avgViewDuration": 0.41,
-        "avgViewDurationMinutes": 18,
-        "watchTimeHours": 130.8,
-        "likes": 21,
-        "comments": 3,
-        "shares": 3,
-        "subscribersGained": 15,
-        "subscribersLost": 2,
-        "impressions": 1805,
-        "clickThroughRate": 0.07
+        "totalViews": 103,
+        "uniqueViewers": 76,
+        "avgViewDuration": 0.447,
+        "watchTimeHours": 19.2,
+        "likes": 20,
+        "comments": 8,
+        "shares": 5,
+        "subscribersGained": 1,
+        "subscribersLost": 1,
+        "impressions": 287,
+        "impressionsCTR": 0.069
       },
       "dailyViews": [
         {
-          "date": "2025-11-26",
-          "count": 81
-        },
-        {
-          "date": "2025-11-27",
-          "count": 48
-        },
-        {
-          "date": "2025-11-28",
-          "count": 32
-        },
-        {
-          "date": "2025-11-29",
-          "count": 11
-        },
-        {
-          "date": "2025-11-30",
-          "count": 4
-        },
-        {
-          "date": "2025-12-01",
-          "count": 3
-        },
-        {
-          "date": "2025-12-02",
-          "count": 5
-        },
-        {
-          "date": "2025-12-03",
-          "count": 4
-        },
-        {
-          "date": "2025-12-04",
-          "count": 3
-        },
-        {
-          "date": "2025-12-05",
-          "count": 4
-        },
-        {
-          "date": "2025-12-06",
-          "count": 3
-        },
-        {
-          "date": "2025-12-07",
-          "count": 2
-        },
-        {
-          "date": "2025-12-08",
-          "count": 1
-        },
-        {
-          "date": "2025-12-09",
-          "count": 2
-        },
-        {
-          "date": "2025-12-10",
-          "count": 2
-        },
-        {
-          "date": "2025-12-11",
-          "count": 8
-        },
-        {
-          "date": "2025-12-12",
-          "count": 8
-        },
-        {
-          "date": "2025-12-13",
-          "count": 7
-        },
-        {
-          "date": "2025-12-14",
-          "count": 5
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 7
-        },
-        {
-          "date": "2025-12-17",
-          "count": 4
-        },
-        {
-          "date": "2025-12-18",
-          "count": 5
-        },
-        {
-          "date": "2025-12-19",
-          "count": 4
-        },
-        {
-          "date": "2025-12-20",
-          "count": 6
-        },
-        {
-          "date": "2025-12-21",
-          "count": 1
-        },
-        {
-          "date": "2025-12-22",
-          "count": 7
-        },
-        {
-          "date": "2025-12-23",
-          "count": 3
-        },
-        {
-          "date": "2025-12-24",
-          "count": 6
-        },
-        {
-          "date": "2025-12-25",
-          "count": 2
-        },
-        {
-          "date": "2025-12-26",
-          "count": 1
-        },
-        {
-          "date": "2025-12-27",
-          "count": 3
-        },
-        {
-          "date": "2025-12-28",
-          "count": 2
-        },
-        {
-          "date": "2025-12-29",
-          "count": 2
-        },
-        {
-          "date": "2025-12-30",
-          "count": 2
-        },
-        {
-          "date": "2025-12-31",
-          "count": 3
-        },
-        {
-          "date": "2026-01-01",
-          "count": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 1
-        },
-        {
-          "date": "2026-01-03",
-          "count": 4
-        },
-        {
-          "date": "2026-01-04",
-          "count": 3
-        },
-        {
-          "date": "2026-01-05",
-          "count": 2
-        },
-        {
-          "date": "2026-01-06",
-          "count": 1
-        },
-        {
-          "date": "2026-01-07",
-          "count": 4
-        },
-        {
-          "date": "2026-01-08",
-          "count": 1
-        },
-        {
-          "date": "2026-01-09",
-          "count": 4
-        },
-        {
-          "date": "2026-01-10",
-          "count": 1
-        },
-        {
-          "date": "2026-01-11",
-          "count": 2
-        },
-        {
-          "date": "2026-01-12",
-          "count": 2
-        },
-        {
-          "date": "2026-01-13",
-          "count": 6
-        },
-        {
-          "date": "2026-01-14",
-          "count": 4
-        },
-        {
-          "date": "2026-01-15",
-          "count": 5
-        },
-        {
-          "date": "2026-01-16",
-          "count": 1
-        },
-        {
-          "date": "2026-01-17",
-          "count": 5
-        },
-        {
-          "date": "2026-01-18",
-          "count": 1
-        },
-        {
-          "date": "2026-01-19",
-          "count": 3
-        },
-        {
-          "date": "2026-01-20",
-          "count": 2
-        },
-        {
-          "date": "2026-01-21",
-          "count": 3
-        },
-        {
-          "date": "2026-01-22",
-          "count": 1
-        },
-        {
-          "date": "2026-01-23",
-          "count": 1
-        },
-        {
-          "date": "2026-01-24",
-          "count": 4
-        },
-        {
-          "date": "2026-01-25",
-          "count": 2
-        },
-        {
-          "date": "2026-01-26",
-          "count": 2
-        },
-        {
           "date": "2026-01-27",
-          "count": 3
+          "count": 25
         },
         {
           "date": "2026-01-28",
-          "count": 2
+          "count": 18
         },
         {
           "date": "2026-01-29",
-          "count": 4
+          "count": 13
         },
         {
           "date": "2026-01-30",
-          "count": 2
+          "count": 15
         },
         {
           "date": "2026-01-31",
-          "count": 1
+          "count": 8
         },
         {
           "date": "2026-02-01",
-          "count": 2
+          "count": 9
         },
         {
           "date": "2026-02-02",
-          "count": 4
+          "count": 13
         },
         {
           "date": "2026-02-03",
-          "count": 5
+          "count": 8
         },
         {
           "date": "2026-02-04",
-          "count": 1
+          "count": 6
         },
         {
           "date": "2026-02-05",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-02-06",
@@ -5395,11 +2126,11 @@
         },
         {
           "date": "2026-02-07",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2026-02-08",
-          "count": 3
+          "count": 5
         },
         {
           "date": "2026-02-09",
@@ -5407,7 +2138,7 @@
         },
         {
           "date": "2026-02-10",
-          "count": 3
+          "count": 2
         },
         {
           "date": "2026-02-11",
@@ -5415,7 +2146,7 @@
         },
         {
           "date": "2026-02-12",
-          "count": 6
+          "count": 2
         },
         {
           "date": "2026-02-13",
@@ -5423,11 +2154,11 @@
         },
         {
           "date": "2026-02-14",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-02-15",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-02-16",
@@ -5435,374 +2166,119 @@
         },
         {
           "date": "2026-02-17",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-18",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-19",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-20",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-21",
-          "count": 4
+          "count": 1
         },
         {
           "date": "2026-02-22",
-          "count": 2
+          "count": 1
         },
         {
           "date": "2026-02-23",
-          "count": 3
+          "count": 1
+        },
+        {
+          "date": "2026-02-24",
+          "count": 1
+        },
+        {
+          "date": "2026-02-25",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.16,
-        "suggested": 0.21,
-        "browse": 0.18,
-        "external": 0.11,
-        "direct": 0.11,
-        "notifications": 0.08,
-        "other": 0.05
+        "search": 23,
+        "suggested": 20,
+        "browse": 22,
+        "external": 21,
+        "other": 9
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.17,
-          "25-34": 0.3,
-          "35-44": 0.22,
-          "45-54": 0.17,
-          "55-64": 0.1,
-          "65+": 0.02
+        "age": {
+          "18-24": 15,
+          "25-34": 32,
+          "35-44": 30,
+          "45-54": 10,
+          "55+": 11
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.5
-          },
-          {
-            "country": "IN",
-            "percentage": 0.09
-          },
-          {
-            "country": "UK",
-            "percentage": 0.07
+            "percentage": 61
           },
           {
             "country": "CA",
-            "percentage": 0.06
+            "percentage": 8
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 8
+          },
+          {
+            "country": "GB",
+            "percentage": 4
           }
         ]
       }
     },
     {
       "episodeId": "ep-014",
-      "youtubeVideoId": "yt-014mock",
-      "title": "Special: Live Recording at TechConf 2025",
-      "publishDate": "2025-12-03",
       "metrics": {
-        "totalViews": 940,
-        "uniqueViewers": 696,
-        "avgViewDuration": 0.45,
-        "avgViewDurationMinutes": 23,
-        "watchTimeHours": 359.6,
-        "likes": 32,
-        "comments": 9,
-        "shares": 14,
-        "subscribersGained": 9,
-        "subscribersLost": 3,
-        "impressions": 3628,
-        "clickThroughRate": 0.09
+        "totalViews": 71,
+        "uniqueViewers": 52,
+        "avgViewDuration": 0.633,
+        "watchTimeHours": 15.7,
+        "likes": 10,
+        "comments": 3,
+        "shares": 4,
+        "subscribersGained": 1,
+        "subscribersLost": 1,
+        "impressions": 200,
+        "impressionsCTR": 0.056
       },
       "dailyViews": [
         {
-          "date": "2025-12-03",
-          "count": 167
-        },
-        {
-          "date": "2025-12-04",
-          "count": 120
-        },
-        {
-          "date": "2025-12-05",
-          "count": 81
-        },
-        {
-          "date": "2025-12-06",
-          "count": 18
-        },
-        {
-          "date": "2025-12-07",
-          "count": 11
-        },
-        {
-          "date": "2025-12-08",
-          "count": 8
-        },
-        {
-          "date": "2025-12-09",
-          "count": 11
-        },
-        {
-          "date": "2025-12-10",
-          "count": 9
-        },
-        {
-          "date": "2025-12-11",
-          "count": 8
-        },
-        {
-          "date": "2025-12-12",
-          "count": 6
-        },
-        {
-          "date": "2025-12-13",
-          "count": 5
-        },
-        {
-          "date": "2025-12-14",
-          "count": 3
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 4
-        },
-        {
-          "date": "2025-12-17",
-          "count": 6
-        },
-        {
-          "date": "2025-12-18",
-          "count": 13
-        },
-        {
-          "date": "2025-12-19",
-          "count": 10
-        },
-        {
-          "date": "2025-12-20",
-          "count": 10
-        },
-        {
-          "date": "2025-12-21",
-          "count": 6
-        },
-        {
-          "date": "2025-12-22",
-          "count": 11
-        },
-        {
-          "date": "2025-12-23",
-          "count": 8
-        },
-        {
-          "date": "2025-12-24",
-          "count": 16
-        },
-        {
-          "date": "2025-12-25",
-          "count": 20
-        },
-        {
-          "date": "2025-12-26",
-          "count": 4
-        },
-        {
-          "date": "2025-12-27",
-          "count": 17
-        },
-        {
-          "date": "2025-12-28",
-          "count": 8
-        },
-        {
-          "date": "2025-12-29",
-          "count": 9
-        },
-        {
-          "date": "2025-12-30",
-          "count": 21
-        },
-        {
-          "date": "2025-12-31",
-          "count": 10
-        },
-        {
-          "date": "2026-01-01",
-          "count": 17
-        },
-        {
-          "date": "2026-01-02",
-          "count": 4
-        },
-        {
-          "date": "2026-01-03",
-          "count": 4
-        },
-        {
-          "date": "2026-01-04",
-          "count": 6
-        },
-        {
-          "date": "2026-01-05",
-          "count": 1
-        },
-        {
-          "date": "2026-01-06",
-          "count": 2
-        },
-        {
-          "date": "2026-01-07",
-          "count": 11
-        },
-        {
-          "date": "2026-01-08",
-          "count": 10
-        },
-        {
-          "date": "2026-01-09",
-          "count": 3
-        },
-        {
-          "date": "2026-01-10",
-          "count": 3
-        },
-        {
-          "date": "2026-01-11",
-          "count": 1
-        },
-        {
-          "date": "2026-01-12",
-          "count": 6
-        },
-        {
-          "date": "2026-01-13",
-          "count": 7
-        },
-        {
-          "date": "2026-01-14",
-          "count": 8
-        },
-        {
-          "date": "2026-01-15",
-          "count": 4
-        },
-        {
-          "date": "2026-01-16",
-          "count": 5
-        },
-        {
-          "date": "2026-01-17",
-          "count": 2
-        },
-        {
-          "date": "2026-01-18",
-          "count": 2
-        },
-        {
-          "date": "2026-01-19",
-          "count": 5
-        },
-        {
-          "date": "2026-01-20",
-          "count": 8
-        },
-        {
-          "date": "2026-01-21",
-          "count": 7
-        },
-        {
-          "date": "2026-01-22",
-          "count": 4
-        },
-        {
-          "date": "2026-01-23",
-          "count": 9
-        },
-        {
-          "date": "2026-01-24",
-          "count": 11
-        },
-        {
-          "date": "2026-01-25",
-          "count": 6
-        },
-        {
-          "date": "2026-01-26",
-          "count": 3
-        },
-        {
-          "date": "2026-01-27",
-          "count": 11
-        },
-        {
-          "date": "2026-01-28",
-          "count": 9
-        },
-        {
-          "date": "2026-01-29",
-          "count": 2
-        },
-        {
-          "date": "2026-01-30",
-          "count": 1
-        },
-        {
-          "date": "2026-01-31",
-          "count": 11
-        },
-        {
-          "date": "2026-02-01",
-          "count": 6
-        },
-        {
-          "date": "2026-02-02",
-          "count": 2
-        },
-        {
-          "date": "2026-02-03",
-          "count": 3
-        },
-        {
           "date": "2026-02-04",
-          "count": 12
+          "count": 15
         },
         {
           "date": "2026-02-05",
-          "count": 3
+          "count": 10
         },
         {
           "date": "2026-02-06",
-          "count": 6
+          "count": 9
         },
         {
           "date": "2026-02-07",
-          "count": 5
+          "count": 8
         },
         {
           "date": "2026-02-08",
-          "count": 2
+          "count": 9
         },
         {
           "date": "2026-02-09",
-          "count": 1
+          "count": 9
         },
         {
           "date": "2026-02-10",
-          "count": 4
+          "count": 7
         },
         {
           "date": "2026-02-11",
@@ -5810,35 +2286,35 @@
         },
         {
           "date": "2026-02-12",
-          "count": 9
+          "count": 5
         },
         {
           "date": "2026-02-13",
-          "count": 6
+          "count": 4
         },
         {
           "date": "2026-02-14",
-          "count": 6
+          "count": 4
         },
         {
           "date": "2026-02-15",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-02-16",
-          "count": 7
+          "count": 3
         },
         {
           "date": "2026-02-17",
-          "count": 11
+          "count": 3
         },
         {
           "date": "2026-02-18",
-          "count": 9
+          "count": 2
         },
         {
           "date": "2026-02-19",
-          "count": 7
+          "count": 1
         },
         {
           "date": "2026-02-20",
@@ -5846,2662 +2322,360 @@
         },
         {
           "date": "2026-02-21",
-          "count": 7
+          "count": 1
         },
         {
           "date": "2026-02-22",
-          "count": 7
+          "count": 1
         },
         {
           "date": "2026-02-23",
-          "count": 5
+          "count": 1
         },
         {
           "date": "2026-02-24",
-          "count": 8
+          "count": 1
+        },
+        {
+          "date": "2026-02-25",
+          "count": 1
+        },
+        {
+          "date": "2026-02-26",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.18,
-        "suggested": 0.22,
-        "browse": 0.15,
-        "external": 0.09,
-        "direct": 0.08,
-        "notifications": 0.09,
-        "other": 0.06
+        "search": 20,
+        "suggested": 20,
+        "browse": 40,
+        "external": 14,
+        "other": 4
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.11,
-          "25-34": 0.36,
-          "35-44": 0.26,
-          "45-54": 0.16,
-          "55-64": 0.06,
-          "65+": 0.04
+        "age": {
+          "18-24": 16,
+          "25-34": 36,
+          "35-44": 23,
+          "45-54": 11,
+          "55+": 5
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.54
-          },
-          {
-            "country": "IN",
-            "percentage": 0.09
-          },
-          {
-            "country": "UK",
-            "percentage": 0.06
+            "percentage": 67
           },
           {
             "country": "CA",
-            "percentage": 0.05
+            "percentage": 11
           },
           {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "IN",
+            "percentage": 8
+          },
+          {
+            "country": "GB",
+            "percentage": 4
           }
         ]
       }
     },
     {
       "episodeId": "ep-015",
-      "youtubeVideoId": "yt-015mock",
-      "title": "Interview with Aisha Patel - Product Design",
-      "publishDate": "2025-12-10",
       "metrics": {
-        "totalViews": 416,
-        "uniqueViewers": 341,
-        "avgViewDuration": 0.52,
-        "avgViewDurationMinutes": 21,
-        "watchTimeHours": 144.2,
-        "likes": 26,
-        "comments": 8,
-        "shares": 6,
-        "subscribersGained": 16,
-        "subscribersLost": 3,
-        "impressions": 2201,
-        "clickThroughRate": 0.12
+        "totalViews": 77,
+        "uniqueViewers": 64,
+        "avgViewDuration": 0.577,
+        "watchTimeHours": 14.1,
+        "likes": 20,
+        "comments": 6,
+        "shares": 0,
+        "subscribersGained": 4,
+        "subscribersLost": 1,
+        "impressions": 162,
+        "impressionsCTR": 0.062
       },
       "dailyViews": [
         {
-          "date": "2025-12-10",
-          "count": 64
-        },
-        {
-          "date": "2025-12-11",
-          "count": 37
-        },
-        {
-          "date": "2025-12-12",
-          "count": 27
-        },
-        {
-          "date": "2025-12-13",
-          "count": 7
-        },
-        {
-          "date": "2025-12-14",
-          "count": 4
-        },
-        {
-          "date": "2025-12-15",
-          "count": 3
-        },
-        {
-          "date": "2025-12-16",
-          "count": 4
-        },
-        {
-          "date": "2025-12-17",
-          "count": 3
-        },
-        {
-          "date": "2025-12-18",
-          "count": 3
-        },
-        {
-          "date": "2025-12-19",
-          "count": 2
-        },
-        {
-          "date": "2025-12-20",
-          "count": 2
-        },
-        {
-          "date": "2025-12-21",
-          "count": 1
-        },
-        {
-          "date": "2025-12-22",
-          "count": 1
-        },
-        {
-          "date": "2025-12-23",
-          "count": 2
-        },
-        {
-          "date": "2025-12-24",
-          "count": 4
-        },
-        {
-          "date": "2025-12-25",
-          "count": 6
-        },
-        {
-          "date": "2025-12-26",
-          "count": 9
-        },
-        {
-          "date": "2025-12-27",
-          "count": 6
-        },
-        {
-          "date": "2025-12-28",
-          "count": 4
-        },
-        {
-          "date": "2025-12-29",
-          "count": 6
-        },
-        {
-          "date": "2025-12-30",
-          "count": 10
-        },
-        {
-          "date": "2025-12-31",
-          "count": 5
-        },
-        {
-          "date": "2026-01-01",
-          "count": 8
-        },
-        {
-          "date": "2026-01-02",
-          "count": 6
-        },
-        {
-          "date": "2026-01-03",
-          "count": 10
-        },
-        {
-          "date": "2026-01-04",
-          "count": 6
-        },
-        {
-          "date": "2026-01-05",
-          "count": 6
-        },
-        {
-          "date": "2026-01-06",
-          "count": 12
-        },
-        {
-          "date": "2026-01-07",
-          "count": 8
-        },
-        {
-          "date": "2026-01-08",
-          "count": 7
-        },
-        {
-          "date": "2026-01-09",
-          "count": 2
-        },
-        {
-          "date": "2026-01-10",
-          "count": 2
-        },
-        {
-          "date": "2026-01-11",
-          "count": 2
-        },
-        {
-          "date": "2026-01-12",
-          "count": 3
-        },
-        {
-          "date": "2026-01-13",
-          "count": 1
-        },
-        {
-          "date": "2026-01-14",
-          "count": 6
-        },
-        {
-          "date": "2026-01-15",
-          "count": 5
-        },
-        {
-          "date": "2026-01-16",
-          "count": 6
-        },
-        {
-          "date": "2026-01-17",
-          "count": 3
-        },
-        {
-          "date": "2026-01-18",
-          "count": 2
-        },
-        {
-          "date": "2026-01-19",
-          "count": 4
-        },
-        {
-          "date": "2026-01-20",
-          "count": 3
-        },
-        {
-          "date": "2026-01-21",
-          "count": 2
-        },
-        {
-          "date": "2026-01-22",
-          "count": 3
-        },
-        {
-          "date": "2026-01-23",
-          "count": 6
-        },
-        {
-          "date": "2026-01-24",
-          "count": 5
-        },
-        {
-          "date": "2026-01-25",
-          "count": 2
-        },
-        {
-          "date": "2026-01-26",
-          "count": 2
-        },
-        {
-          "date": "2026-01-27",
-          "count": 4
-        },
-        {
-          "date": "2026-01-28",
-          "count": 5
-        },
-        {
-          "date": "2026-01-29",
-          "count": 5
-        },
-        {
-          "date": "2026-01-30",
-          "count": 2
-        },
-        {
-          "date": "2026-01-31",
-          "count": 1
-        },
-        {
-          "date": "2026-02-01",
-          "count": 4
-        },
-        {
-          "date": "2026-02-02",
-          "count": 2
-        },
-        {
-          "date": "2026-02-03",
-          "count": 5
-        },
-        {
-          "date": "2026-02-04",
-          "count": 4
-        },
-        {
-          "date": "2026-02-05",
-          "count": 5
-        },
-        {
-          "date": "2026-02-06",
-          "count": 2
-        },
-        {
-          "date": "2026-02-07",
-          "count": 4
-        },
-        {
-          "date": "2026-02-08",
-          "count": 2
-        },
-        {
           "date": "2026-02-09",
-          "count": 3
+          "count": 22
         },
         {
           "date": "2026-02-10",
-          "count": 2
+          "count": 13
         },
         {
           "date": "2026-02-11",
-          "count": 3
+          "count": 11
         },
         {
           "date": "2026-02-12",
-          "count": 2
+          "count": 9
         },
         {
           "date": "2026-02-13",
-          "count": 4
+          "count": 10
         },
         {
           "date": "2026-02-14",
-          "count": 4
-        },
-        {
-          "date": "2026-02-15",
-          "count": 2
-        },
-        {
-          "date": "2026-02-16",
-          "count": 3
-        },
-        {
-          "date": "2026-02-17",
-          "count": 2
-        },
-        {
-          "date": "2026-02-18",
           "count": 5
         },
         {
+          "date": "2026-02-15",
+          "count": 9
+        },
+        {
+          "date": "2026-02-16",
+          "count": 5
+        },
+        {
+          "date": "2026-02-17",
+          "count": 4
+        },
+        {
+          "date": "2026-02-18",
+          "count": 3
+        },
+        {
           "date": "2026-02-19",
-          "count": 1
+          "count": 3
         },
         {
           "date": "2026-02-20",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-02-21",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2026-02-22",
-          "count": 1
+          "count": 2
         },
         {
           "date": "2026-02-23",
-          "count": 3
+          "count": 2
         },
         {
           "date": "2026-02-24",
           "count": 1
+        },
+        {
+          "date": "2026-02-25",
+          "count": 1
+        },
+        {
+          "date": "2026-02-26",
+          "count": 1
         }
       ],
       "trafficSources": {
-        "search": 0.19,
-        "suggested": 0.26,
-        "browse": 0.14,
-        "external": 0.11,
-        "direct": 0.08,
-        "notifications": 0.08,
-        "other": 0.04
+        "search": 22,
+        "suggested": 23,
+        "browse": 32,
+        "external": 21,
+        "other": 9
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.11,
-          "25-34": 0.31,
-          "35-44": 0.28,
-          "45-54": 0.12,
-          "55-64": 0.09,
-          "65+": 0.03
+        "age": {
+          "18-24": 13,
+          "25-34": 28,
+          "35-44": 30,
+          "45-54": 20,
+          "55+": 12
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.58
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.07
+            "percentage": 68
           },
           {
             "country": "CA",
-            "percentage": 0.05
+            "percentage": 8
           },
           {
-            "country": "BR",
-            "percentage": 0.06
+            "country": "IN",
+            "percentage": 4
+          },
+          {
+            "country": "GB",
+            "percentage": 2
           }
         ]
       }
     },
     {
       "episodeId": "ep-016",
-      "youtubeVideoId": "yt-016mock",
-      "title": "Midseason Recap - Highlights So Far",
-      "publishDate": "2025-12-17",
       "metrics": {
-        "totalViews": 245,
-        "uniqueViewers": 186,
-        "avgViewDuration": 0.54,
-        "avgViewDurationMinutes": 12,
-        "watchTimeHours": 50.7,
-        "likes": 14,
-        "comments": 2,
-        "shares": 3,
-        "subscribersGained": 30,
+        "totalViews": 64,
+        "uniqueViewers": 47,
+        "avgViewDuration": 0.413,
+        "watchTimeHours": 10.6,
+        "likes": 2,
+        "comments": 5,
+        "shares": 1,
+        "subscribersGained": 3,
         "subscribersLost": 0,
-        "impressions": 1468,
-        "clickThroughRate": 0.07
+        "impressions": 239,
+        "impressionsCTR": 0.07
       },
       "dailyViews": [
         {
-          "date": "2025-12-17",
-          "count": 47
-        },
-        {
-          "date": "2025-12-18",
-          "count": 25
-        },
-        {
-          "date": "2025-12-19",
-          "count": 21
-        },
-        {
-          "date": "2025-12-20",
-          "count": 6
-        },
-        {
-          "date": "2025-12-21",
-          "count": 3
-        },
-        {
-          "date": "2025-12-22",
-          "count": 2
-        },
-        {
-          "date": "2025-12-23",
-          "count": 2
-        },
-        {
-          "date": "2025-12-24",
-          "count": 2
-        },
-        {
-          "date": "2025-12-25",
-          "count": 1
-        },
-        {
-          "date": "2025-12-26",
-          "count": 1
-        },
-        {
-          "date": "2025-12-27",
-          "count": 2
-        },
-        {
-          "date": "2025-12-28",
-          "count": 1
-        },
-        {
-          "date": "2025-12-29",
-          "count": 1
-        },
-        {
-          "date": "2025-12-30",
-          "count": 1
-        },
-        {
-          "date": "2025-12-31",
-          "count": 6
-        },
-        {
-          "date": "2026-01-01",
-          "count": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 3
-        },
-        {
-          "date": "2026-01-03",
-          "count": 5
-        },
-        {
-          "date": "2026-01-04",
-          "count": 3
-        },
-        {
-          "date": "2026-01-05",
-          "count": 2
-        },
-        {
-          "date": "2026-01-06",
-          "count": 4
-        },
-        {
-          "date": "2026-01-07",
-          "count": 1
-        },
-        {
-          "date": "2026-01-08",
-          "count": 5
-        },
-        {
-          "date": "2026-01-09",
-          "count": 3
-        },
-        {
-          "date": "2026-01-10",
-          "count": 4
-        },
-        {
-          "date": "2026-01-11",
-          "count": 1
-        },
-        {
-          "date": "2026-01-12",
-          "count": 4
-        },
-        {
-          "date": "2026-01-13",
-          "count": 4
-        },
-        {
-          "date": "2026-01-14",
-          "count": 3
-        },
-        {
-          "date": "2026-01-15",
-          "count": 5
-        },
-        {
-          "date": "2026-01-16",
-          "count": 3
-        },
-        {
-          "date": "2026-01-17",
-          "count": 2
-        },
-        {
-          "date": "2026-01-18",
-          "count": 1
-        },
-        {
-          "date": "2026-01-19",
-          "count": 1
-        },
-        {
-          "date": "2026-01-20",
-          "count": 2
-        },
-        {
-          "date": "2026-01-21",
-          "count": 2
-        },
-        {
-          "date": "2026-01-22",
-          "count": 2
-        },
-        {
-          "date": "2026-01-23",
-          "count": 3
-        },
-        {
-          "date": "2026-01-24",
-          "count": 1
-        },
-        {
-          "date": "2026-01-25",
-          "count": 1
-        },
-        {
-          "date": "2026-01-26",
-          "count": 2
-        },
-        {
-          "date": "2026-01-27",
-          "count": 1
-        },
-        {
-          "date": "2026-01-28",
-          "count": 1
-        },
-        {
-          "date": "2026-01-29",
-          "count": 3
-        },
-        {
-          "date": "2026-01-30",
-          "count": 1
-        },
-        {
-          "date": "2026-01-31",
-          "count": 4
-        },
-        {
-          "date": "2026-02-01",
-          "count": 1
-        },
-        {
-          "date": "2026-02-02",
-          "count": 1
-        },
-        {
-          "date": "2026-02-03",
-          "count": 1
-        },
-        {
-          "date": "2026-02-04",
-          "count": 2
-        },
-        {
-          "date": "2026-02-05",
-          "count": 2
-        },
-        {
-          "date": "2026-02-06",
-          "count": 4
-        },
-        {
-          "date": "2026-02-07",
-          "count": 1
-        },
-        {
-          "date": "2026-02-08",
-          "count": 2
-        },
-        {
-          "date": "2026-02-09",
-          "count": 2
-        },
-        {
-          "date": "2026-02-10",
-          "count": 2
-        },
-        {
-          "date": "2026-02-11",
-          "count": 2
-        },
-        {
-          "date": "2026-02-12",
-          "count": 3
-        },
-        {
-          "date": "2026-02-13",
-          "count": 3
-        },
-        {
-          "date": "2026-02-14",
-          "count": 2
-        },
-        {
-          "date": "2026-02-15",
-          "count": 2
-        },
-        {
           "date": "2026-02-16",
-          "count": 1
+          "count": 19
         },
         {
           "date": "2026-02-17",
-          "count": 1
+          "count": 8
         },
         {
           "date": "2026-02-18",
-          "count": 2
+          "count": 9
         },
         {
           "date": "2026-02-19",
-          "count": 3
+          "count": 9
         },
         {
           "date": "2026-02-20",
-          "count": 1
+          "count": 5
         },
         {
           "date": "2026-02-21",
-          "count": 1
+          "count": 5
         },
         {
           "date": "2026-02-22",
-          "count": 2
+          "count": 7
         },
         {
           "date": "2026-02-23",
-          "count": 1
+          "count": 4
         },
         {
           "date": "2026-02-24",
-          "count": 2
+          "count": 4
+        },
+        {
+          "date": "2026-02-25",
+          "count": 3
+        },
+        {
+          "date": "2026-02-26",
+          "count": 3
         }
       ],
       "trafficSources": {
-        "search": 0.28,
-        "suggested": 0.29,
-        "browse": 0.13,
-        "external": 0.13,
-        "direct": 0.06,
-        "notifications": 0.1,
-        "other": 0.04
+        "search": 28,
+        "suggested": 13,
+        "browse": 20,
+        "external": 14,
+        "other": 9
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.18,
-          "25-34": 0.38,
-          "35-44": 0.25,
-          "45-54": 0.12,
-          "55-64": 0.06,
-          "65+": 0.03
+        "age": {
+          "18-24": 8,
+          "25-34": 28,
+          "35-44": 20,
+          "45-54": 11,
+          "55+": 8
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.54
-          },
-          {
-            "country": "IN",
-            "percentage": 0.15
-          },
-          {
-            "country": "UK",
-            "percentage": 0.09
+            "percentage": 69
           },
           {
             "country": "CA",
-            "percentage": 0.05
+            "percentage": 12
           },
           {
-            "country": "BR",
-            "percentage": 0.04
+            "country": "IN",
+            "percentage": 4
+          },
+          {
+            "country": "GB",
+            "percentage": 3
           }
         ]
       }
     },
     {
       "episodeId": "ep-017",
-      "youtubeVideoId": "yt-017mock",
-      "title": "The Creator Economy Explained",
-      "publishDate": "2025-12-24",
       "metrics": {
-        "totalViews": 370,
-        "uniqueViewers": 311,
-        "avgViewDuration": 0.33,
-        "avgViewDurationMinutes": 10,
-        "watchTimeHours": 63.1,
-        "likes": 13,
-        "comments": 7,
-        "shares": 2,
-        "subscribersGained": 7,
-        "subscribersLost": 4,
-        "impressions": 1928,
-        "clickThroughRate": 0.06
-      },
-      "dailyViews": [
-        {
-          "date": "2025-12-24",
-          "count": 63
-        },
-        {
-          "date": "2025-12-25",
-          "count": 58
-        },
-        {
-          "date": "2025-12-26",
-          "count": 31
-        },
-        {
-          "date": "2025-12-27",
-          "count": 7
-        },
-        {
-          "date": "2025-12-28",
-          "count": 4
-        },
-        {
-          "date": "2025-12-29",
-          "count": 3
-        },
-        {
-          "date": "2025-12-30",
-          "count": 4
-        },
-        {
-          "date": "2025-12-31",
-          "count": 4
-        },
-        {
-          "date": "2026-01-01",
-          "count": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 3
-        },
-        {
-          "date": "2026-01-03",
-          "count": 2
-        },
-        {
-          "date": "2026-01-04",
-          "count": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 1
-        },
-        {
-          "date": "2026-01-06",
-          "count": 2
-        },
-        {
-          "date": "2026-01-07",
-          "count": 3
-        },
-        {
-          "date": "2026-01-08",
-          "count": 8
-        },
-        {
-          "date": "2026-01-09",
-          "count": 2
-        },
-        {
-          "date": "2026-01-10",
-          "count": 4
-        },
-        {
-          "date": "2026-01-11",
-          "count": 5
-        },
-        {
-          "date": "2026-01-12",
-          "count": 3
-        },
-        {
-          "date": "2026-01-13",
-          "count": 2
-        },
-        {
-          "date": "2026-01-14",
-          "count": 7
-        },
-        {
-          "date": "2026-01-15",
-          "count": 3
-        },
-        {
-          "date": "2026-01-16",
-          "count": 6
-        },
-        {
-          "date": "2026-01-17",
-          "count": 9
-        },
-        {
-          "date": "2026-01-18",
-          "count": 7
-        },
-        {
-          "date": "2026-01-19",
-          "count": 2
-        },
-        {
-          "date": "2026-01-20",
-          "count": 5
-        },
-        {
-          "date": "2026-01-21",
-          "count": 2
-        },
-        {
-          "date": "2026-01-22",
-          "count": 4
-        },
-        {
-          "date": "2026-01-23",
-          "count": 3
-        },
-        {
-          "date": "2026-01-24",
-          "count": 5
-        },
-        {
-          "date": "2026-01-25",
-          "count": 3
-        },
-        {
-          "date": "2026-01-26",
-          "count": 1
-        },
-        {
-          "date": "2026-01-27",
-          "count": 5
-        },
-        {
-          "date": "2026-01-28",
-          "count": 6
-        },
-        {
-          "date": "2026-01-29",
-          "count": 5
-        },
-        {
-          "date": "2026-01-30",
-          "count": 5
-        },
-        {
-          "date": "2026-01-31",
-          "count": 6
-        },
-        {
-          "date": "2026-02-01",
-          "count": 3
-        },
-        {
-          "date": "2026-02-02",
-          "count": 1
-        },
-        {
-          "date": "2026-02-03",
-          "count": 1
-        },
-        {
-          "date": "2026-02-04",
-          "count": 2
-        },
-        {
-          "date": "2026-02-05",
-          "count": 6
-        },
-        {
-          "date": "2026-02-06",
-          "count": 6
-        },
-        {
-          "date": "2026-02-07",
-          "count": 1
-        },
-        {
-          "date": "2026-02-08",
-          "count": 1
-        },
-        {
-          "date": "2026-02-09",
-          "count": 2
-        },
-        {
-          "date": "2026-02-10",
-          "count": 3
-        },
-        {
-          "date": "2026-02-11",
-          "count": 5
-        },
-        {
-          "date": "2026-02-12",
-          "count": 2
-        },
-        {
-          "date": "2026-02-13",
-          "count": 5
-        },
-        {
-          "date": "2026-02-14",
-          "count": 7
-        },
-        {
-          "date": "2026-02-15",
-          "count": 4
-        },
-        {
-          "date": "2026-02-16",
-          "count": 1
-        },
-        {
-          "date": "2026-02-17",
-          "count": 3
-        },
-        {
-          "date": "2026-02-18",
-          "count": 1
-        },
-        {
-          "date": "2026-02-19",
-          "count": 4
-        },
-        {
-          "date": "2026-02-20",
-          "count": 3
-        },
-        {
-          "date": "2026-02-21",
-          "count": 2
-        },
-        {
-          "date": "2026-02-22",
-          "count": 2
-        },
-        {
-          "date": "2026-02-23",
-          "count": 3
-        },
-        {
-          "date": "2026-02-24",
-          "count": 4
-        }
-      ],
-      "trafficSources": {
-        "search": 0.17,
-        "suggested": 0.3,
-        "browse": 0.13,
-        "external": 0.12,
-        "direct": 0.07,
-        "notifications": 0.07,
-        "other": 0.06
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.1,
-          "25-34": 0.31,
-          "35-44": 0.23,
-          "45-54": 0.12,
-          "55-64": 0.07,
-          "65+": 0.05
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.59
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.08
-          },
-          {
-            "country": "CA",
-            "percentage": 0.07
-          },
-          {
-            "country": "BR",
-            "percentage": 0.04
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-018",
-      "youtubeVideoId": "yt-018mock",
-      "title": "Interview with Tom Rivera - Content Strategy",
-      "publishDate": "2025-12-31",
-      "metrics": {
-        "totalViews": 325,
-        "uniqueViewers": 260,
-        "avgViewDuration": 0.54,
-        "avgViewDurationMinutes": 23,
-        "watchTimeHours": 122.9,
-        "likes": 15,
-        "comments": 6,
-        "shares": 1,
-        "subscribersGained": 24,
-        "subscribersLost": 1,
-        "impressions": 1424,
-        "clickThroughRate": 0.05
-      },
-      "dailyViews": [
-        {
-          "date": "2025-12-31",
-          "count": 61
-        },
-        {
-          "date": "2026-01-01",
-          "count": 40
-        },
-        {
-          "date": "2026-01-02",
-          "count": 27
-        },
-        {
-          "date": "2026-01-03",
-          "count": 9
-        },
-        {
-          "date": "2026-01-04",
-          "count": 4
-        },
-        {
-          "date": "2026-01-05",
-          "count": 3
-        },
-        {
-          "date": "2026-01-06",
-          "count": 4
-        },
-        {
-          "date": "2026-01-07",
-          "count": 3
-        },
-        {
-          "date": "2026-01-08",
-          "count": 2
-        },
-        {
-          "date": "2026-01-09",
-          "count": 3
-        },
-        {
-          "date": "2026-01-10",
-          "count": 2
-        },
-        {
-          "date": "2026-01-11",
-          "count": 1
-        },
-        {
-          "date": "2026-01-12",
-          "count": 1
-        },
-        {
-          "date": "2026-01-13",
-          "count": 2
-        },
-        {
-          "date": "2026-01-14",
-          "count": 9
-        },
-        {
-          "date": "2026-01-15",
-          "count": 7
-        },
-        {
-          "date": "2026-01-16",
-          "count": 3
-        },
-        {
-          "date": "2026-01-17",
-          "count": 4
-        },
-        {
-          "date": "2026-01-18",
-          "count": 2
-        },
-        {
-          "date": "2026-01-19",
-          "count": 8
-        },
-        {
-          "date": "2026-01-20",
-          "count": 10
-        },
-        {
-          "date": "2026-01-21",
-          "count": 3
-        },
-        {
-          "date": "2026-01-22",
-          "count": 7
-        },
-        {
-          "date": "2026-01-23",
-          "count": 13
-        },
-        {
-          "date": "2026-01-24",
-          "count": 12
-        },
-        {
-          "date": "2026-01-25",
-          "count": 7
-        },
-        {
-          "date": "2026-01-26",
-          "count": 2
-        },
-        {
-          "date": "2026-01-27",
-          "count": 3
-        },
-        {
-          "date": "2026-01-28",
-          "count": 4
-        },
-        {
-          "date": "2026-01-29",
-          "count": 9
-        },
-        {
-          "date": "2026-01-30",
-          "count": 3
-        },
-        {
-          "date": "2026-01-31",
-          "count": 3
-        },
-        {
-          "date": "2026-02-01",
-          "count": 3
-        },
-        {
-          "date": "2026-02-02",
-          "count": 2
-        },
-        {
-          "date": "2026-02-03",
-          "count": 2
-        },
-        {
-          "date": "2026-02-04",
-          "count": 5
-        },
-        {
-          "date": "2026-02-05",
-          "count": 4
-        },
-        {
-          "date": "2026-02-06",
-          "count": 3
-        },
-        {
-          "date": "2026-02-07",
-          "count": 2
-        },
-        {
-          "date": "2026-02-08",
-          "count": 3
-        },
-        {
-          "date": "2026-02-09",
-          "count": 1
-        },
-        {
-          "date": "2026-02-10",
-          "count": 3
-        },
-        {
-          "date": "2026-02-11",
-          "count": 1
-        },
-        {
-          "date": "2026-02-12",
-          "count": 1
-        },
-        {
-          "date": "2026-02-13",
-          "count": 2
-        },
-        {
-          "date": "2026-02-14",
-          "count": 2
-        },
-        {
-          "date": "2026-02-15",
-          "count": 1
-        },
-        {
-          "date": "2026-02-16",
-          "count": 3
-        },
-        {
-          "date": "2026-02-17",
-          "count": 1
-        },
-        {
-          "date": "2026-02-18",
-          "count": 3
-        },
-        {
-          "date": "2026-02-19",
-          "count": 1
-        },
-        {
-          "date": "2026-02-20",
-          "count": 2
-        },
-        {
-          "date": "2026-02-21",
-          "count": 2
-        },
-        {
-          "date": "2026-02-22",
-          "count": 2
-        },
-        {
-          "date": "2026-02-23",
-          "count": 1
-        },
-        {
-          "date": "2026-02-24",
-          "count": 4
-        }
-      ],
-      "trafficSources": {
-        "search": 0.19,
-        "suggested": 0.3,
-        "browse": 0.11,
-        "external": 0.16,
-        "direct": 0.06,
-        "notifications": 0.08,
-        "other": 0.07
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.15,
-          "25-34": 0.37,
-          "35-44": 0.25,
-          "45-54": 0.16,
-          "55-64": 0.05,
-          "65+": 0.04
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.53
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.08
-          },
-          {
-            "country": "CA",
-            "percentage": 0.05
-          },
-          {
-            "country": "BR",
-            "percentage": 0.02
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-019",
-      "youtubeVideoId": "yt-019mock",
-      "title": "Listener Stories - How You're Making an Impact",
-      "publishDate": "2026-01-07",
-      "metrics": {
-        "totalViews": 322,
-        "uniqueViewers": 235,
-        "avgViewDuration": 0.64,
-        "avgViewDurationMinutes": 13,
-        "watchTimeHours": 72.1,
-        "likes": 24,
-        "comments": 2,
-        "shares": 4,
-        "subscribersGained": 29,
-        "subscribersLost": 0,
-        "impressions": 1884,
-        "clickThroughRate": 0.06
-      },
-      "dailyViews": [
-        {
-          "date": "2026-01-07",
-          "count": 67
-        },
-        {
-          "date": "2026-01-08",
-          "count": 53
-        },
-        {
-          "date": "2026-01-09",
-          "count": 34
-        },
-        {
-          "date": "2026-01-10",
-          "count": 10
-        },
-        {
-          "date": "2026-01-11",
-          "count": 4
-        },
-        {
-          "date": "2026-01-12",
-          "count": 4
-        },
-        {
-          "date": "2026-01-13",
-          "count": 5
-        },
-        {
-          "date": "2026-01-14",
-          "count": 4
-        },
-        {
-          "date": "2026-01-15",
-          "count": 3
-        },
-        {
-          "date": "2026-01-16",
-          "count": 3
-        },
-        {
-          "date": "2026-01-17",
-          "count": 2
-        },
-        {
-          "date": "2026-01-18",
-          "count": 1
-        },
-        {
-          "date": "2026-01-19",
-          "count": 1
-        },
-        {
-          "date": "2026-01-20",
-          "count": 2
-        },
-        {
-          "date": "2026-01-21",
-          "count": 4
-        },
-        {
-          "date": "2026-01-22",
-          "count": 6
-        },
-        {
-          "date": "2026-01-23",
-          "count": 3
-        },
-        {
-          "date": "2026-01-24",
-          "count": 10
-        },
-        {
-          "date": "2026-01-25",
-          "count": 6
-        },
-        {
-          "date": "2026-01-26",
-          "count": 6
-        },
-        {
-          "date": "2026-01-27",
-          "count": 9
-        },
-        {
-          "date": "2026-01-28",
-          "count": 2
-        },
-        {
-          "date": "2026-01-29",
-          "count": 6
-        },
-        {
-          "date": "2026-01-30",
-          "count": 11
-        },
-        {
-          "date": "2026-01-31",
-          "count": 7
-        },
-        {
-          "date": "2026-02-01",
-          "count": 3
-        },
-        {
-          "date": "2026-02-02",
-          "count": 3
-        },
-        {
-          "date": "2026-02-03",
-          "count": 3
-        },
-        {
-          "date": "2026-02-04",
-          "count": 3
-        },
-        {
-          "date": "2026-02-05",
-          "count": 6
-        },
-        {
-          "date": "2026-02-06",
-          "count": 1
-        },
-        {
-          "date": "2026-02-07",
-          "count": 4
-        },
-        {
-          "date": "2026-02-08",
-          "count": 1
-        },
-        {
-          "date": "2026-02-09",
-          "count": 1
-        },
-        {
-          "date": "2026-02-10",
-          "count": 2
-        },
-        {
-          "date": "2026-02-11",
-          "count": 1
-        },
-        {
-          "date": "2026-02-12",
-          "count": 5
-        },
-        {
-          "date": "2026-02-13",
-          "count": 2
-        },
-        {
-          "date": "2026-02-14",
-          "count": 6
-        },
-        {
-          "date": "2026-02-15",
-          "count": 2
-        },
-        {
-          "date": "2026-02-16",
-          "count": 1
-        },
-        {
-          "date": "2026-02-17",
-          "count": 2
-        },
-        {
-          "date": "2026-02-18",
-          "count": 4
-        },
-        {
-          "date": "2026-02-19",
-          "count": 2
-        },
-        {
-          "date": "2026-02-20",
-          "count": 2
-        },
-        {
-          "date": "2026-02-21",
-          "count": 1
-        },
-        {
-          "date": "2026-02-22",
-          "count": 1
-        },
-        {
-          "date": "2026-02-23",
-          "count": 1
-        },
-        {
-          "date": "2026-02-24",
-          "count": 2
-        }
-      ],
-      "trafficSources": {
-        "search": 0.24,
-        "suggested": 0.24,
-        "browse": 0.19,
-        "external": 0.12,
-        "direct": 0.08,
-        "notifications": 0.06,
-        "other": 0.03
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.15,
-          "25-34": 0.33,
-          "35-44": 0.22,
-          "45-54": 0.11,
-          "55-64": 0.09,
-          "65+": 0.04
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.55
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.07
-          },
-          {
-            "country": "CA",
-            "percentage": 0.08
-          },
-          {
-            "country": "BR",
-            "percentage": 0.03
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-020",
-      "youtubeVideoId": "yt-020mock",
-      "title": "Deep Dive: Data-Driven Decision Making",
-      "publishDate": "2026-01-14",
-      "metrics": {
-        "totalViews": 312,
-        "uniqueViewers": 228,
-        "avgViewDuration": 0.37,
-        "avgViewDurationMinutes": 16,
-        "watchTimeHours": 80.8,
-        "likes": 9,
-        "comments": 3,
-        "shares": 2,
-        "subscribersGained": 4,
-        "subscribersLost": 0,
-        "impressions": 1270,
-        "clickThroughRate": 0.09
-      },
-      "dailyViews": [
-        {
-          "date": "2026-01-14",
-          "count": 80
-        },
-        {
-          "date": "2026-01-15",
-          "count": 43
-        },
-        {
-          "date": "2026-01-16",
-          "count": 26
-        },
-        {
-          "date": "2026-01-17",
-          "count": 8
-        },
-        {
-          "date": "2026-01-18",
-          "count": 4
-        },
-        {
-          "date": "2026-01-19",
-          "count": 4
-        },
-        {
-          "date": "2026-01-20",
-          "count": 4
-        },
-        {
-          "date": "2026-01-21",
-          "count": 3
-        },
-        {
-          "date": "2026-01-22",
-          "count": 2
-        },
-        {
-          "date": "2026-01-23",
-          "count": 2
-        },
-        {
-          "date": "2026-01-24",
-          "count": 2
-        },
-        {
-          "date": "2026-01-25",
-          "count": 1
-        },
-        {
-          "date": "2026-01-26",
-          "count": 1
-        },
-        {
-          "date": "2026-01-27",
-          "count": 2
-        },
-        {
-          "date": "2026-01-28",
-          "count": 10
-        },
-        {
-          "date": "2026-01-29",
-          "count": 10
-        },
-        {
-          "date": "2026-01-30",
-          "count": 5
-        },
-        {
-          "date": "2026-01-31",
-          "count": 10
-        },
-        {
-          "date": "2026-02-01",
-          "count": 7
-        },
-        {
-          "date": "2026-02-02",
-          "count": 5
-        },
-        {
-          "date": "2026-02-03",
-          "count": 5
-        },
-        {
-          "date": "2026-02-04",
-          "count": 4
-        },
-        {
-          "date": "2026-02-05",
-          "count": 2
-        },
-        {
-          "date": "2026-02-06",
-          "count": 6
-        },
-        {
-          "date": "2026-02-07",
-          "count": 3
-        },
-        {
-          "date": "2026-02-08",
-          "count": 4
-        },
-        {
-          "date": "2026-02-09",
-          "count": 4
-        },
-        {
-          "date": "2026-02-10",
-          "count": 10
-        },
-        {
-          "date": "2026-02-11",
-          "count": 5
-        },
-        {
-          "date": "2026-02-12",
-          "count": 7
-        },
-        {
-          "date": "2026-02-13",
-          "count": 2
-        },
-        {
-          "date": "2026-02-14",
-          "count": 2
-        },
-        {
-          "date": "2026-02-15",
-          "count": 4
-        },
-        {
-          "date": "2026-02-16",
-          "count": 1
-        },
-        {
-          "date": "2026-02-17",
-          "count": 4
-        },
-        {
-          "date": "2026-02-18",
-          "count": 7
-        },
-        {
-          "date": "2026-02-19",
-          "count": 2
-        },
-        {
-          "date": "2026-02-20",
-          "count": 6
-        },
-        {
-          "date": "2026-02-21",
-          "count": 2
-        },
-        {
-          "date": "2026-02-22",
-          "count": 1
-        },
-        {
-          "date": "2026-02-23",
-          "count": 1
-        },
-        {
-          "date": "2026-02-24",
-          "count": 1
-        }
-      ],
-      "trafficSources": {
-        "search": 0.22,
-        "suggested": 0.3,
-        "browse": 0.1,
-        "external": 0.18,
-        "direct": 0.08,
-        "notifications": 0.07,
-        "other": 0.02
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.14,
-          "25-34": 0.38,
-          "35-44": 0.22,
-          "45-54": 0.11,
-          "55-64": 0.05,
-          "65+": 0.04
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.61
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.08
-          },
-          {
-            "country": "CA",
-            "percentage": 0.06
-          },
-          {
-            "country": "BR",
-            "percentage": 0.04
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-021",
-      "youtubeVideoId": "yt-021mock",
-      "title": "Interview with Nina Kowalski - Growth Marketing",
-      "publishDate": "2026-01-21",
-      "metrics": {
-        "totalViews": 918,
-        "uniqueViewers": 753,
-        "avgViewDuration": 0.41,
-        "avgViewDurationMinutes": 19,
-        "watchTimeHours": 294.8,
-        "likes": 38,
-        "comments": 13,
-        "shares": 10,
-        "subscribersGained": 3,
-        "subscribersLost": 1,
-        "impressions": 3599,
-        "clickThroughRate": 0.08
-      },
-      "dailyViews": [
-        {
-          "date": "2026-01-21",
-          "count": 262
-        },
-        {
-          "date": "2026-01-22",
-          "count": 133
-        },
-        {
-          "date": "2026-01-23",
-          "count": 107
-        },
-        {
-          "date": "2026-01-24",
-          "count": 30
-        },
-        {
-          "date": "2026-01-25",
-          "count": 15
-        },
-        {
-          "date": "2026-01-26",
-          "count": 12
-        },
-        {
-          "date": "2026-01-27",
-          "count": 14
-        },
-        {
-          "date": "2026-01-28",
-          "count": 12
-        },
-        {
-          "date": "2026-01-29",
-          "count": 10
-        },
-        {
-          "date": "2026-01-30",
-          "count": 7
-        },
-        {
-          "date": "2026-01-31",
-          "count": 9
-        },
-        {
-          "date": "2026-02-01",
-          "count": 5
-        },
-        {
-          "date": "2026-02-02",
-          "count": 5
-        },
-        {
-          "date": "2026-02-03",
-          "count": 6
-        },
-        {
-          "date": "2026-02-04",
-          "count": 28
-        },
-        {
-          "date": "2026-02-05",
-          "count": 22
-        },
-        {
-          "date": "2026-02-06",
-          "count": 13
-        },
-        {
-          "date": "2026-02-07",
-          "count": 13
-        },
-        {
-          "date": "2026-02-08",
-          "count": 12
-        },
-        {
-          "date": "2026-02-09",
-          "count": 10
-        },
-        {
-          "date": "2026-02-10",
-          "count": 13
-        },
-        {
-          "date": "2026-02-11",
-          "count": 14
-        },
-        {
-          "date": "2026-02-12",
-          "count": 22
-        },
-        {
-          "date": "2026-02-13",
-          "count": 26
-        },
-        {
-          "date": "2026-02-14",
-          "count": 20
-        },
-        {
-          "date": "2026-02-15",
-          "count": 11
-        },
-        {
-          "date": "2026-02-16",
-          "count": 7
-        },
-        {
-          "date": "2026-02-17",
-          "count": 22
-        },
-        {
-          "date": "2026-02-18",
-          "count": 18
-        },
-        {
-          "date": "2026-02-19",
-          "count": 10
-        },
-        {
-          "date": "2026-02-20",
-          "count": 5
-        },
-        {
-          "date": "2026-02-21",
-          "count": 4
-        },
-        {
-          "date": "2026-02-22",
-          "count": 6
-        },
-        {
-          "date": "2026-02-23",
-          "count": 5
-        },
-        {
-          "date": "2026-02-24",
-          "count": 10
-        }
-      ],
-      "trafficSources": {
-        "search": 0.27,
-        "suggested": 0.34,
-        "browse": 0.12,
-        "external": 0.14,
-        "direct": 0.06,
-        "notifications": 0.06,
-        "other": 0.04
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.16,
-          "25-34": 0.34,
-          "35-44": 0.21,
-          "45-54": 0.18,
-          "55-64": 0.08,
-          "65+": 0.05
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.64
-          },
-          {
-            "country": "IN",
-            "percentage": 0.11
-          },
-          {
-            "country": "UK",
-            "percentage": 0.06
-          },
-          {
-            "country": "CA",
-            "percentage": 0.04
-          },
-          {
-            "country": "BR",
-            "percentage": 0.05
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-022",
-      "youtubeVideoId": "yt-022mock",
-      "title": "The Art of Storytelling in Business",
-      "publishDate": "2026-01-28",
-      "metrics": {
-        "totalViews": 292,
-        "uniqueViewers": 210,
-        "avgViewDuration": 0.43,
-        "avgViewDurationMinutes": 18,
-        "watchTimeHours": 90,
-        "likes": 23,
-        "comments": 1,
-        "shares": 1,
-        "subscribersGained": 23,
-        "subscribersLost": 4,
-        "impressions": 1612,
-        "clickThroughRate": 0.1
-      },
-      "dailyViews": [
-        {
-          "date": "2026-01-28",
-          "count": 84
-        },
-        {
-          "date": "2026-01-29",
-          "count": 50
-        },
-        {
-          "date": "2026-01-30",
-          "count": 27
-        },
-        {
-          "date": "2026-01-31",
-          "count": 10
-        },
-        {
-          "date": "2026-02-01",
-          "count": 5
-        },
-        {
-          "date": "2026-02-02",
-          "count": 4
-        },
-        {
-          "date": "2026-02-03",
-          "count": 5
-        },
-        {
-          "date": "2026-02-04",
-          "count": 3
-        },
-        {
-          "date": "2026-02-05",
-          "count": 3
-        },
-        {
-          "date": "2026-02-06",
-          "count": 3
-        },
-        {
-          "date": "2026-02-07",
-          "count": 3
-        },
-        {
-          "date": "2026-02-08",
-          "count": 2
-        },
-        {
-          "date": "2026-02-09",
-          "count": 1
-        },
-        {
-          "date": "2026-02-10",
-          "count": 2
-        },
-        {
-          "date": "2026-02-11",
-          "count": 12
-        },
-        {
-          "date": "2026-02-12",
-          "count": 5
-        },
-        {
-          "date": "2026-02-13",
-          "count": 13
-        },
-        {
-          "date": "2026-02-14",
-          "count": 3
-        },
-        {
-          "date": "2026-02-15",
-          "count": 4
-        },
-        {
-          "date": "2026-02-16",
-          "count": 5
-        },
-        {
-          "date": "2026-02-17",
-          "count": 7
-        },
-        {
-          "date": "2026-02-18",
-          "count": 4
-        },
-        {
-          "date": "2026-02-19",
-          "count": 9
-        },
-        {
-          "date": "2026-02-20",
-          "count": 9
-        },
-        {
-          "date": "2026-02-21",
-          "count": 5
-        },
-        {
-          "date": "2026-02-22",
-          "count": 7
-        },
-        {
-          "date": "2026-02-23",
-          "count": 5
-        },
-        {
-          "date": "2026-02-24",
-          "count": 2
-        }
-      ],
-      "trafficSources": {
-        "search": 0.29,
-        "suggested": 0.27,
-        "browse": 0.13,
-        "external": 0.09,
-        "direct": 0.06,
-        "notifications": 0.06,
-        "other": 0.06
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.11,
-          "25-34": 0.28,
-          "35-44": 0.27,
-          "45-54": 0.15,
-          "55-64": 0.05,
-          "65+": 0.05
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.52
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.12
-          },
-          {
-            "country": "CA",
-            "percentage": 0.08
-          },
-          {
-            "country": "BR",
-            "percentage": 0.05
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-023",
-      "youtubeVideoId": "yt-023mock",
-      "title": "Interview with David Kim - Building Communities",
-      "publishDate": "2026-02-04",
-      "metrics": {
-        "totalViews": 328,
-        "uniqueViewers": 269,
-        "avgViewDuration": 0.59,
-        "avgViewDurationMinutes": 31,
-        "watchTimeHours": 167.7,
-        "likes": 15,
-        "comments": 4,
+        "totalViews": 55,
+        "uniqueViewers": 42,
+        "avgViewDuration": 0.31,
+        "watchTimeHours": 6,
+        "likes": 4,
+        "comments": 8,
         "shares": 3,
-        "subscribersGained": 14,
-        "subscribersLost": 2,
-        "impressions": 1092,
-        "clickThroughRate": 0.04
+        "subscribersGained": 0,
+        "subscribersLost": 0,
+        "impressions": 153,
+        "impressionsCTR": 0.106
       },
       "dailyViews": [
         {
-          "date": "2026-02-04",
-          "count": 88
-        },
-        {
-          "date": "2026-02-05",
-          "count": 83
-        },
-        {
-          "date": "2026-02-06",
-          "count": 53
-        },
-        {
-          "date": "2026-02-07",
-          "count": 11
-        },
-        {
-          "date": "2026-02-08",
-          "count": 6
-        },
-        {
-          "date": "2026-02-09",
-          "count": 6
-        },
-        {
-          "date": "2026-02-10",
-          "count": 8
-        },
-        {
-          "date": "2026-02-11",
-          "count": 5
-        },
-        {
-          "date": "2026-02-12",
-          "count": 5
-        },
-        {
-          "date": "2026-02-13",
-          "count": 5
-        },
-        {
-          "date": "2026-02-14",
-          "count": 3
-        },
-        {
-          "date": "2026-02-15",
-          "count": 2
-        },
-        {
-          "date": "2026-02-16",
-          "count": 2
-        },
-        {
-          "date": "2026-02-17",
-          "count": 3
-        },
-        {
-          "date": "2026-02-18",
-          "count": 5
-        },
-        {
-          "date": "2026-02-19",
-          "count": 3
-        },
-        {
-          "date": "2026-02-20",
-          "count": 12
-        },
-        {
-          "date": "2026-02-21",
-          "count": 8
-        },
-        {
-          "date": "2026-02-22",
-          "count": 6
-        },
-        {
           "date": "2026-02-23",
-          "count": 3
+          "count": 16
         },
         {
           "date": "2026-02-24",
-          "count": 11
-        }
-      ],
-      "trafficSources": {
-        "search": 0.28,
-        "suggested": 0.3,
-        "browse": 0.18,
-        "external": 0.11,
-        "direct": 0.07,
-        "notifications": 0.05,
-        "other": 0.06
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.14,
-          "25-34": 0.29,
-          "35-44": 0.26,
-          "45-54": 0.11,
-          "55-64": 0.05,
-          "65+": 0.04
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.51
-          },
-          {
-            "country": "IN",
-            "percentage": 0.11
-          },
-          {
-            "country": "UK",
-            "percentage": 0.09
-          },
-          {
-            "country": "CA",
-            "percentage": 0.08
-          },
-          {
-            "country": "BR",
-            "percentage": 0.04
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-024",
-      "youtubeVideoId": "yt-024mock",
-      "title": "Predictions for 2026 - What's Coming Next",
-      "publishDate": "2026-02-11",
-      "metrics": {
-        "totalViews": 297,
-        "uniqueViewers": 244,
-        "avgViewDuration": 0.46,
-        "avgViewDurationMinutes": 10,
-        "watchTimeHours": 47.8,
-        "likes": 15,
-        "comments": 2,
-        "shares": 1,
-        "subscribersGained": 19,
-        "subscribersLost": 2,
-        "impressions": 1194,
-        "clickThroughRate": 0.1
-      },
-      "dailyViews": [
-        {
-          "date": "2026-02-11",
-          "count": 106
+          "count": 10
         },
         {
-          "date": "2026-02-12",
-          "count": 74
+          "date": "2026-02-25",
+          "count": 10
         },
         {
-          "date": "2026-02-13",
-          "count": 54
-        },
-        {
-          "date": "2026-02-14",
-          "count": 17
-        },
-        {
-          "date": "2026-02-15",
-          "count": 8
-        },
-        {
-          "date": "2026-02-16",
-          "count": 5
-        },
-        {
-          "date": "2026-02-17",
+          "date": "2026-02-26",
           "count": 7
         },
         {
-          "date": "2026-02-18",
+          "date": "2026-02-27",
+          "count": 4
+        },
+        {
+          "date": "2026-02-28",
           "count": 6
         },
         {
-          "date": "2026-02-19",
-          "count": 5
-        },
-        {
-          "date": "2026-02-20",
-          "count": 4
-        },
-        {
-          "date": "2026-02-21",
-          "count": 4
-        },
-        {
-          "date": "2026-02-22",
-          "count": 2
-        },
-        {
-          "date": "2026-02-23",
-          "count": 2
-        },
-        {
-          "date": "2026-02-24",
-          "count": 3
+          "date": "2026-03-01",
+          "count": 6
         }
       ],
       "trafficSources": {
-        "search": 0.26,
-        "suggested": 0.26,
-        "browse": 0.19,
-        "external": 0.17,
-        "direct": 0.11,
-        "notifications": 0.1,
-        "other": 0.02
+        "search": 17,
+        "suggested": 22,
+        "browse": 23,
+        "external": 11,
+        "other": 6
       },
       "demographics": {
-        "ageGroups": {
-          "18-24": 0.15,
-          "25-34": 0.37,
-          "35-44": 0.25,
-          "45-54": 0.17,
-          "55-64": 0.09,
-          "65+": 0.05
+        "age": {
+          "18-24": 8,
+          "25-34": 39,
+          "35-44": 29,
+          "45-54": 17,
+          "55+": 7
         },
         "topCountries": [
           {
             "country": "US",
-            "percentage": 0.63
-          },
-          {
-            "country": "IN",
-            "percentage": 0.09
-          },
-          {
-            "country": "UK",
-            "percentage": 0.1
+            "percentage": 75
           },
           {
             "country": "CA",
-            "percentage": 0.05
-          },
-          {
-            "country": "BR",
-            "percentage": 0.03
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-025",
-      "youtubeVideoId": "yt-025mock",
-      "title": "Interview with Rachel Torres - Sustainability",
-      "publishDate": "2026-02-18",
-      "metrics": {
-        "totalViews": 211,
-        "uniqueViewers": 179,
-        "avgViewDuration": 0.46,
-        "avgViewDurationMinutes": 22,
-        "watchTimeHours": 76,
-        "likes": 9,
-        "comments": 2,
-        "shares": 2,
-        "subscribersGained": 12,
-        "subscribersLost": 0,
-        "impressions": 1025,
-        "clickThroughRate": 0.1
-      },
-      "dailyViews": [
-        {
-          "date": "2026-02-18",
-          "count": 90
-        },
-        {
-          "date": "2026-02-19",
-          "count": 62
-        },
-        {
-          "date": "2026-02-20",
-          "count": 37
-        },
-        {
-          "date": "2026-02-21",
-          "count": 9
-        },
-        {
-          "date": "2026-02-22",
-          "count": 5
-        },
-        {
-          "date": "2026-02-23",
-          "count": 4
-        },
-        {
-          "date": "2026-02-24",
-          "count": 4
-        }
-      ],
-      "trafficSources": {
-        "search": 0.18,
-        "suggested": 0.25,
-        "browse": 0.17,
-        "external": 0.13,
-        "direct": 0.1,
-        "notifications": 0.06,
-        "other": 0.07
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.1,
-          "25-34": 0.28,
-          "35-44": 0.22,
-          "45-54": 0.16,
-          "55-64": 0.09,
-          "65+": 0.04
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.59
+            "percentage": 9
           },
           {
             "country": "IN",
-            "percentage": 0.09
+            "percentage": 5
           },
           {
-            "country": "UK",
-            "percentage": 0.11
-          },
-          {
-            "country": "CA",
-            "percentage": 0.06
-          },
-          {
-            "country": "BR",
-            "percentage": 0.03
-          }
-        ]
-      }
-    },
-    {
-      "episodeId": "ep-026",
-      "youtubeVideoId": "yt-026mock",
-      "title": "Season Finale - Lessons Learned & What's Next",
-      "publishDate": "2026-02-25",
-      "metrics": {
-        "totalViews": 0,
-        "uniqueViewers": 0,
-        "avgViewDuration": 0.4,
-        "avgViewDurationMinutes": 9,
-        "watchTimeHours": 0,
-        "likes": 0,
-        "comments": 0,
-        "shares": 0,
-        "subscribersGained": 13,
-        "subscribersLost": 1,
-        "impressions": 0,
-        "clickThroughRate": 0.07
-      },
-      "dailyViews": [],
-      "trafficSources": {
-        "search": 0.2,
-        "suggested": 0.3,
-        "browse": 0.18,
-        "external": 0.13,
-        "direct": 0.11,
-        "notifications": 0.07,
-        "other": 0.06
-      },
-      "demographics": {
-        "ageGroups": {
-          "18-24": 0.12,
-          "25-34": 0.3,
-          "35-44": 0.21,
-          "45-54": 0.18,
-          "55-64": 0.08,
-          "65+": 0.03
-        },
-        "topCountries": [
-          {
-            "country": "US",
-            "percentage": 0.59
-          },
-          {
-            "country": "IN",
-            "percentage": 0.1
-          },
-          {
-            "country": "UK",
-            "percentage": 0.11
-          },
-          {
-            "country": "CA",
-            "percentage": 0.04
-          },
-          {
-            "country": "BR",
-            "percentage": 0.03
+            "country": "GB",
+            "percentage": 4
           }
         ]
       }
