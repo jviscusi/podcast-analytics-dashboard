@@ -28,10 +28,10 @@ export default function Platforms() {
     YouTube: yt.episodeData[idx]?.reach || 0,
   }));
 
-  // Radar chart data (normalized to max for each metric)
-  const maxReach = Math.max(sp.totalReach, ap.totalReach, yt.totalReach);
-  const maxListeners = Math.max(sp.totalListeners, ap.totalListeners, yt.totalListeners);
-  const maxCompletion = Math.max(sp.avgCompletion, ap.avgCompletion, yt.avgCompletion);
+  // Radar chart data (normalized to max for each metric, safe division)
+  const maxReach = Math.max(sp.totalReach, ap.totalReach, yt.totalReach) || 1;
+  const maxListeners = Math.max(sp.totalListeners, ap.totalListeners, yt.totalListeners) || 1;
+  const maxCompletion = Math.max(sp.avgCompletion, ap.avgCompletion, yt.avgCompletion) || 1;
 
   const radarData = [
     {
@@ -168,6 +168,7 @@ function calculateConsistency(episodeData) {
   if (!episodeData || episodeData.length < 2) return 50;
   const reaches = episodeData.map(e => e.reach);
   const mean = reaches.reduce((a, b) => a + b, 0) / reaches.length;
+  if (mean === 0) return 0; // No data = no consistency score
   const variance = reaches.reduce((sum, r) => sum + Math.pow(r - mean, 2), 0) / reaches.length;
   const cv = Math.sqrt(variance) / mean; // coefficient of variation
   // Lower CV = more consistent = higher score
