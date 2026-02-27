@@ -1,0 +1,18 @@
+{
+  "name": "podcast-analytics-server",
+  "version": "1.0.0",
+  "description": "Backend API server for Podcast Analytics Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

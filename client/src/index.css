@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Custom styles for the podcast analytics dashboard */
+:root {
+  --spotify-green: #1DB954;
+  --apple-purple: #9B59B6;
+  --youtube-red: #FF0000;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}

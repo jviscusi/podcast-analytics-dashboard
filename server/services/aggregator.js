@@ -1,0 +1,473 @@
+/**
+ * Cross-Platform Data Aggregator
+ * 
+ * Normalizes data from Spotify, Apple Podcasts, and YouTube into
+ * a unified schema for the dashboard to consume.
+ */
+
+const path = require('path');
+const SpotifyService = require('./spotify-service');
+const AppleService = require('./apple-service');
+const YouTubeService = require('./youtube-service');
+
+class Aggregator {
+  constructor() {
+    this.spotify = new SpotifyService();
+    this.apple = new AppleService();
+    this.youtube = new YouTubeService();
+    this.episodeMetadata = require(path.join(__dirname, '../mock/episodes.json'));
+  }
+
+  /**
+   * Get dashboard overview with aggregate KPIs
+   */
+  async getOverview() {
+    const [spotifyEps, appleEps, youtubeEps] = await Promise.all([
+      this.spotify.getEpisodes(),
+      this.apple.getEpisodes(),
+      this.youtube.getEpisodes()
+    ]);
+
+    const totalStreams = spotifyEps.reduce((sum, ep) => sum + ep.metrics.totalStreams, 0);
+    const totalDownloads = appleEps.reduce((sum, ep) => sum + ep.metrics.totalDownloads, 0);
+    const totalViews = youtubeEps.reduce((sum, ep) => sum + ep.metrics.totalViews, 0);
+    const totalListeners = spotifyEps.reduce((sum, ep) => sum + ep.metrics.totalListeners, 0)
+      + appleEps.reduce((sum, ep) => sum + ep.metrics.uniqueListeners, 0)
+      + youtubeEps.reduce((sum, ep) => sum + ep.metrics.uniqueViewers, 0);
+
+    const avgCompletionSpotify = spotifyEps.reduce((sum, ep) => sum + ep.metrics.completionRate, 0) / spotifyEps.length;
+    const avgCompletionApple = appleEps.reduce((sum, ep) => sum + ep.metrics.avgConsumption, 0) / appleEps.length;
+    const avgCompletionYouTube = youtubeEps.reduce((sum, ep) => sum + ep.metrics.avgViewDuration, 0) / youtubeEps.length;
+    const avgCompletion = (avgCompletionSpotify + avgCompletionApple + avgCompletionYouTube) / 3;
+
+    const totalReach = totalStreams + totalDownloads + totalViews;
+
+    return {
+      totalReach,
+      totalStreams,
+      totalDownloads,
+      totalViews,
+      totalListeners,
+      avgCompletionRate: parseFloat(avgCompletion.toFixed(3)),
+      totalEpisodes: this.episodeMetadata.length,
+      platformBreakdown: {
+        spotify: { streams: totalStreams, percentage: parseFloat((totalStreams / totalReach * 100).toFixed(1)) },
+        apple: { downloads: totalDownloads, percentage: parseFloat((totalDownloads / totalReach * 100).toFixed(1)) },
+        youtube: { views: totalViews, percentage: parseFloat((totalViews / totalReach * 100).toFixed(1)) }
+      }
+    };
+  }
+
+  /**
+   * Get all episodes with normalized cross-platform metrics
+   */
+  async getEpisodes(filters = {}) {
+    const [spotifyEps, appleEps, youtubeEps] = await Promise.all([
+      this.spotify.getEpisodes(),
+      this.apple.getEpisodes(),
+      this.youtube.getEpisodes()
+    ]);
+
+    let episodes = this.episodeMetadata.map(meta => {
+      const spotifyEp = spotifyEps.find(e => e.episodeId === meta.id);
+      const appleEp = appleEps.find(e => e.episodeId === meta.id);
+      const youtubeEp = youtubeEps.find(e => e.episodeId === meta.id);
+
+      const spotifyStreams = spotifyEp?.metrics?.totalStreams || 0;
+      const appleDownloads = appleEp?.metrics?.totalDownloads || 0;
+      const youtubeViews = youtubeEp?.metrics?.totalViews || 0;
+      const totalReach = spotifyStreams + appleDownloads + youtubeViews;
+
+      const spotifyListeners = spotifyEp?.metrics?.totalListeners || 0;
+      const appleListeners = appleEp?.metrics?.uniqueListeners || 0;
+      const youtubeViewers = youtubeEp?.metrics?.uniqueViewers || 0;
+      const totalListeners = spotifyListeners + appleListeners + youtubeViewers;
+
+      const completionRates = [];
+      if (spotifyEp?.metrics?.completionRate) completionRates.push(spotifyEp.metrics.completionRate);
+      if (appleEp?.metrics?.avgConsumption) completionRates.push(appleEp.metrics.avgConsumption);
+      if (youtubeEp?.metrics?.avgViewDuration) completionRates.push(youtubeEp.metrics.avgViewDuration);
+      const avgCompletion = completionRates.length > 0
+        ? completionRates.reduce((a, b) => a + b, 0) / completionRates.length
+        : 0;
+
+      return {
+        id: meta.id,
+        episodeNumber: meta.episodeNumber,
+        title: meta.title,
+        publishDate: meta.publishDate,
+        duration: meta.duration,
+        tags: meta.tags,
+        guest: meta.guest,
+        season: meta.season,
+        metrics: {
+          totalReach,
+          totalListeners,
+          avgCompletionRate: parseFloat(avgCompletion.toFixed(3)),
+          platforms: {
+            spotify: {
+              streams: spotifyStreams,
+              listeners: spotifyListeners,
+              completionRate: spotifyEp?.metrics?.completionRate || 0,
+              starts: spotifyEp?.metrics?.starts || 0,
+              saves: spotifyEp?.metrics?.saves || 0,
+              shares: spotifyEp?.metrics?.shares || 0
+            },
+            apple: {
+              downloads: appleDownloads,
+              plays: appleEp?.metrics?.totalPlays || 0,
+              listeners: appleListeners,
+              avgConsumption: appleEp?.metrics?.avgConsumption || 0,
+              engagedListeners: appleEp?.metrics?.engagedListeners || 0
+            },
+            youtube: {
+              views: youtubeViews,
+              viewers: youtubeViewers,
+              avgViewDuration: youtubeEp?.metrics?.avgViewDuration || 0,
+              watchTimeHours: youtubeEp?.metrics?.watchTimeHours || 0,
+              likes: youtubeEp?.metrics?.likes || 0,
+              comments: youtubeEp?.metrics?.comments || 0,
+              shares: youtubeEp?.metrics?.shares || 0
+            }
+          }
+        }
+      };
+    });
+
+    // Apply filters
+    if (filters.startDate) {
+      episodes = episodes.filter(ep => ep.publishDate >= filters.startDate);
+    }
+    if (filters.endDate) {
+      episodes = episodes.filter(ep => ep.publishDate <= filters.endDate);
+    }
+    if (filters.tags && filters.tags.length > 0) {
+      episodes = episodes.filter(ep => 
+        filters.tags.some(tag => ep.tags.includes(tag))
+      );
+    }
+    if (filters.hasGuest !== undefined) {
+      episodes = episodes.filter(ep => 
+        filters.hasGuest ? ep.guest !== null : ep.guest === null
+      );
+    }
+
+    // Sort
+    const sortBy = filters.sortBy || 'publishDate';
+    const sortOrder = filters.sortOrder || 'desc';
+    episodes.sort((a, b) => {
+      let valA, valB;
+      switch (sortBy) {
+        case 'totalReach':
+          valA = a.metrics.totalReach;
+          valB = b.metrics.totalReach;
+          break;
+        case 'totalListeners':
+          valA = a.metrics.totalListeners;
+          valB = b.metrics.totalListeners;
+          break;
+        case 'completionRate':
+          valA = a.metrics.avgCompletionRate;
+          valB = b.metrics.avgCompletionRate;
+          break;
+        case 'episodeNumber':
+          valA = a.episodeNumber;
+          valB = b.episodeNumber;
+          break;
+        case 'publishDate':
+        default:
+          valA = a.publishDate;
+          valB = b.publishDate;
+          break;
+      }
+      if (sortOrder === 'asc') return valA > valB ? 1 : -1;
+      return valA < valB ? 1 : -1;
+    });
+
+    return episodes;
+  }
+
+  /**
+   * Get single episode with full cross-platform detail
+   */
+  async getEpisodeDetail(episodeId) {
+    const [spotifyEp, appleEp, youtubeEp] = await Promise.all([
+      this.spotify.getEpisode(episodeId),
+      this.apple.getEpisode(episodeId),
+      this.youtube.getEpisode(episodeId)
+    ]);
+
+    const meta = this.episodeMetadata.find(e => e.id === episodeId);
+    if (!meta) return null;
+
+    return {
+      ...meta,
+      platforms: {
+        spotify: spotifyEp,
+        apple: appleEp,
+        youtube: youtubeEp
+      }
+    };
+  }
+
+  /**
+   * Get aggregate daily trends across all platforms
+   */
+  async getTrends(filters = {}) {
+    const [spotifyDaily, appleDaily, youtubeDaily] = await Promise.all([
+      this.spotify.getAggregateDailyStreams(),
+      this.apple.getAggregateDailyDownloads(),
+      this.youtube.getAggregateDailyViews()
+    ]);
+
+    // Merge all dates
+    const allDates = new Set();
+    spotifyDaily.forEach(d => allDates.add(d.date));
+    appleDaily.forEach(d => allDates.add(d.date));
+    youtubeDaily.forEach(d => allDates.add(d.date));
+
+    const spotifyMap = Object.fromEntries(spotifyDaily.map(d => [d.date, d.count]));
+    const appleMap = Object.fromEntries(appleDaily.map(d => [d.date, d.count]));
+    const youtubeMap = Object.fromEntries(youtubeDaily.map(d => [d.date, d.count]));
+
+    let trends = Array.from(allDates).sort().map(date => ({
+      date,
+      spotify: spotifyMap[date] || 0,
+      apple: appleMap[date] || 0,
+      youtube: youtubeMap[date] || 0,
+      total: (spotifyMap[date] || 0) + (appleMap[date] || 0) + (youtubeMap[date] || 0)
+    }));
+
+    // Apply date filters
+    if (filters.startDate) {
+      trends = trends.filter(t => t.date >= filters.startDate);
+    }
+    if (filters.endDate) {
+      trends = trends.filter(t => t.date <= filters.endDate);
+    }
+
+    // Optionally aggregate by week
+    if (filters.groupBy === 'week') {
+      const weekMap = {};
+      trends.forEach(t => {
+        const d = new Date(t.date);
+        const weekStart = new Date(d);
+        weekStart.setDate(d.getDate() - d.getDay());
+        const weekKey = weekStart.toISOString().split('T')[0];
+        if (!weekMap[weekKey]) {
+          weekMap[weekKey] = { date: weekKey, spotify: 0, apple: 0, youtube: 0, total: 0 };
+        }
+        weekMap[weekKey].spotify += t.spotify;
+        weekMap[weekKey].apple += t.apple;
+        weekMap[weekKey].youtube += t.youtube;
+        weekMap[weekKey].total += t.total;
+      });
+      trends = Object.values(weekMap).sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    return trends;
+  }
+
+  /**
+   * Get platform comparison data
+   */
+  async getPlatformComparison() {
+    const episodes = await this.getEpisodes();
+
+    const platforms = {
+      spotify: { totalReach: 0, totalListeners: 0, avgCompletion: 0, episodeData: [] },
+      apple: { totalReach: 0, totalListeners: 0, avgCompletion: 0, episodeData: [] },
+      youtube: { totalReach: 0, totalListeners: 0, avgCompletion: 0, episodeData: [] }
+    };
+
+    episodes.forEach(ep => {
+      const sp = ep.metrics.platforms.spotify;
+      const ap = ep.metrics.platforms.apple;
+      const yt = ep.metrics.platforms.youtube;
+
+      platforms.spotify.totalReach += sp.streams;
+      platforms.spotify.totalListeners += sp.listeners;
+      platforms.spotify.episodeData.push({
+        episodeId: ep.id,
+        episodeNumber: ep.episodeNumber,
+        title: ep.title,
+        publishDate: ep.publishDate,
+        reach: sp.streams,
+        listeners: sp.listeners,
+        completionRate: sp.completionRate
+      });
+
+      platforms.apple.totalReach += ap.downloads;
+      platforms.apple.totalListeners += ap.listeners;
+      platforms.apple.episodeData.push({
+        episodeId: ep.id,
+        episodeNumber: ep.episodeNumber,
+        title: ep.title,
+        publishDate: ep.publishDate,
+        reach: ap.downloads,
+        listeners: ap.listeners,
+        completionRate: ap.avgConsumption
+      });
+
+      platforms.youtube.totalReach += yt.views;
+      platforms.youtube.totalListeners += yt.viewers;
+      platforms.youtube.episodeData.push({
+        episodeId: ep.id,
+        episodeNumber: ep.episodeNumber,
+        title: ep.title,
+        publishDate: ep.publishDate,
+        reach: yt.views,
+        listeners: yt.viewers,
+        completionRate: yt.avgViewDuration
+      });
+    });
+
+    // Calculate averages
+    const epCount = episodes.length;
+    platforms.spotify.avgCompletion = parseFloat(
+      (platforms.spotify.episodeData.reduce((s, e) => s + e.completionRate, 0) / epCount).toFixed(3)
+    );
+    platforms.apple.avgCompletion = parseFloat(
+      (platforms.apple.episodeData.reduce((s, e) => s + e.completionRate, 0) / epCount).toFixed(3)
+    );
+    platforms.youtube.avgCompletion = parseFloat(
+      (platforms.youtube.episodeData.reduce((s, e) => s + e.completionRate, 0) / epCount).toFixed(3)
+    );
+
+    return platforms;
+  }
+
+  /**
+   * Get performance insights for understanding what works
+   */
+  async getInsights() {
+    const episodes = await this.getEpisodes({ sortBy: 'totalReach', sortOrder: 'desc' });
+
+    // Episode rankings
+    const ranked = episodes.map((ep, idx) => ({
+      ...ep,
+      rank: idx + 1
+    }));
+
+    // Average reach
+    const avgReach = episodes.reduce((s, e) => s + e.metrics.totalReach, 0) / episodes.length;
+
+    // Best and worst performers
+    const topPerformers = ranked.slice(0, 5);
+    const bottomPerformers = ranked.slice(-5).reverse();
+
+    // Day of week analysis
+    const dayOfWeekStats = {};
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    episodes.forEach(ep => {
+      const day = dayNames[new Date(ep.publishDate).getDay()];
+      if (!dayOfWeekStats[day]) {
+        dayOfWeekStats[day] = { count: 0, totalReach: 0, avgReach: 0 };
+      }
+      dayOfWeekStats[day].count++;
+      dayOfWeekStats[day].totalReach += ep.metrics.totalReach;
+    });
+    Object.keys(dayOfWeekStats).forEach(day => {
+      dayOfWeekStats[day].avgReach = Math.round(dayOfWeekStats[day].totalReach / dayOfWeekStats[day].count);
+    });
+
+    // Duration analysis
+    const durationBuckets = {
+      'short (< 25 min)': { count: 0, totalReach: 0, avgReach: 0, avgCompletion: 0 },
+      'medium (25-40 min)': { count: 0, totalReach: 0, avgReach: 0, avgCompletion: 0 },
+      'long (> 40 min)': { count: 0, totalReach: 0, avgReach: 0, avgCompletion: 0 }
+    };
+    episodes.forEach(ep => {
+      let bucket;
+      if (ep.duration < 25) bucket = 'short (< 25 min)';
+      else if (ep.duration <= 40) bucket = 'medium (25-40 min)';
+      else bucket = 'long (> 40 min)';
+      durationBuckets[bucket].count++;
+      durationBuckets[bucket].totalReach += ep.metrics.totalReach;
+      durationBuckets[bucket].avgCompletion += ep.metrics.avgCompletionRate;
+    });
+    Object.keys(durationBuckets).forEach(bucket => {
+      if (durationBuckets[bucket].count > 0) {
+        durationBuckets[bucket].avgReach = Math.round(durationBuckets[bucket].totalReach / durationBuckets[bucket].count);
+        durationBuckets[bucket].avgCompletion = parseFloat(
+          (durationBuckets[bucket].avgCompletion / durationBuckets[bucket].count).toFixed(3)
+        );
+      }
+    });
+
+    // Tag/category analysis
+    const tagStats = {};
+    episodes.forEach(ep => {
+      ep.tags.forEach(tag => {
+        if (!tagStats[tag]) {
+          tagStats[tag] = { count: 0, totalReach: 0, avgReach: 0, avgCompletion: 0 };
+        }
+        tagStats[tag].count++;
+        tagStats[tag].totalReach += ep.metrics.totalReach;
+        tagStats[tag].avgCompletion += ep.metrics.avgCompletionRate;
+      });
+    });
+    Object.keys(tagStats).forEach(tag => {
+      tagStats[tag].avgReach = Math.round(tagStats[tag].totalReach / tagStats[tag].count);
+      tagStats[tag].avgCompletion = parseFloat(
+        (tagStats[tag].avgCompletion / tagStats[tag].count).toFixed(3)
+      );
+    });
+
+    // Guest vs solo analysis
+    const guestEps = episodes.filter(e => e.guest !== null);
+    const soloEps = episodes.filter(e => e.guest === null);
+    const guestVsSolo = {
+      guest: {
+        count: guestEps.length,
+        avgReach: guestEps.length > 0 ? Math.round(guestEps.reduce((s, e) => s + e.metrics.totalReach, 0) / guestEps.length) : 0,
+        avgCompletion: guestEps.length > 0 ? parseFloat((guestEps.reduce((s, e) => s + e.metrics.avgCompletionRate, 0) / guestEps.length).toFixed(3)) : 0
+      },
+      solo: {
+        count: soloEps.length,
+        avgReach: soloEps.length > 0 ? Math.round(soloEps.reduce((s, e) => s + e.metrics.totalReach, 0) / soloEps.length) : 0,
+        avgCompletion: soloEps.length > 0 ? parseFloat((soloEps.reduce((s, e) => s + e.metrics.avgCompletionRate, 0) / soloEps.length).toFixed(3)) : 0
+      }
+    };
+
+    // Duration vs engagement scatter data
+    const durationVsEngagement = episodes.map(ep => ({
+      episodeId: ep.id,
+      episodeNumber: ep.episodeNumber,
+      title: ep.title,
+      duration: ep.duration,
+      totalReach: ep.metrics.totalReach,
+      completionRate: ep.metrics.avgCompletionRate,
+      tags: ep.tags,
+      hasGuest: ep.guest !== null
+    }));
+
+    // Growth trend (reach per episode over time)
+    const growthTrend = episodes
+      .sort((a, b) => a.publishDate.localeCompare(b.publishDate))
+      .map(ep => ({
+        episodeNumber: ep.episodeNumber,
+        publishDate: ep.publishDate,
+        totalReach: ep.metrics.totalReach,
+        title: ep.title
+      }));
+
+    return {
+      summary: {
+        totalEpisodes: episodes.length,
+        avgReach: Math.round(avgReach),
+        medianReach: Math.round(episodes[Math.floor(episodes.length / 2)]?.metrics.totalReach || 0)
+      },
+      topPerformers,
+      bottomPerformers,
+      dayOfWeekAnalysis: dayOfWeekStats,
+      durationAnalysis: durationBuckets,
+      tagAnalysis: tagStats,
+      guestVsSolo,
+      durationVsEngagement,
+      growthTrend
+    };
+  }
+}
+
+module.exports = Aggregator;

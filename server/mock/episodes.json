@@ -1,0 +1,373 @@
+[
+  {
+    "id": "ep-001",
+    "episodeNumber": 1,
+    "title": "Welcome to the Show - What to Expect",
+    "description": "Episode 1 of the podcast.",
+    "publishDate": "2025-09-03",
+    "duration": 20,
+    "tags": [
+      "intro",
+      "solo"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-002",
+    "episodeNumber": 2,
+    "title": "The State of the Industry in 2025",
+    "description": "Episode 2 of the podcast.",
+    "publishDate": "2025-09-10",
+    "duration": 37,
+    "tags": [
+      "industry",
+      "deep-dive"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-003",
+    "episodeNumber": 3,
+    "title": "Interview with Sarah Chen - Building Startups",
+    "description": "Episode 3 of the podcast.",
+    "publishDate": "2025-09-17",
+    "duration": 52,
+    "tags": [
+      "interview",
+      "startups"
+    ],
+    "guest": "Sarah Chen",
+    "season": 1
+  },
+  {
+    "id": "ep-004",
+    "episodeNumber": 4,
+    "title": "5 Lessons from Our First Month",
+    "description": "Episode 4 of the podcast.",
+    "publishDate": "2025-09-24",
+    "duration": 24,
+    "tags": [
+      "reflection",
+      "solo"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-005",
+    "episodeNumber": 5,
+    "title": "Deep Dive: Market Trends That Matter",
+    "description": "Episode 5 of the podcast.",
+    "publishDate": "2025-10-01",
+    "duration": 34,
+    "tags": [
+      "deep-dive",
+      "market"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-006",
+    "episodeNumber": 6,
+    "title": "Interview with Marcus Johnson - Scaling Teams",
+    "description": "Episode 6 of the podcast.",
+    "publishDate": "2025-10-08",
+    "duration": 39,
+    "tags": [
+      "interview",
+      "leadership"
+    ],
+    "guest": "Marcus Johnson",
+    "season": 1
+  },
+  {
+    "id": "ep-007",
+    "episodeNumber": 7,
+    "title": "Listener Q&A - Your Questions Answered",
+    "description": "Episode 7 of the podcast.",
+    "publishDate": "2025-10-15",
+    "duration": 65,
+    "tags": [
+      "q-and-a",
+      "community"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-008",
+    "episodeNumber": 8,
+    "title": "The Future of Remote Work",
+    "description": "Episode 8 of the podcast.",
+    "publishDate": "2025-10-22",
+    "duration": 37,
+    "tags": [
+      "deep-dive",
+      "remote-work"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-009",
+    "episodeNumber": 9,
+    "title": "Interview with Dr. Lisa Park - AI and Ethics",
+    "description": "Episode 9 of the podcast.",
+    "publishDate": "2025-10-29",
+    "duration": 47,
+    "tags": [
+      "interview",
+      "ai",
+      "technology"
+    ],
+    "guest": "Dr. Lisa Park",
+    "season": 1
+  },
+  {
+    "id": "ep-010",
+    "episodeNumber": 10,
+    "title": "Behind the Scenes - How We Make This Show",
+    "description": "Episode 10 of the podcast.",
+    "publishDate": "2025-11-05",
+    "duration": 24,
+    "tags": [
+      "behind-the-scenes",
+      "solo"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-011",
+    "episodeNumber": 11,
+    "title": "Top 10 Tools for Productivity",
+    "description": "Episode 11 of the podcast.",
+    "publishDate": "2025-11-12",
+    "duration": 21,
+    "tags": [
+      "tutorial",
+      "tools"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-012",
+    "episodeNumber": 12,
+    "title": "Interview with James Wright - Venture Capital",
+    "description": "Episode 12 of the podcast.",
+    "publishDate": "2025-11-19",
+    "duration": 54,
+    "tags": [
+      "interview",
+      "finance",
+      "vc"
+    ],
+    "guest": "James Wright",
+    "season": 1
+  },
+  {
+    "id": "ep-013",
+    "episodeNumber": 13,
+    "title": "The Psychology of Decision Making",
+    "description": "Episode 13 of the podcast.",
+    "publishDate": "2025-11-26",
+    "duration": 44,
+    "tags": [
+      "deep-dive",
+      "psychology"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-014",
+    "episodeNumber": 14,
+    "title": "Special: Live Recording at TechConf 2025",
+    "description": "Episode 14 of the podcast.",
+    "publishDate": "2025-12-03",
+    "duration": 51,
+    "tags": [
+      "special",
+      "live",
+      "conference"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-015",
+    "episodeNumber": 15,
+    "title": "Interview with Aisha Patel - Product Design",
+    "description": "Episode 15 of the podcast.",
+    "publishDate": "2025-12-10",
+    "duration": 40,
+    "tags": [
+      "interview",
+      "design"
+    ],
+    "guest": "Aisha Patel",
+    "season": 1
+  },
+  {
+    "id": "ep-016",
+    "episodeNumber": 16,
+    "title": "Midseason Recap - Highlights So Far",
+    "description": "Episode 16 of the podcast.",
+    "publishDate": "2025-12-17",
+    "duration": 23,
+    "tags": [
+      "recap",
+      "solo"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-017",
+    "episodeNumber": 17,
+    "title": "The Creator Economy Explained",
+    "description": "Episode 17 of the podcast.",
+    "publishDate": "2025-12-24",
+    "duration": 31,
+    "tags": [
+      "deep-dive",
+      "creator-economy"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-018",
+    "episodeNumber": 18,
+    "title": "Interview with Tom Rivera - Content Strategy",
+    "description": "Episode 18 of the podcast.",
+    "publishDate": "2025-12-31",
+    "duration": 42,
+    "tags": [
+      "interview",
+      "content",
+      "strategy"
+    ],
+    "guest": "Tom Rivera",
+    "season": 1
+  },
+  {
+    "id": "ep-019",
+    "episodeNumber": 19,
+    "title": "Listener Stories - How You're Making an Impact",
+    "description": "Episode 19 of the podcast.",
+    "publishDate": "2026-01-07",
+    "duration": 21,
+    "tags": [
+      "community",
+      "stories"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-020",
+    "episodeNumber": 20,
+    "title": "Deep Dive: Data-Driven Decision Making",
+    "description": "Episode 20 of the podcast.",
+    "publishDate": "2026-01-14",
+    "duration": 42,
+    "tags": [
+      "deep-dive",
+      "data",
+      "analytics"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-021",
+    "episodeNumber": 21,
+    "title": "Interview with Nina Kowalski - Growth Marketing",
+    "description": "Episode 21 of the podcast.",
+    "publishDate": "2026-01-21",
+    "duration": 47,
+    "tags": [
+      "interview",
+      "marketing",
+      "growth"
+    ],
+    "guest": "Nina Kowalski",
+    "season": 1
+  },
+  {
+    "id": "ep-022",
+    "episodeNumber": 22,
+    "title": "The Art of Storytelling in Business",
+    "description": "Episode 22 of the podcast.",
+    "publishDate": "2026-01-28",
+    "duration": 43,
+    "tags": [
+      "deep-dive",
+      "storytelling"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-023",
+    "episodeNumber": 23,
+    "title": "Interview with David Kim - Building Communities",
+    "description": "Episode 23 of the podcast.",
+    "publishDate": "2026-02-04",
+    "duration": 52,
+    "tags": [
+      "interview",
+      "community-building"
+    ],
+    "guest": "David Kim",
+    "season": 1
+  },
+  {
+    "id": "ep-024",
+    "episodeNumber": 24,
+    "title": "Predictions for 2026 - What's Coming Next",
+    "description": "Episode 24 of the podcast.",
+    "publishDate": "2026-02-11",
+    "duration": 21,
+    "tags": [
+      "predictions",
+      "future"
+    ],
+    "guest": null,
+    "season": 1
+  },
+  {
+    "id": "ep-025",
+    "episodeNumber": 25,
+    "title": "Interview with Rachel Torres - Sustainability",
+    "description": "Episode 25 of the podcast.",
+    "publishDate": "2026-02-18",
+    "duration": 47,
+    "tags": [
+      "interview",
+      "sustainability"
+    ],
+    "guest": "Rachel Torres",
+    "season": 1
+  },
+  {
+    "id": "ep-026",
+    "episodeNumber": 26,
+    "title": "Season Finale - Lessons Learned & What's Next",
+    "description": "Episode 26 of the podcast.",
+    "publishDate": "2026-02-25",
+    "duration": 22,
+    "tags": [
+      "finale",
+      "reflection",
+      "solo"
+    ],
+    "guest": null,
+    "season": 1
+  }
+]
