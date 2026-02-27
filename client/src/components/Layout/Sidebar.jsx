@@ -5,6 +5,7 @@ const navItems = [
   { path: '/episodes', label: 'Episodes', icon: '🎙️' },
   { path: '/platforms', label: 'Platforms', icon: '📡' },
   { path: '/insights', label: 'Insights', icon: '💡' },
+  { path: '/media-kit', label: 'Media Kit', icon: '📋' },
 ];
 
 export default function Sidebar() {

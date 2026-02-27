@@ -58,3 +58,58 @@ export function getExportUrl(filters = {}) {
   const qs = params.toString();
   return `${API_BASE}/export${qs ? '?' + qs : ''}`;
 }
+
+// ============================================
+// LinkedIn API
+// ============================================
+
+const LI_BASE = '/api/linkedin';
+
+export async function getLinkedInSummary() {
+  return fetchJSON(`${LI_BASE}/summary`);
+}
+
+export async function getLinkedInDemographics(category = null) {
+  const qs = category ? `?category=${category}` : '';
+  return fetchJSON(`${LI_BASE}/demographics${qs}`);
+}
+
+export async function getLinkedInPosts() {
+  return fetchJSON(`${LI_BASE}/posts`);
+}
+
+export async function getLinkedInEngagement(startDate, endDate) {
+  const params = new URLSearchParams();
+  if (startDate) params.set('startDate', startDate);
+  if (endDate) params.set('endDate', endDate);
+  const qs = params.toString();
+  return fetchJSON(`${LI_BASE}/engagement${qs ? '?' + qs : ''}`);
+}
+
+export async function getLinkedInFollowers(startDate, endDate) {
+  const params = new URLSearchParams();
+  if (startDate) params.set('startDate', startDate);
+  if (endDate) params.set('endDate', endDate);
+  const qs = params.toString();
+  return fetchJSON(`${LI_BASE}/followers${qs ? '?' + qs : ''}`);
+}
+
+export async function getLinkedInCorrelation() {
+  return fetchJSON(`${LI_BASE}/correlation`);
+}
+
+export async function importLinkedInCSV(csvContent, fileName) {
+  const response = await fetch(`${LI_BASE}/import`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ csvContent, fileName })
+  });
+  if (!response.ok) throw new Error(`Import failed: ${response.statusText}`);
+  return response.json();
+}
+
+export async function mapLinkedInEpisodes() {
+  const response = await fetch(`${LI_BASE}/map-episodes`, { method: 'POST' });
+  if (!response.ok) throw new Error(`Mapping failed: ${response.statusText}`);
+  return response.json();
+}
