@@ -153,7 +153,8 @@ app.get('/api/analytics/export', async (req, res) => {
       'Apple Downloads', 'Apple Plays', 'Apple Listeners', 'Apple Consumption',
       'YouTube Views', 'YouTube Viewers', 'YouTube Avg Duration',
       'YouTube Likes', 'YouTube Comments',
-      'Data Sources (Spotify)', 'Data Sources (Apple)', 'Data Sources (YouTube)'
+      'Amazon Streams', 'Amazon Listeners', 'Amazon Completion', 'Amazon Followers',
+      'Data Sources (Spotify)', 'Data Sources (Apple)', 'Data Sources (YouTube)', 'Data Sources (Amazon)'
     ];
 
     const rows = episodes.map(ep => [
@@ -178,9 +179,14 @@ app.get('/api/analytics/export', async (req, res) => {
       ep.metrics.platforms.youtube.avgViewDuration,
       ep.metrics.platforms.youtube.likes,
       ep.metrics.platforms.youtube.comments,
+      ep.metrics.platforms.amazon.streams,
+      ep.metrics.platforms.amazon.listeners,
+      ep.metrics.platforms.amazon.completionRate,
+      ep.metrics.platforms.amazon.followers,
       ep.dataSources?.spotify || 'unknown',
       ep.dataSources?.apple || 'unknown',
-      ep.dataSources?.youtube || 'unknown'
+      ep.dataSources?.youtube || 'unknown',
+      ep.dataSources?.amazon || 'unknown'
     ]);
 
     const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
@@ -229,8 +235,8 @@ app.post('/api/data/metrics', (req, res) => {
       return res.status(400).json({ error: 'episodeId, platform, and metrics are required' });
     }
 
-    if (!['spotify', 'apple', 'riverside'].includes(platform)) {
-      return res.status(400).json({ error: 'platform must be spotify, apple, or riverside' });
+    if (!['spotify', 'apple', 'amazon', 'riverside'].includes(platform)) {
+      return res.status(400).json({ error: 'platform must be spotify, apple, amazon, or riverside' });
     }
 
     const result = manualData.upsertMetrics(episodeId, platform, metrics, date, notes);
@@ -400,6 +406,7 @@ app.listen(PORT, () => {
   console.log(`   YouTube: ${useMock ? 'Mock' : (hasYouTubeTokens ? '✅ Authorized' : '⚠️  Not authorized (run: node services/youtube-auth.js)')}`);
   console.log(`   Spotify: Manual data entry (SQLite)`);
   console.log(`   Apple:   Manual data entry (SQLite)`);
+  console.log(`   Amazon:  Manual data entry (SQLite)`);
   console.log(`   RSS:     ${process.env.RSS_FEED_URL || 'Not configured'}`);
   console.log('');
   console.log('   Analytics Endpoints:');

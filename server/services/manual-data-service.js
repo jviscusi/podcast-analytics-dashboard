@@ -1,7 +1,7 @@
 /**
  * Manual Data Entry Service
  * 
- * Stores manually-entered platform metrics (Spotify, Apple, Riverside)
+ * Stores manually-entered platform metrics (Spotify, Apple, Amazon Music, Riverside)
  * in a local SQLite database. Used when platform APIs are not available.
  * 
  * Data can be entered via:
@@ -47,7 +47,7 @@ class ManualDataService {
       CREATE TABLE IF NOT EXISTS episode_metrics (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         episode_id TEXT NOT NULL,
-        platform TEXT NOT NULL CHECK(platform IN ('spotify', 'apple', 'riverside')),
+        platform TEXT NOT NULL CHECK(platform IN ('spotify', 'apple', 'amazon', 'riverside')),
         metric_name TEXT NOT NULL,
         metric_value REAL NOT NULL,
         recorded_date TEXT NOT NULL DEFAULT (date('now')),
@@ -225,6 +225,26 @@ class ManualDataService {
   }
 
   /**
+   * Get Amazon Music metrics formatted for the aggregator
+   */
+  getAmazonEpisodes() {
+    const episodes = this.getAllEpisodeMetrics('amazon');
+    return episodes.map(ep => ({
+      episodeId: ep.episodeId,
+      platform: 'amazon',
+      dataSource: 'manual',
+      metrics: {
+        totalStreams: ep.metrics.streams || ep.metrics.totalStreams || 0,
+        totalListeners: ep.metrics.listeners || ep.metrics.totalListeners || 0,
+        completionRate: (ep.metrics.completionRate || ep.metrics.completion_rate || 0) /
+          ((ep.metrics.completionRate || ep.metrics.completion_rate || 0) > 1 ? 100 : 1),
+        starts: ep.metrics.starts || 0,
+        followers: ep.metrics.followers || 0
+      }
+    }));
+  }
+
+  /**
    * Import metrics from CSV data
    * Expected CSV format: episodeId, platform, metricName, value, date
    * Or platform-specific format with headers
@@ -280,7 +300,7 @@ class ManualDataService {
   getDataSourceStatus() {
     const db = this._getDb();
 
-    const platforms = ['spotify', 'apple', 'riverside'];
+    const platforms = ['spotify', 'apple', 'amazon', 'riverside'];
     const status = {};
 
     for (const platform of platforms) {
