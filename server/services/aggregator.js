@@ -21,6 +21,81 @@ class Aggregator {
     this.rss = new RSSService();
     this._episodeCache = null;
     this._useMock = process.env.USE_MOCK_DATA !== 'false';
+
+    // Aggregator-level cache: stores last successful results
+    this._cache = {
+      overview: { data: null, time: 0 },
+      episodes: { data: null, time: 0 },
+      trends: { data: null, time: 0 },
+      platforms: { data: null, time: 0 },
+      insights: { data: null, time: 0 },
+      youtubeEpisodes: { data: null, time: 0 }
+    };
+    this._cacheTTL = 10 * 60 * 1000; // 10 minutes
+  }
+
+  /**
+   * Check if a cache entry is still valid
+   */
+  _isCacheValid(key) {
+    return this._cache[key].data !== null && (Date.now() - this._cache[key].time) < this._cacheTTL;
+  }
+
+  /**
+   * Get cached data or null
+   */
+  _getCached(key) {
+    if (this._isCacheValid(key)) return this._cache[key].data;
+    return null;
+  }
+
+  /**
+   * Store data in cache
+   */
+  _setCache(key, data) {
+    this._cache[key] = { data, time: Date.now() };
+  }
+
+  /**
+   * Get YouTube episodes with caching and graceful fallback
+   * This is the key method that prevents 500s from YouTube API failures
+   */
+  async _getYouTubeEpisodesSafe(episodeMetadata) {
+    // Return from cache if valid
+    const cached = this._getCached('youtubeEpisodes');
+    if (cached) return cached;
+
+    try {
+      const data = await this.youtube.getEpisodes(episodeMetadata);
+      this._setCache('youtubeEpisodes', data);
+      return data;
+    } catch (error) {
+      console.error('YouTube API failed, using cached/empty data:', error.message);
+      // Return last known good data, or empty array
+      return this._cache.youtubeEpisodes.data || [];
+    }
+  }
+
+  /**
+   * Sort episodes array (used for cached data)
+   */
+  _sortEpisodes(episodes, sortBy, sortOrder) {
+    const sorted = [...episodes];
+    const by = sortBy || 'publishDate';
+    const order = sortOrder || 'desc';
+    sorted.sort((a, b) => {
+      let valA, valB;
+      switch (by) {
+        case 'totalReach': valA = a.metrics.totalReach; valB = b.metrics.totalReach; break;
+        case 'totalListeners': valA = a.metrics.totalListeners; valB = b.metrics.totalListeners; break;
+        case 'completionRate': valA = a.metrics.avgCompletionRate; valB = b.metrics.avgCompletionRate; break;
+        case 'episodeNumber': valA = a.episodeNumber; valB = b.episodeNumber; break;
+        default: valA = a.publishDate; valB = b.publishDate; break;
+      }
+      if (order === 'asc') return valA > valB ? 1 : -1;
+      return valA < valB ? 1 : -1;
+    });
+    return sorted;
   }
 
   /**
@@ -102,8 +177,12 @@ class Aggregator {
    * Get dashboard overview with aggregate KPIs
    */
   async getOverview() {
+    // Return cached overview if valid
+    const cached = this._getCached('overview');
+    if (cached) return cached;
+
     const episodeMetadata = await this._getEpisodeMetadata();
-    const youtubeEps = await this.youtube.getEpisodes(episodeMetadata);
+    const youtubeEps = await this._getYouTubeEpisodesSafe(episodeMetadata);
     const spotifyEps = this._getSpotifyEpisodes();
     const appleEps = this._getAppleEpisodes();
     const amazonEps = this._getAmazonEpisodes();
@@ -151,7 +230,7 @@ class Aggregator {
       amazon: amazonEps.length > 0 ? (amazonEps[0]?.dataSource || 'manual') : 'none'
     };
 
-    return {
+    const result = {
       totalReach,
       totalStreams,
       totalDownloads,
@@ -180,14 +259,27 @@ class Aggregator {
         }
       }
     };
+
+    this._setCache('overview', result);
+    return result;
   }
 
   /**
    * Get all episodes with normalized cross-platform metrics
    */
   async getEpisodes(filters = {}) {
+    // Return cached episodes if valid and no filters applied
+    const hasFilters = filters.startDate || filters.endDate || filters.tags || filters.hasGuest !== undefined;
+    if (!hasFilters) {
+      const cached = this._getCached('episodes');
+      if (cached) {
+        // Still apply sort to cached data
+        return this._sortEpisodes(cached, filters.sortBy, filters.sortOrder);
+      }
+    }
+
     const episodeMetadata = await this._getEpisodeMetadata();
-    const youtubeEps = await this.youtube.getEpisodes(episodeMetadata);
+    const youtubeEps = await this._getYouTubeEpisodesSafe(episodeMetadata);
     const spotifyEps = this._getSpotifyEpisodes();
     const appleEps = this._getAppleEpisodes();
     const amazonEps = this._getAmazonEpisodes();
@@ -293,6 +385,11 @@ class Aggregator {
       episodes = episodes.filter(ep => 
         filters.hasGuest ? ep.guest !== null : ep.guest === null
       );
+    }
+
+    // Cache the unfiltered episode list before sorting
+    if (!hasFilters) {
+      this._setCache('episodes', episodes);
     }
 
     // Sort
