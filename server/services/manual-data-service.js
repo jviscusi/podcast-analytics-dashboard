@@ -245,45 +245,141 @@ class ManualDataService {
   }
 
   /**
+   * Parse a CSV line properly, handling quoted fields with commas and escaped quotes
+   */
+  _parseCSVLine(line) {
+    const values = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQuotes) {
+        if (ch === '"') {
+          if (i + 1 < line.length && line[i + 1] === '"') {
+            current += '"';
+            i++; // skip escaped quote
+          } else {
+            inQuotes = false;
+          }
+        } else {
+          current += ch;
+        }
+      } else {
+        if (ch === '"') {
+          inQuotes = true;
+        } else if (ch === ',') {
+          values.push(current.trim());
+          current = '';
+        } else {
+          current += ch;
+        }
+      }
+    }
+    values.push(current.trim());
+    return values;
+  }
+
+  /**
+   * Extract episode number from a Spotify episode name
+   * e.g. "IOO Podcast 019 - Curtis Dinkel on Authentic Connections" → 19
+   */
+  _extractEpisodeNumberFromName(name) {
+    // Try "IOO Podcast NNN" pattern
+    const match = name.match(/podcast\s+(\d+)/i);
+    if (match) return parseInt(match[1], 10);
+    // Try "Episode NNN" or "Ep NNN" pattern
+    const match2 = name.match(/(?:episode|ep\.?)\s*(\d+)/i);
+    if (match2) return parseInt(match2[1], 10);
+    return null;
+  }
+
+  /**
+   * Detect if CSV is in Spotify's native export format
+   * Spotify exports: "name","plays","streams","audience_size","releaseDate"
+   */
+  _isSpotifyNativeFormat(headers) {
+    return headers.includes('name') && headers.includes('streams') && headers.includes('audience_size');
+  }
+
+  /**
    * Import metrics from CSV data
-   * Expected CSV format: episodeId, platform, metricName, value, date
-   * Or platform-specific format with headers
+   * Supports:
+   * - Spotify native export format: name, plays, streams, audience_size, releaseDate
+   * - Generic format: episode_id, metric1, metric2, ...
+   * All imports use UPSERT logic to prevent duplicates.
    */
   importCSV(csvContent, platform) {
-    const lines = csvContent.trim().split('\n');
+    const lines = csvContent.trim().split('\n').filter(l => l.trim());
     if (lines.length < 2) throw new Error('CSV must have at least a header row and one data row');
 
-    const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
-    const results = { imported: 0, errors: [] };
+    const headers = this._parseCSVLine(lines[0]).map(h => h.toLowerCase().replace(/^"|"$/g, ''));
+    const results = { imported: 0, errors: [], format: 'generic' };
+
+    // Detect Spotify native format
+    const isSpotifyNative = this._isSpotifyNativeFormat(headers);
+    if (isSpotifyNative) {
+      results.format = 'spotify_native';
+    }
 
     for (let i = 1; i < lines.length; i++) {
       try {
-        const values = lines[i].split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+        const values = this._parseCSVLine(lines[i]);
         const row = {};
-        headers.forEach((h, idx) => { row[h] = values[idx]; });
+        headers.forEach((h, idx) => { row[h] = values[idx] || ''; });
 
-        // Determine episode ID
-        const episodeId = row.episode_id || row.episodeid || row.id || row.episode;
-        if (!episodeId) {
-          results.errors.push(`Row ${i + 1}: Missing episode ID`);
-          continue;
-        }
+        let episodeId;
+        let metrics = {};
+        let recordedDate = new Date().toISOString().split('T')[0];
 
-        // Build metrics object from remaining columns
-        const metrics = {};
-        const skipCols = ['episode_id', 'episodeid', 'id', 'episode', 'platform', 'date', 'notes'];
-        headers.forEach((h, idx) => {
-          if (!skipCols.includes(h) && values[idx] && !isNaN(parseFloat(values[idx]))) {
-            metrics[h] = parseFloat(values[idx]);
+        if (isSpotifyNative) {
+          // Spotify native format: match by episode name → ep-XXX
+          const name = row.name || row['"name"'] || '';
+          const epNum = this._extractEpisodeNumberFromName(name);
+          if (!epNum) {
+            results.errors.push(`Row ${i + 1}: Could not extract episode number from "${name}"`);
+            continue;
           }
-        });
+          episodeId = `ep-${String(epNum).padStart(3, '0')}`;
+
+          // Map Spotify columns to our metric names
+          const plays = parseFloat(row.plays) || 0;
+          const streams = parseFloat(row.streams) || 0;
+          const audienceSize = parseFloat(row.audience_size) || 0;
+
+          metrics = {
+            starts: plays,
+            streams: streams,
+            listeners: audienceSize
+          };
+
+          // Use releaseDate if available
+          if (row.releasedate || row.releaseDate) {
+            recordedDate = row.releasedate || row.releaseDate || recordedDate;
+          }
+        } else {
+          // Generic format: requires episode_id column
+          episodeId = row.episode_id || row.episodeid || row.id || row.episode;
+          if (!episodeId) {
+            results.errors.push(`Row ${i + 1}: Missing episode ID`);
+            continue;
+          }
+
+          // Build metrics object from remaining columns
+          const skipCols = ['episode_id', 'episodeid', 'id', 'episode', 'platform', 'date', 'notes', 'name', 'releasedate'];
+          headers.forEach((h, idx) => {
+            if (!skipCols.includes(h) && values[idx] && !isNaN(parseFloat(values[idx]))) {
+              metrics[h] = parseFloat(values[idx]);
+            }
+          });
+
+          recordedDate = row.date || recordedDate;
+        }
 
         if (Object.keys(metrics).length === 0) {
           results.errors.push(`Row ${i + 1}: No numeric metrics found`);
           continue;
         }
 
-        const recordedDate = row.date || new Date().toISOString().split('T')[0];
         this.upsertMetrics(episodeId, platform, metrics, recordedDate, row.notes || `CSV import row ${i + 1}`);
         results.imported++;
       } catch (error) {

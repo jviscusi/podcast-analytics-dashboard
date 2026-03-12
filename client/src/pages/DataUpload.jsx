@@ -17,9 +17,10 @@ const PODCAST_PLATFORMS = {
     icon: '🟢',
     color: '#1DB954',
     type: 'podcast',
-    metrics: ['streams', 'listeners', 'completionRate', 'starts', 'saves', 'shares'],
-    csvTemplate: 'episode_id,streams,listeners,completionRate,starts,saves,shares',
-    helpText: 'Export from Spotify for Podcasters → Analytics'
+    metrics: ['streams', 'listeners', 'starts', 'saves', 'shares'],
+    csvTemplate: '"name","plays","streams","audience_size","releaseDate"',
+    nativeFormat: true,
+    helpText: 'Upload directly from Spotify for Podcasters → Analytics → Export CSV'
   },
   apple: {
     name: 'Apple Podcasts',
@@ -471,7 +472,25 @@ export default function DataUpload() {
               </div>
 
               {/* Platform-specific format guide */}
-              {isPodcast && (
+              {isPodcast && platformConfig.nativeFormat && (
+                <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                  <h4 className="font-medium text-green-800 text-sm mb-2">✅ Native {platformConfig.name} Export Supported</h4>
+                  <p className="text-xs text-green-700 mb-3">
+                    Upload the CSV file directly from {platformConfig.name} — no modifications needed!
+                    Episodes are automatically matched by name (e.g., "IOO Podcast 001" → ep-001).
+                  </p>
+                  <code className="block text-xs bg-white rounded p-3 border text-gray-600 overflow-x-auto whitespace-pre">
+{`"name","plays","streams","audience_size","releaseDate"
+"IOO Podcast 001 - Introduction to Purpose Driven Leadership","13","9","8","2025-11-22"
+"IOO Podcast 002 - Emily Pinto on Purpose Driven Leadership","2","2","2","2025-11-22"`}
+                  </code>
+                  <p className="text-xs text-green-700 mt-2">
+                    <strong>Column mapping:</strong> plays → starts, streams → streams, audience_size → listeners
+                  </p>
+                </div>
+              )}
+
+              {isPodcast && !platformConfig.nativeFormat && (
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-medium text-gray-700 text-sm mb-2">Expected CSV Format</h4>
                   <code className="block text-xs bg-white rounded p-3 border text-gray-600 overflow-x-auto">
