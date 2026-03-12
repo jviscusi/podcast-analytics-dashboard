@@ -910,6 +910,46 @@ class LinkedInService {
   }
 
   /**
+   * Get date ranges for each LinkedIn data stream
+   */
+  getDataDateRanges() {
+    const db = this._getDb();
+    const ranges = {};
+
+    // Demographics
+    try {
+      const demo = db.prepare('SELECT MIN(import_date) as earliest, MAX(import_date) as latest, COUNT(*) as rows FROM linkedin_demographics').get();
+      if (demo?.rows > 0) ranges.demographics = { earliest: demo.earliest, latest: demo.latest, rows: demo.rows };
+    } catch (e) { /* table may not exist */ }
+
+    // Posts
+    try {
+      const posts = db.prepare('SELECT MIN(created_date) as earliest, MAX(created_date) as latest, COUNT(*) as rows FROM linkedin_posts').get();
+      if (posts?.rows > 0) ranges.posts = { earliest: posts.earliest, latest: posts.latest, rows: posts.rows };
+    } catch (e) { /* table may not exist */ }
+
+    // Daily engagement
+    try {
+      const eng = db.prepare('SELECT MIN(date) as earliest, MAX(date) as latest, COUNT(*) as rows FROM linkedin_daily_engagement').get();
+      if (eng?.rows > 0) ranges.engagement = { earliest: eng.earliest, latest: eng.latest, rows: eng.rows };
+    } catch (e) { /* table may not exist */ }
+
+    // Follower growth
+    try {
+      const fol = db.prepare('SELECT MIN(date) as earliest, MAX(date) as latest, COUNT(*) as rows FROM linkedin_follower_growth').get();
+      if (fol?.rows > 0) ranges.followers = { earliest: fol.earliest, latest: fol.latest, rows: fol.rows };
+    } catch (e) { /* table may not exist */ }
+
+    // Visitors
+    try {
+      const vis = db.prepare('SELECT MIN(date) as earliest, MAX(date) as latest, COUNT(*) as rows FROM linkedin_visitors').get();
+      if (vis?.rows > 0) ranges.visitors = { earliest: vis.earliest, latest: vis.latest, rows: vis.rows };
+    } catch (e) { /* table may not exist */ }
+
+    return ranges;
+  }
+
+  /**
    * Log an import operation
    */
   _logImport(fileType, fileName, inserted, updated, skipped) {

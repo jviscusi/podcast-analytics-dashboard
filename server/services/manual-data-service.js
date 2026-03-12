@@ -391,6 +391,26 @@ class ManualDataService {
   }
 
   /**
+   * Get the date range of data for a platform
+   */
+  getDataDateRange(platform) {
+    const db = this._getDb();
+    const result = db.prepare(`
+      SELECT 
+        MIN(recorded_date) as earliest,
+        MAX(recorded_date) as latest,
+        MAX(updated_at) as lastUploaded
+      FROM episode_metrics
+      WHERE platform = ?
+    `).get(platform);
+    return {
+      earliest: result?.earliest || null,
+      latest: result?.latest || null,
+      lastUploaded: result?.lastUploaded || null
+    };
+  }
+
+  /**
    * Get data source status for all platforms
    */
   getDataSourceStatus() {

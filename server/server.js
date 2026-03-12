@@ -208,15 +208,53 @@ app.get('/api/analytics/export', async (req, res) => {
 
 /**
  * GET /api/data/status
- * Get data source status for all platforms
+ * Get data source status for all platforms including date ranges and LinkedIn per-stream tracking
  */
 app.get('/api/data/status', (req, res) => {
   try {
     const status = manualData.getDataSourceStatus();
+    
+    // Add data date ranges for podcast platforms
+    for (const platform of ['spotify', 'apple', 'amazon']) {
+      if (status[platform].episodeCount > 0) {
+        status[platform].dataRange = manualData.getDataDateRange(platform);
+      }
+    }
+
     status.youtube = {
       dataSource: youtube.hasValidTokens() ? 'live' : 'not_authorized',
       lastUpdated: new Date().toISOString()
     };
+
+    // Add LinkedIn upload tracking per data stream
+    try {
+      const liImportHistory = linkedin.getImportHistory();
+      const liStreams = {};
+      // Group by file_type, get latest for each
+      liImportHistory.forEach(entry => {
+        if (!liStreams[entry.file_type]) {
+          liStreams[entry.file_type] = {
+            lastUploaded: entry.import_date,
+            fileName: entry.file_name,
+            rowsInserted: entry.rows_inserted,
+            rowsUpdated: entry.rows_updated
+          };
+        }
+      });
+      
+      // Get date ranges for each LinkedIn data stream
+      const liDateRanges = linkedin.getDataDateRanges ? linkedin.getDataDateRanges() : {};
+      
+      status.linkedin = {
+        dataSource: Object.keys(liStreams).length > 0 ? 'csv_import' : 'none',
+        streams: liStreams,
+        dateRanges: liDateRanges,
+        importHistory: liImportHistory.slice(0, 10) // Last 10 imports
+      };
+    } catch (e) {
+      status.linkedin = { dataSource: 'none', streams: {}, dateRanges: {}, importHistory: [] };
+    }
+
     res.json(status);
   } catch (error) {
     console.error('Error fetching data status:', error);

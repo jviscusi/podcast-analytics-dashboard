@@ -303,6 +303,12 @@ export default function DataUpload() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         {Object.entries(PODCAST_PLATFORMS).map(([key, config]) => {
           const status = dataStatus?.[key];
+          const isLI = key === 'linkedin';
+          const liStatus = dataStatus?.linkedin;
+          const hasData = isLI
+            ? liStatus?.dataSource !== 'none'
+            : status?.episodeCount > 0;
+
           return (
             <div
               key={key}
@@ -319,17 +325,26 @@ export default function DataUpload() {
                 <span className="font-semibold text-xs">{config.name}</span>
               </div>
               <div className="text-xs text-gray-500">
-                {key === 'linkedin' ? (
-                  status?.episodeCount > 0 || dataStatus?.linkedin ? (
-                    <span className="text-green-600 font-medium">✅ Data loaded</span>
-                  ) : (
-                    <span className="text-amber-600 font-medium">⚠️ No data yet</span>
-                  )
-                ) : status?.episodeCount > 0 ? (
+                {hasData ? (
                   <>
-                    <span className="text-green-600 font-medium">✅ {status.episodeCount} eps</span>
+                    <span className="text-green-600 font-medium">
+                      ✅ {isLI ? `${Object.keys(liStatus?.streams || {}).length} streams` : `${status.episodeCount} eps`}
+                    </span>
                     <br />
-                    <span className="text-[10px]">Updated: {status.lastUpdated ? new Date(status.lastUpdated).toLocaleDateString() : '—'}</span>
+                    <span className="text-[10px]">
+                      Uploaded: {formatUploadDate(isLI
+                        ? Object.values(liStatus?.streams || {})[0]?.lastUploaded
+                        : status?.dataRange?.lastUploaded || status?.lastUpdated
+                      )}
+                    </span>
+                    {!isLI && status?.dataRange && (
+                      <>
+                        <br />
+                        <span className="text-[10px] text-blue-600">
+                          Data: {shortDate(status.dataRange.earliest)} – {shortDate(status.dataRange.latest)}
+                        </span>
+                      </>
+                    )}
                   </>
                 ) : (
                   <span className="text-amber-600 font-medium">⚠️ No data yet</span>
@@ -365,6 +380,45 @@ export default function DataUpload() {
           </div>
         </div>
       </div>
+
+      {/* LinkedIn Data Streams Detail (when LinkedIn is selected) */}
+      {selectedPlatform === 'linkedin' && dataStatus?.linkedin?.dataSource !== 'none' && (
+        <div className="bg-white rounded-xl border border-gray-200 p-4">
+          <h3 className="font-semibold text-gray-900 text-sm mb-3">💼 LinkedIn Data Streams</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            {['demographics', 'posts', 'engagement', 'followers', 'visitors'].map(stream => {
+              const streamInfo = dataStatus?.linkedin?.streams;
+              const dateRange = dataStatus?.linkedin?.dateRanges?.[stream];
+              // Find the matching stream key in import log
+              const matchingKey = Object.keys(streamInfo || {}).find(k => k.includes(stream) || stream.includes(k.replace('daily_', '')));
+              const info = matchingKey ? streamInfo[matchingKey] : null;
+
+              return (
+                <div key={stream} className="bg-gray-50 rounded-lg p-3">
+                  <div className="font-medium text-xs text-gray-700 capitalize mb-1">{stream}</div>
+                  {info || dateRange ? (
+                    <>
+                      {info && (
+                        <div className="text-[10px] text-gray-500">
+                          Last: {formatUploadDate(info.lastUploaded)}
+                        </div>
+                      )}
+                      {dateRange && (
+                        <div className="text-[10px] text-blue-600">
+                          {shortDate(dateRange.earliest)} – {shortDate(dateRange.latest)}
+                          <br />{dateRange.rows} rows
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <div className="text-[10px] text-amber-500">Not uploaded</div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* YouTube Re-auth Banner */}
       {!youtubeAuth?.authorized && (
@@ -745,6 +799,25 @@ function formatMetricName(metric) {
     followers: 'Followers'
   };
   return names[metric] || metric;
+}
+
+function formatUploadDate(dateStr) {
+  if (!dateStr) return '—';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) +
+      ' ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  } catch { return dateStr; }
+}
+
+function shortDate(dateStr) {
+  if (!dateStr) return '—';
+  try {
+    const d = new Date(dateStr + (dateStr.includes('T') ? '' : 'T00:00:00'));
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit' });
+  } catch { return dateStr; }
 }
 
 function getMetricDescription(platform, metric) {
