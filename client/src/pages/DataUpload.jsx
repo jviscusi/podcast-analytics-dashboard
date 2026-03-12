@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { getEpisodes, getDataStatus, importPlatformCSV, submitBulkMetrics } from '../services/api';
-import { formatDate, PLATFORM_COLORS } from '../utils/formatters';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorMessage from '../components/common/ErrorMessage';
 

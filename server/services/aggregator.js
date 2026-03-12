@@ -461,8 +461,13 @@ class Aggregator {
    * Get aggregate daily trends across all platforms
    */
   async getTrends(filters = {}) {
-    // YouTube daily views (real or estimated)
-    const youtubeDaily = await this.youtube.getAggregateDailyViews();
+// YouTube daily views (real or estimated)
+    let youtubeDaily = [];
+    try {
+      youtubeDaily = await this.youtube.getAggregateDailyViews();
+    } catch (e) {
+      console.warn('Aggregate daily views unavailable:', e.message);
+    }
 
     // For Spotify/Apple, use mock daily data if available
     let spotifyDaily = [];
