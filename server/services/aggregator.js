@@ -67,8 +67,10 @@ class Aggregator {
 
     try {
       const data = await this.youtube.getEpisodes(episodeMetadata);
-      this._setCache('youtubeEpisodes', data);
-      return data;
+      // Enrich with YouTube Analytics API data (avgViewPercentage, watchTime, shares)
+      const enriched = await this.youtube.enrichWithAnalytics(data);
+      this._setCache('youtubeEpisodes', enriched);
+      return enriched;
     } catch (error) {
       console.error('YouTube API failed, using cached/empty data:', error.message);
       // Return last known good data, or empty array

@@ -188,20 +188,32 @@ class ManualDataService {
    */
   getSpotifyEpisodes() {
     const episodes = this.getAllEpisodeMetrics('spotify');
-    return episodes.map(ep => ({
-      episodeId: ep.episodeId,
-      platform: 'spotify',
-      dataSource: 'manual',
-      metrics: {
-        totalStreams: ep.metrics.streams || ep.metrics.totalStreams || 0,
-        totalListeners: ep.metrics.listeners || ep.metrics.totalListeners || 0,
-        completionRate: (ep.metrics.completionRate || ep.metrics.completion_rate || 0) / 
-          ((ep.metrics.completionRate || ep.metrics.completion_rate || 0) > 1 ? 100 : 1),
-        starts: ep.metrics.starts || 0,
-        saves: ep.metrics.saves || 0,
-        shares: ep.metrics.shares || 0
+    return episodes.map(ep => {
+      const streams = ep.metrics.streams || ep.metrics.totalStreams || 0;
+      const starts = ep.metrics.starts || 0;
+      
+      // Completion rate: use explicit value if provided, otherwise compute from streams/starts
+      // streams = completed listens, starts = total starts (plays)
+      let completionRate = ep.metrics.completionRate || ep.metrics.completion_rate || 0;
+      if (completionRate === 0 && starts > 0 && streams > 0) {
+        completionRate = streams / starts; // Already 0-1 range
       }
-    }));
+      if (completionRate > 1) completionRate = completionRate / 100; // Normalize if > 1
+
+      return {
+        episodeId: ep.episodeId,
+        platform: 'spotify',
+        dataSource: 'manual',
+        metrics: {
+          totalStreams: streams,
+          totalListeners: ep.metrics.listeners || ep.metrics.totalListeners || 0,
+          completionRate,
+          starts,
+          saves: ep.metrics.saves || 0,
+          shares: ep.metrics.shares || 0
+        }
+      };
+    });
   }
 
   /**
