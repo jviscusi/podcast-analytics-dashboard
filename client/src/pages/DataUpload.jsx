@@ -1,13 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
-import { getEpisodes, getDataStatus, importPlatformCSV, submitBulkMetrics } from '../services/api';
+import {
+  getEpisodes, getDataStatus, importPlatformCSV, submitBulkMetrics,
+  importLinkedInCSV, mapLinkedInEpisodes,
+  getYouTubeAuthStatus, getYouTubeAuthUrl
+} from '../services/api';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorMessage from '../components/common/ErrorMessage';
 
-const PLATFORMS = {
+// ============================================
+// Platform Configurations
+// ============================================
+
+const PODCAST_PLATFORMS = {
   spotify: {
     name: 'Spotify',
     icon: '🟢',
     color: '#1DB954',
+    type: 'podcast',
     metrics: ['streams', 'listeners', 'completionRate', 'starts', 'saves', 'shares'],
     csvTemplate: 'episode_id,streams,listeners,completionRate,starts,saves,shares',
     helpText: 'Export from Spotify for Podcasters → Analytics'
@@ -16,6 +25,7 @@ const PLATFORMS = {
     name: 'Apple Podcasts',
     icon: '🟣',
     color: '#9B59B6',
+    type: 'podcast',
     metrics: ['downloads', 'plays', 'listeners', 'avgConsumption', 'engagedListeners'],
     csvTemplate: 'episode_id,downloads,plays,listeners,avgConsumption,engagedListeners',
     helpText: 'Export from Apple Podcasts Connect → Analytics'
@@ -24,9 +34,24 @@ const PLATFORMS = {
     name: 'Amazon Music',
     icon: '🔵',
     color: '#00A8E1',
+    type: 'podcast',
     metrics: ['streams', 'listeners', 'completionRate', 'starts', 'followers'],
     csvTemplate: 'episode_id,streams,listeners,completionRate,starts,followers',
     helpText: 'Export from Amazon Music for Podcasters → Analytics'
+  },
+  linkedin: {
+    name: 'LinkedIn',
+    icon: '💼',
+    color: '#0A66C2',
+    type: 'social',
+    csvTypes: [
+      'Follower Demographics (seniority, industry, company size, location, job function)',
+      'Content/Post Engagement',
+      'Daily Aggregate Engagement',
+      'Follower Growth',
+      'Page Visitors'
+    ],
+    helpText: 'Export from LinkedIn Company Page → Analytics → Export'
   }
 };
 
@@ -35,7 +60,8 @@ export default function DataUpload() {
   const [error, setError] = useState(null);
   const [episodes, setEpisodes] = useState([]);
   const [dataStatus, setDataStatus] = useState(null);
-  const [activeTab, setActiveTab] = useState('csv'); // 'csv' or 'manual'
+  const [youtubeAuth, setYoutubeAuth] = useState(null);
+  const [activeTab, setActiveTab] = useState('csv');
   const [selectedPlatform, setSelectedPlatform] = useState('spotify');
   const [importResults, setImportResults] = useState([]);
   const [manualData, setManualData] = useState({});
@@ -50,20 +76,23 @@ export default function DataUpload() {
   async function loadData() {
     try {
       setLoading(true);
-      const [eps, status] = await Promise.all([
+      const [eps, status, ytAuth] = await Promise.all([
         getEpisodes({ sortBy: 'episodeNumber', sortOrder: 'asc' }),
-        getDataStatus().catch(() => null)
+        getDataStatus().catch(() => null),
+        getYouTubeAuthStatus().catch(() => ({ authorized: false }))
       ]);
       setEpisodes(eps);
       setDataStatus(status);
+      setYoutubeAuth(ytAuth);
 
-      // Initialize manual data structure
+      // Initialize manual data structure for podcast platforms
       const initial = {};
       eps.forEach(ep => {
         initial[ep.id] = {};
-        Object.keys(PLATFORMS).forEach(platform => {
+        Object.entries(PODCAST_PLATFORMS).forEach(([platform, config]) => {
+          if (config.type !== 'podcast') return;
           initial[ep.id][platform] = {};
-          PLATFORMS[platform].metrics.forEach(m => {
+          config.metrics.forEach(m => {
             initial[ep.id][platform][m] = '';
           });
         });
@@ -83,7 +112,16 @@ export default function DataUpload() {
   async function handleCSVUpload(platform, file) {
     try {
       const content = await file.text();
-      const result = await importPlatformCSV(platform, content);
+      let result;
+
+      if (platform === 'linkedin') {
+        result = await importLinkedInCSV(content, file.name);
+        // Auto-map episodes after LinkedIn import
+        try { await mapLinkedInEpisodes(); } catch (e) { /* ignore */ }
+      } else {
+        result = await importPlatformCSV(platform, content);
+      }
+
       setImportResults(prev => [...prev, {
         platform,
         fileName: file.name,
@@ -106,7 +144,7 @@ export default function DataUpload() {
   function handleFileSelect(e) {
     const files = Array.from(e.target.files);
     files.forEach(file => handleCSVUpload(selectedPlatform, file));
-    e.target.value = ''; // Reset input
+    e.target.value = '';
   }
 
   function handleDrop(e) {
@@ -191,7 +229,6 @@ export default function DataUpload() {
         episodes: episodesToSubmit.length
       }]);
 
-      // Refresh data status
       const status = await getDataStatus().catch(() => null);
       setDataStatus(status);
     } catch (err) {
@@ -210,7 +247,8 @@ export default function DataUpload() {
   // ============================================
 
   function downloadTemplate(platform) {
-    const config = PLATFORMS[platform];
+    const config = PODCAST_PLATFORMS[platform];
+    if (config.type !== 'podcast') return;
     const header = config.csvTemplate;
     const rows = episodes.map(ep => {
       const values = [ep.id, ...config.metrics.map(() => '')];
@@ -226,10 +264,29 @@ export default function DataUpload() {
     URL.revokeObjectURL(url);
   }
 
+  // ============================================
+  // YouTube Re-auth
+  // ============================================
+
+  async function handleYouTubeReauth() {
+    try {
+      const { url } = await getYouTubeAuthUrl();
+      window.open(url, '_blank', 'width=600,height=700');
+    } catch (err) {
+      setImportResults(prev => [...prev, {
+        platform: 'youtube',
+        success: false,
+        error: `Failed to get auth URL: ${err.message}`
+      }]);
+    }
+  }
+
   if (loading) return <LoadingSpinner message="Loading episodes..." />;
   if (error) return <ErrorMessage message={error} />;
 
-  const platformConfig = PLATFORMS[selectedPlatform];
+  const platformConfig = PODCAST_PLATFORMS[selectedPlatform];
+  const isLinkedIn = selectedPlatform === 'linkedin';
+  const isPodcast = platformConfig?.type === 'podcast';
 
   return (
     <div className="space-y-6">
@@ -237,13 +294,13 @@ export default function DataUpload() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900">📤 Data Upload</h1>
         <p className="text-gray-500 mt-1">
-          Upload podcast analytics from Spotify, Apple Podcasts, and Amazon Music
+          Upload analytics from Spotify, Apple Podcasts, Amazon Music, and LinkedIn
         </p>
       </div>
 
       {/* Data Source Status Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {Object.entries(PLATFORMS).map(([key, config]) => {
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        {Object.entries(PODCAST_PLATFORMS).map(([key, config]) => {
           const status = dataStatus?.[key];
           return (
             <div
@@ -251,18 +308,27 @@ export default function DataUpload() {
               className={`bg-white rounded-xl border-2 p-4 cursor-pointer transition-all ${
                 selectedPlatform === key ? 'border-blue-500 shadow-md' : 'border-gray-200 hover:border-gray-300'
               }`}
-              onClick={() => setSelectedPlatform(key)}
+              onClick={() => {
+                setSelectedPlatform(key);
+                if (key === 'linkedin') setActiveTab('csv');
+              }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">{config.icon}</span>
-                <span className="font-semibold text-sm">{config.name}</span>
+                <span className="text-lg">{config.icon}</span>
+                <span className="font-semibold text-xs">{config.name}</span>
               </div>
               <div className="text-xs text-gray-500">
-                {status?.episodeCount > 0 ? (
+                {key === 'linkedin' ? (
+                  status?.episodeCount > 0 || dataStatus?.linkedin ? (
+                    <span className="text-green-600 font-medium">✅ Data loaded</span>
+                  ) : (
+                    <span className="text-amber-600 font-medium">⚠️ No data yet</span>
+                  )
+                ) : status?.episodeCount > 0 ? (
                   <>
-                    <span className="text-green-600 font-medium">✅ {status.episodeCount} episodes</span>
+                    <span className="text-green-600 font-medium">✅ {status.episodeCount} eps</span>
                     <br />
-                    <span>Updated: {status.lastUpdated ? new Date(status.lastUpdated).toLocaleDateString() : '—'}</span>
+                    <span className="text-[10px]">Updated: {status.lastUpdated ? new Date(status.lastUpdated).toLocaleDateString() : '—'}</span>
                   </>
                 ) : (
                   <span className="text-amber-600 font-medium">⚠️ No data yet</span>
@@ -272,19 +338,51 @@ export default function DataUpload() {
           );
         })}
 
-        {/* YouTube status (auto) */}
-        <div className="bg-white rounded-xl border-2 border-gray-200 p-4 opacity-75">
+        {/* YouTube status card */}
+        <div
+          className="bg-white rounded-xl border-2 border-gray-200 p-4 cursor-pointer hover:border-gray-300 transition-all"
+          onClick={!youtubeAuth?.authorized ? handleYouTubeReauth : undefined}
+        >
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xl">🔴</span>
-            <span className="font-semibold text-sm">YouTube</span>
+            <span className="text-lg">🔴</span>
+            <span className="font-semibold text-xs">YouTube</span>
           </div>
           <div className="text-xs text-gray-500">
-            <span className="text-green-600 font-medium">✅ Live API</span>
-            <br />
-            <span>Auto-refreshes every 10 min</span>
+            {youtubeAuth?.authorized ? (
+              <>
+                <span className="text-green-600 font-medium">✅ Live API</span>
+                <br />
+                <span className="text-[10px]">Auto-refreshes</span>
+              </>
+            ) : (
+              <>
+                <span className="text-red-600 font-medium">❌ Token expired</span>
+                <br />
+                <span className="text-blue-600 text-[10px] underline cursor-pointer">Click to re-authorize</span>
+              </>
+            )}
           </div>
         </div>
       </div>
+
+      {/* YouTube Re-auth Banner */}
+      {!youtubeAuth?.authorized && (
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center justify-between">
+          <div>
+            <h3 className="font-medium text-red-800">🔴 YouTube Authorization Expired</h3>
+            <p className="text-sm text-red-600 mt-1">
+              Your YouTube OAuth token has expired. Re-authorize to restore live YouTube data.
+              Alternatively, run: <code className="bg-red-100 px-1 rounded text-xs">cd server && node services/youtube-auth.js</code>
+            </p>
+          </div>
+          <button
+            onClick={handleYouTubeReauth}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium whitespace-nowrap ml-4"
+          >
+            🔑 Re-authorize
+          </button>
+        </div>
+      )}
 
       {/* Upload Method Tabs */}
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
@@ -299,16 +397,18 @@ export default function DataUpload() {
           >
             📄 CSV Upload
           </button>
-          <button
-            onClick={() => setActiveTab('manual')}
-            className={`flex-1 px-6 py-3 text-sm font-medium transition-colors ${
-              activeTab === 'manual'
-                ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-600'
-                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
-            }`}
-          >
-            ✏️ Manual Entry
-          </button>
+          {isPodcast && (
+            <button
+              onClick={() => setActiveTab('manual')}
+              className={`flex-1 px-6 py-3 text-sm font-medium transition-colors ${
+                activeTab === 'manual'
+                  ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-600'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              ✏️ Manual Entry
+            </button>
+          )}
         </div>
 
         <div className="p-6">
@@ -318,16 +418,18 @@ export default function DataUpload() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="font-semibold text-gray-900">
-                    Upload {platformConfig.name} CSV
+                    Upload {platformConfig.name} CSV{isLinkedIn ? 's' : ''}
                   </h3>
                   <p className="text-sm text-gray-500 mt-1">{platformConfig.helpText}</p>
                 </div>
-                <button
-                  onClick={() => downloadTemplate(selectedPlatform)}
-                  className="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium transition-colors"
-                >
-                  📥 Download Template
-                </button>
+                {isPodcast && (
+                  <button
+                    onClick={() => downloadTemplate(selectedPlatform)}
+                    className="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium transition-colors"
+                  >
+                    📥 Download Template
+                  </button>
+                )}
               </div>
 
               {/* Drop Zone */}
@@ -342,45 +444,81 @@ export default function DataUpload() {
                     : 'border-gray-300 hover:border-gray-400 hover:bg-gray-50'
                 }`}
               >
-                <div className="text-4xl mb-3">📁</div>
+                <div className="text-4xl mb-3">{isLinkedIn ? '💼' : '📁'}</div>
                 <p className="text-lg font-medium text-gray-700">
-                  Drop your {platformConfig.name} CSV here
+                  Drop your {platformConfig.name} CSV{isLinkedIn ? ' files' : ''} here
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
-                  or click to browse files
+                  or click to browse files{isLinkedIn ? ' (select multiple)' : ''}
                 </p>
                 <input
                   ref={fileInputRef}
                   type="file"
                   accept=".csv"
+                  multiple={isLinkedIn}
                   onChange={handleFileSelect}
                   className="hidden"
                 />
               </div>
 
-              {/* CSV Format Guide */}
-              <div className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-medium text-gray-700 text-sm mb-2">Expected CSV Format</h4>
-                <code className="block text-xs bg-white rounded p-3 border text-gray-600 overflow-x-auto">
-                  {platformConfig.csvTemplate}
-                  {'\n'}
-                  {episodes.length > 0 && (
-                    <>
-                      {episodes[0].id},{platformConfig.metrics.map((m, i) => i === 0 ? '150' : i === 1 ? '120' : '0').join(',')}
-                      {'\n'}
-                      {episodes.length > 1 && `${episodes[1].id},${platformConfig.metrics.map((m, i) => i === 0 ? '200' : i === 1 ? '160' : '0').join(',')}`}
-                    </>
-                  )}
-                </code>
-                <p className="text-xs text-gray-500 mt-2">
-                  <strong>Episode IDs:</strong> {episodes.slice(0, 5).map(e => e.id).join(', ')}{episodes.length > 5 ? '...' : ''}
+              {/* Duplicate Safety Notice */}
+              <div className="flex items-start gap-2 bg-blue-50 rounded-lg p-3">
+                <span className="text-blue-500 mt-0.5">🔄</span>
+                <p className="text-xs text-blue-700">
+                  <strong>Safe to re-upload:</strong> Duplicate data is automatically handled.
+                  Existing records are updated with the latest values — no duplicates will be created.
                 </p>
               </div>
+
+              {/* Platform-specific format guide */}
+              {isPodcast && (
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-medium text-gray-700 text-sm mb-2">Expected CSV Format</h4>
+                  <code className="block text-xs bg-white rounded p-3 border text-gray-600 overflow-x-auto">
+                    {platformConfig.csvTemplate}
+                    {'\n'}
+                    {episodes.length > 0 && (
+                      <>
+                        {episodes[0].id},{platformConfig.metrics.map((m, i) => i === 0 ? '150' : i === 1 ? '120' : '0').join(',')}
+                        {'\n'}
+                        {episodes.length > 1 && `${episodes[1].id},${platformConfig.metrics.map((m, i) => i === 0 ? '200' : i === 1 ? '160' : '0').join(',')}`}
+                      </>
+                    )}
+                  </code>
+                  <p className="text-xs text-gray-500 mt-2">
+                    <strong>Episode IDs:</strong> {episodes.slice(0, 5).map(e => e.id).join(', ')}{episodes.length > 5 ? '...' : ''}
+                  </p>
+                </div>
+              )}
+
+              {isLinkedIn && (
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-medium text-gray-700 text-sm mb-2">Supported LinkedIn CSV Types</h4>
+                  <p className="text-xs text-gray-500 mb-3">
+                    The system auto-detects the CSV type from the headers. You can upload multiple files at once.
+                  </p>
+                  <ul className="space-y-1.5">
+                    {platformConfig.csvTypes.map((type, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-gray-600">
+                        <span className="text-blue-500">📄</span>
+                        {type}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-3 p-3 bg-white rounded border text-xs text-gray-500">
+                    <strong>How to export:</strong> Go to your{' '}
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                      LinkedIn Company Page
+                    </a>
+                    {' → Admin → Analytics → Click the export button on each tab (Followers, Content, Visitors)'}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
-          {/* Manual Entry Tab */}
-          {activeTab === 'manual' && (
+          {/* Manual Entry Tab (podcast platforms only) */}
+          {activeTab === 'manual' && isPodcast && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
@@ -402,6 +540,15 @@ export default function DataUpload() {
                 >
                   {submitting ? '⏳ Saving...' : '💾 Save All'}
                 </button>
+              </div>
+
+              {/* Duplicate Safety Notice */}
+              <div className="flex items-start gap-2 bg-blue-50 rounded-lg p-3">
+                <span className="text-blue-500 mt-0.5">🔄</span>
+                <p className="text-xs text-blue-700">
+                  <strong>Safe to re-enter:</strong> Submitting data for an episode that already has metrics
+                  will update the existing values — no duplicates will be created.
+                </p>
               </div>
 
               {/* Manual Entry Table */}
@@ -492,7 +639,7 @@ export default function DataUpload() {
               <div className="flex items-center gap-2">
                 <span>{result.success ? '✅' : '❌'}</span>
                 <span className="font-medium text-sm">
-                  {PLATFORMS[result.platform]?.name || result.platform}
+                  {PODCAST_PLATFORMS[result.platform]?.name || result.platform}
                 </span>
                 {result.fileName && (
                   <span className="text-xs text-gray-500">({result.fileName})</span>
@@ -502,6 +649,14 @@ export default function DataUpload() {
                 {result.success ? (
                   result.type === 'manual_entry' ? (
                     `Saved metrics for ${result.episodes} episode${result.episodes > 1 ? 's' : ''}`
+                  ) : result.platform === 'linkedin' ? (
+                    <>
+                      {result.type && <span className="font-medium">{result.type}: </span>}
+                      {result.inserted > 0 && <span className="text-green-700">{result.inserted} new</span>}
+                      {result.inserted > 0 && result.updated > 0 && ', '}
+                      {result.updated > 0 && <span className="text-blue-700">{result.updated} updated</span>}
+                      {result.skipped > 0 && <span className="text-gray-500">, {result.skipped} skipped</span>}
+                    </>
                   ) : (
                     <>
                       Imported {result.imported} row{result.imported !== 1 ? 's' : ''}
@@ -527,25 +682,27 @@ export default function DataUpload() {
         </div>
       )}
 
-      {/* Episode ID Reference */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <h3 className="font-semibold text-gray-900 mb-3">📋 Episode ID Reference</h3>
-        <p className="text-sm text-gray-500 mb-4">
-          Use these IDs in your CSV files to match data to the correct episodes.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {episodes.map(ep => (
-            <div key={ep.id} className="flex items-center gap-2 text-sm py-1">
-              <code className="bg-gray-100 px-2 py-0.5 rounded text-xs font-mono text-blue-700">
-                {ep.id}
-              </code>
-              <span className="text-gray-600 truncate text-xs">
-                Ep {ep.episodeNumber}: {ep.title}
-              </span>
-            </div>
-          ))}
+      {/* Episode ID Reference (only for podcast platforms) */}
+      {isPodcast && (
+        <div className="bg-white rounded-xl border border-gray-200 p-6">
+          <h3 className="font-semibold text-gray-900 mb-3">📋 Episode ID Reference</h3>
+          <p className="text-sm text-gray-500 mb-4">
+            Use these IDs in your CSV files to match data to the correct episodes.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            {episodes.map(ep => (
+              <div key={ep.id} className="flex items-center gap-2 text-sm py-1">
+                <code className="bg-gray-100 px-2 py-0.5 rounded text-xs font-mono text-blue-700">
+                  {ep.id}
+                </code>
+                <span className="text-gray-600 truncate text-xs">
+                  Ep {ep.episodeNumber}: {ep.title}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

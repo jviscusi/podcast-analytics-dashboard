@@ -162,3 +162,30 @@ export async function submitBulkMetrics(platform, episodes, date, notes) {
   }
   return response.json();
 }
+
+// ============================================
+// YouTube Auth API
+// ============================================
+
+const AUTH_BASE = '/api/auth/youtube';
+
+export async function getYouTubeAuthStatus() {
+  return fetchJSON(`${AUTH_BASE}/status`);
+}
+
+export async function getYouTubeAuthUrl() {
+  return fetchJSON(`${AUTH_BASE}/url`);
+}
+
+export async function submitYouTubeAuthCode(code) {
+  const response = await fetch(`${AUTH_BASE}/callback`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code })
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: response.statusText }));
+    throw new Error(err.error || `YouTube auth failed: ${response.statusText}`);
+  }
+  return response.json();
+}
