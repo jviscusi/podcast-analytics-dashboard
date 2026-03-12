@@ -267,11 +267,19 @@ export default function MediaKit() {
         <h2 className="text-xl font-bold text-gray-800 mb-4">📊 Cross-Platform Performance</h2>
         <div className="bg-white rounded-xl border p-6">
           <h3 className="font-semibold text-gray-700 mb-4">Reach by Episode (All Platforms)</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={episodes.slice(0, 15).reverse()}>
+          <ResponsiveContainer width="100%" height={380}>
+            <BarChart data={episodes.slice(0, 15).reverse()} margin={{ top: 5, right: 10, left: 10, bottom: 25 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="episodeNumber" label={{ value: 'Episode #', position: 'bottom' }} />
-              <YAxis />
+              <XAxis 
+                dataKey="episodeNumber" 
+                tick={{ fontSize: 11 }}
+                tickFormatter={(v) => `Ep ${v}`}
+                interval={0}
+                angle={-45}
+                textAnchor="end"
+                height={55}
+              />
+              <YAxis tick={{ fontSize: 11 }} />
               <Tooltip
                 content={({ active, payload }) => {
                   if (!active || !payload?.length) return null;
@@ -286,7 +294,7 @@ export default function MediaKit() {
                   );
                 }}
               />
-              <Legend />
+              <Legend verticalAlign="top" height={36} />
               <Bar dataKey="metrics.platforms.youtube.views" name="YouTube" fill="#EF4444" stackId="a" />
               <Bar dataKey="metrics.platforms.spotify.streams" name="Spotify" fill="#10B981" stackId="a" />
               <Bar dataKey="metrics.platforms.apple.downloads" name="Apple" fill="#8B5CF6" stackId="a" />
