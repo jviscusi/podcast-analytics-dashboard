@@ -21,7 +21,7 @@ export default function Platforms() {
 
   // Per-episode comparison (reach over time by platform)
   const episodeTrend = sp.episodeData.map((spEp, idx) => ({
-    episode: `Ep ${spEp.episodeNumber}`,
+    episode: spEp.episodeNumber,
     episodeNumber: spEp.episodeNumber,
     Spotify: spEp.reach,
     Apple: ap.episodeData[idx]?.reach || 0,
@@ -114,9 +114,18 @@ export default function Platforms() {
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={episodeTrend}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="episode" tick={{ fontSize: 10 }} angle={-45} textAnchor="end" height={60} />
+              <XAxis 
+                dataKey="episode" 
+                tick={{ fontSize: 11 }} 
+                tickFormatter={(v) => v}
+                label={{ value: 'Episode #', position: 'insideBottom', offset: -5, fontSize: 11, fill: '#9CA3AF' }}
+                height={45}
+              />
               <YAxis tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(value) => formatNumber(value)} />
+              <Tooltip 
+                formatter={(value) => formatNumber(value)} 
+                labelFormatter={(v) => `Episode ${v}`}
+              />
               <Legend />
               <Bar dataKey="Spotify" fill={PLATFORM_COLORS.spotify} radius={[2, 2, 0, 0]} />
               <Bar dataKey="Apple" fill={PLATFORM_COLORS.apple} radius={[2, 2, 0, 0]} />
@@ -150,9 +159,17 @@ export default function Platforms() {
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={episodeTrend}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="episode" tick={{ fontSize: 10 }} />
+            <XAxis 
+              dataKey="episode" 
+              tick={{ fontSize: 11 }} 
+              label={{ value: 'Episode #', position: 'insideBottom', offset: -5, fontSize: 11, fill: '#9CA3AF' }}
+              height={45}
+            />
             <YAxis tick={{ fontSize: 11 }} />
-            <Tooltip formatter={(value) => formatNumber(value)} />
+            <Tooltip 
+              formatter={(value) => formatNumber(value)} 
+              labelFormatter={(v) => `Episode ${v}`}
+            />
             <Legend />
             <Line type="monotone" dataKey="Spotify" stroke={PLATFORM_COLORS.spotify} strokeWidth={2} dot={{ r: 3 }} />
             <Line type="monotone" dataKey="Apple" stroke={PLATFORM_COLORS.apple} strokeWidth={2} dot={{ r: 3 }} />
