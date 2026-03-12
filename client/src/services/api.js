@@ -113,3 +113,52 @@ export async function mapLinkedInEpisodes() {
   if (!response.ok) throw new Error(`Mapping failed: ${response.statusText}`);
   return response.json();
 }
+
+// ============================================
+// Data Management API
+// ============================================
+
+const DATA_BASE = '/api/data';
+
+export async function getDataStatus() {
+  return fetchJSON(`${DATA_BASE}/status`);
+}
+
+export async function importPlatformCSV(platform, csvContent) {
+  const response = await fetch(`${DATA_BASE}/import/csv`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ platform, csvContent })
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: response.statusText }));
+    throw new Error(err.error || `Import failed: ${response.statusText}`);
+  }
+  return response.json();
+}
+
+export async function submitMetrics(episodeId, platform, metrics, date, notes) {
+  const response = await fetch(`${DATA_BASE}/metrics`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ episodeId, platform, metrics, date, notes })
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: response.statusText }));
+    throw new Error(err.error || `Submit failed: ${response.statusText}`);
+  }
+  return response.json();
+}
+
+export async function submitBulkMetrics(platform, episodes, date, notes) {
+  const response = await fetch(`${DATA_BASE}/metrics/bulk`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ platform, episodes, date, notes })
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: response.statusText }));
+    throw new Error(err.error || `Bulk submit failed: ${response.statusText}`);
+  }
+  return response.json();
+}

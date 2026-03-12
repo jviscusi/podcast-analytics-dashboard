@@ -6,6 +6,7 @@ const navItems = [
   { path: '/platforms', label: 'Platforms', icon: '📡' },
   { path: '/insights', label: 'Insights', icon: '💡' },
   { path: '/media-kit', label: 'Media Kit', icon: '📋' },
+  { path: '/data-upload', label: 'Data Upload', icon: '📤' },
 ];
 
 export default function Sidebar() {

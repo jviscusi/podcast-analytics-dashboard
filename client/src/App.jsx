@@ -6,6 +6,7 @@ import EpisodeDetail from './pages/EpisodeDetail';
 import Platforms from './pages/Platforms';
 import Insights from './pages/Insights';
 import MediaKit from './pages/MediaKit';
+import DataUpload from './pages/DataUpload';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="platforms" element={<Platforms />} />
           <Route path="insights" element={<Insights />} />
           <Route path="media-kit" element={<MediaKit />} />
+          <Route path="data-upload" element={<DataUpload />} />
         </Route>
       </Routes>
     </BrowserRouter>
